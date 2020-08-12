@@ -1,34 +1,47 @@
-import { NextPage } from "next";
+import { NextPage, GetStaticProps } from "next";
 import * as React from "react";
-import Link from "next/link";
 import axios from "axios";
 
-interface Props {
-  title: String;
-  code: String;
+interface ArrayList<T> {
+  contents: T[];
+  offset: number;
+  limit: number;
 }
 
-const Home: NextPage<Props> = (data: Props) => {
+interface htmlHeader {
+  id: string;
+  createdAt: string;
+  limit: string;
+  updatedAt: string;
+  publishedAt: string;
+  title: string;
+  code: string;
+}
+
+interface Props {
+  data: ArrayList<htmlHeader>;
+}
+
+const Home: NextPage<Props> = (props: Props) => {
+  const { data } = props;
+
   return (
     <div>
       <h1>最新の記事</h1>
       <div>
-        {data.map((data) => (
-          <React.Fragment key={data.id}>
-            <Link href="/blogs/[id]" as={`blogs/${data.id}`}>
-              <a>
-                <h2>{data.title}</h2>
-                <p>{data.code}</p>
-              </a>
-            </Link>
-          </React.Fragment>
+        {data.contents.map((item, index) => (
+          <div key={index}>
+            <p>{item.title}</p>
+          </div>
         ))}
       </div>
     </div>
   );
 };
 
-Home.getInitialProps = async () => {
+export const getStaticProps: GetStaticProps = async (): Promise<{
+  props: Props;
+}> => {
   const key = {
     headers: { "X-API-KEY": process.env.API_KEY },
   };
@@ -38,9 +51,9 @@ Home.getInitialProps = async () => {
     key
   );
 
-  const data = await res.data.contents;
+  const data = (await res.data) as ArrayList<htmlHeader>;
 
-  return { data: data };
+  return { props: { data } };
 };
 
 export default Home;
