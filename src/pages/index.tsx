@@ -2,19 +2,10 @@ import { NextPage, GetStaticProps } from "next";
 import * as React from "react";
 import axios from "axios";
 import ArrayList from "../../models/ArrayList";
-
-interface htmlHeader {
-  id: string;
-  createdAt: string;
-  limit: string;
-  updatedAt: string;
-  publishedAt: string;
-  title: string;
-  code: string;
-}
+import HtmlHeaders from "../../models/HtmlHeaders";
 
 interface Props {
-  data: ArrayList<htmlHeader>;
+  data: ArrayList<HtmlHeaders>;
 }
 
 const Home: NextPage<Props> = (props: Props) => {
@@ -46,7 +37,7 @@ export const getStaticProps: GetStaticProps = async (): Promise<{
     key
   );
 
-  const data = (await res.data) as ArrayList<htmlHeader>;
+  const data = (await res.data) as ArrayList<HtmlHeaders>;
 
   return { props: { data } };
 };
