@@ -1,12 +1,7 @@
 import { NextPage, GetStaticProps } from "next";
 import * as React from "react";
 import axios from "axios";
-
-interface ArrayList<T> {
-  contents: T[];
-  offset: number;
-  limit: number;
-}
+import ArrayList from "../../models/ArrayList";
 
 interface htmlHeader {
   id: string;
