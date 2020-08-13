@@ -1,9 +1,6 @@
-interface HtmlHeaders {
-  id: string;
-  createdAt: string;
-  limit: string;
-  updatedAt: string;
-  publishedAt: string;
+import Model from './Model'
+
+interface HtmlHeaders extends Model {
   title: string;
   code: string;
 }
