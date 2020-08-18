@@ -1,11 +1,12 @@
 import { NextPage, GetStaticProps } from "next";
+import Link from "next/link";
 import * as React from "react";
 import axios from "axios";
 import ArrayList from "../../models/ArrayList";
-import HtmlHeaders from "../../models/HtmlHeaders";
+import News from "../../models/News";
 
 interface Props {
-  data: ArrayList<HtmlHeaders>;
+  data: ArrayList<News>;
 }
 
 const Home: NextPage<Props> = (props: Props) => {
@@ -13,14 +14,27 @@ const Home: NextPage<Props> = (props: Props) => {
 
   return (
     <div>
-      <h1>最新の記事</h1>
-      <div>
+      <h1>お知らせ</h1>
+      <dl>
         {data.contents.map((item, index) => (
           <div key={index}>
-            <p>{item.title}</p>
+            <dt>
+              <time dateTime={item.date}>{item.date}</time>
+            </dt>
+            {item.newsContent.map((news, index) => (
+              <dd key={index}>
+                <h2>{news.title}</h2>
+                <p>
+                  {news.details}
+                  <Link href="/">
+                    <a>{news.linkName}</a>
+                  </Link>
+                </p>
+              </dd>
+            ))}
           </div>
         ))}
-      </div>
+      </dl>
     </div>
   );
 };
@@ -32,12 +46,9 @@ export const getStaticProps: GetStaticProps = async (): Promise<{
     headers: { "X-API-KEY": process.env.API_KEY },
   };
 
-  const res = await axios.get(
-    `https://odogubako.microcms.io/api/v1/coding_html_head`,
-    key
-  );
+  const res = await axios.get(`https://odogubako.microcms.io/api/v1/news`, key);
 
-  const data = (await res.data) as ArrayList<HtmlHeaders>;
+  const data = (await res.data) as ArrayList<News>;
 
   return { props: { data } };
 };
