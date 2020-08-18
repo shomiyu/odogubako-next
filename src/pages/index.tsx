@@ -26,7 +26,7 @@ const Home: NextPage<Props> = (props: Props) => {
                 <h2>{news.title}</h2>
                 <p>
                   {news.details}
-                  <Link href="/">
+                  <Link href={{ pathname: news.url }}>
                     <a>{news.linkName}</a>
                   </Link>
                 </p>
