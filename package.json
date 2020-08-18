@@ -11,9 +11,11 @@
     "lint:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx}'; stylelint --fix 'src/**/*.{css,scss}';"
   },
   "dependencies": {
+    "@types/webfontloader": "^1.6.32",
     "next": "^9.5.1",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "webfontloader": "^1.6.28"
   },
   "devDependencies": {
     "@types/jest": "^26.0.8",

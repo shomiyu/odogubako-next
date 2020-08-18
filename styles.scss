@@ -1,14 +1,14 @@
 @import "style/settings";
-@import 'style/mixin';
-@import 'style/function';
+@import "style/mixin";
+@import "style/function";
 
 html {
   box-sizing: border-box;
   height: 100%;
   font-size: medium;
-  font-family: $fontFamily-primary;
+  font-family: "FOT-TsukuARdGothic Std R", sans-serif;
   line-height: 1.5;
-  letter-spacing: .05em;
+  letter-spacing: 0.05em;
   word-break: break-word;
 }
 *,
@@ -37,6 +37,6 @@ h1, h2, h3, h4, h5,strong {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
