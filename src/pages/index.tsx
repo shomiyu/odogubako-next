@@ -1,3 +1,4 @@
+import style from "./index.module.scss";
 import { NextPage, GetStaticProps } from "next";
 import Link from "next/link";
 import * as React from "react";
@@ -17,7 +18,7 @@ const Home: NextPage<Props> = (props: Props) => {
       <h1>お知らせ</h1>
       <dl>
         {data.contents.map((item, index) => (
-          <div key={index}>
+          <div className={style.news__wrapper} key={index}>
             <dt>
               <time dateTime={item.date}>{item.date}</time>
             </dt>

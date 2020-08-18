@@ -1,3 +1,5 @@
-.bold {
-  font-weight: bold;
+.news {
+  &__wrapper {
+    display: flex;
+  }
 }
