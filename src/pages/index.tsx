@@ -2,22 +2,22 @@ import style from "./index.module.scss";
 import { NextPage, GetStaticProps } from "next";
 import Link from "next/link";
 import * as React from "react";
-import axios from "axios";
 import ArrayList from "../../models/ArrayList";
 import News from "../../models/News";
+import DevCMS from "./api/DevCMS";
 
 interface Props {
-  data: ArrayList<News>;
+  newsAry: ArrayList<News>;
 }
 
 const Home: NextPage<Props> = (props: Props) => {
-  const { data } = props;
+  const { newsAry } = props;
 
   return (
     <div>
       <h1>お知らせ</h1>
       <dl>
-        {data.contents.map((item, index) => (
+        {newsAry.contents.map((item, index) => (
           <div className={style.news__wrapper} key={index}>
             <dt>
               <time dateTime={item.date}>{item.date}</time>
@@ -43,15 +43,15 @@ const Home: NextPage<Props> = (props: Props) => {
 export const getStaticProps: GetStaticProps = async (): Promise<{
   props: Props;
 }> => {
-  const key = {
-    headers: { "X-API-KEY": process.env.API_KEY },
+  const devCMS = new DevCMS();
+
+  const newsAry = await devCMS.getNews();
+
+  return {
+    props: {
+      newsAry,
+    },
   };
-
-  const res = await axios.get(`https://odogubako.microcms.io/api/v1/news`, key);
-
-  const data = (await res.data) as ArrayList<News>;
-
-  return { props: { data } };
 };
 
 export default Home;
