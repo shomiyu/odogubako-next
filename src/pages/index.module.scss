@@ -1,3 +1,76 @@
+@import "style/mixin";
+@import "style/function";
+@import "style/settings";
+
+.visuallyHidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+
+// hero
+.hero {
+  background-image: url("/hero-top-sp.png");
+  background-size: contain;
+  padding-top: 128%;
+  position: relative;
+
+  @include tab {
+    background-image: url("/hero-top-tab.png");
+  }
+
+  @include lap {
+    background-image: url("/hero-top-pc.png");
+    height: 95vh;
+  }
+
+  &__inner {
+    width: 90.67vw;
+    padding: 11vw 0 12vw 7vw;
+    margin: 0 auto;
+    background-image: url("/hero-box.png");
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__copy {
+    font-size: 3.73vw;
+    margin-top: -1em;
+    font-family: "vdl-yotag";
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 0.12em;
+  }
+
+  &__title {
+    margin-top: 5px;
+
+    img {
+      width: 66vw;
+      max-width: inherit;
+    }
+  }
+
+  &__subTitle {
+    font-size: 3.73vw;
+    text-align: right;
+    margin: 4px 17vw 0 0;
+    font-family: "ta-hougan-k500";
+  }
+}
+
 .news {
   &__wrapper {
     display: flex;

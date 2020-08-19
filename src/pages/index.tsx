@@ -15,6 +15,46 @@ const Home: NextPage<Props> = (props: Props) => {
 
   return (
     <div>
+      <header>
+        <div className={style.hero}>
+          <h1 className={style.hero__inner}>
+            <em className={style.hero__copy}>
+              デザインとコーディングを効率化する
+            </em>
+            <span className={style.hero__title}>
+              <img src="/logo_b.svg" alt="お道具箱" />
+              <span className={style.visuallyHidden}>お道具箱</span>
+            </span>
+            <span className={style.hero__subTitle}>for shomiyu</span>
+          </h1>
+        </div>
+        <div className="header__wrapper">
+          <p>
+            <a href="/">お道具箱 for shomiyu</a>
+          </p>
+          <nav>
+            <h2>グローバルナビゲーション</h2>
+            <ul>
+              <li>
+                <a href="#">デザイン</a>
+              </li>
+              <li>
+                <a href="#">コーディング</a>
+              </li>
+              <li>
+                <a href="#">インフラ</a>
+              </li>
+              <li>
+                <a href="#">その他</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <figure>
+          <img src="" alt="" />
+        </figure>
+      </header>
+
       <h1>お知らせ</h1>
       <dl>
         {newsAry.contents.map((item, index) => (
