@@ -24,11 +24,12 @@
 
   @include tab {
     background-image: url("/hero-top-tab.png");
+    padding-top: 67.71%;
   }
 
   @include lap {
     background-image: url("/hero-top-pc.png");
-    height: 95vh;
+    padding-top: 44.17%;
   }
 
   &__inner {
@@ -43,6 +44,16 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+    @include tab {
+      width: 67vw;
+      padding: 10vw 0 11vw 11vw;
+    }
+
+    @include lap {
+      width: 46.74vw;
+      padding: 7vw 0 7vw 8vw;
+    }
   }
 
   &__copy {
@@ -52,22 +63,53 @@
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0.12em;
+
+    @include tab {
+      font-size: 2.08vw;
+    }
+
+    @include lap {
+      font-size: 1.11vw;
+      letter-spacing: 0.48em;
+    }
   }
 
   &__title {
-    margin-top: 5px;
+    margin-top: 0.125em;
+
+    @include tab {
+      margin-top: 0.25em;
+    }
 
     img {
       width: 66vw;
       max-width: inherit;
+
+      @include tab {
+        width: 37vw;
+      }
+
+      @include lap {
+        width: 26vw;
+      }
     }
   }
 
   &__subTitle {
     font-size: 3.73vw;
     text-align: right;
-    margin: 4px 17vw 0 0;
+    margin: 0.25em 18vw 0 0;
     font-family: "ta-hougan-k500";
+
+    @include tab {
+      font-size: 2.08vw;
+      margin-right: 19vw;
+    }
+
+    @include lap {
+      font-size: 1.11vw;
+      margin-right: 13vw;
+    }
   }
 }
 
