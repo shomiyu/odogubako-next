@@ -28,31 +28,32 @@ const Home: NextPage<Props> = (props: Props) => {
             <span className={style.hero__subTitle}>for shomiyu</span>
           </h1>
         </div>
-        <div className="header__wrapper">
-          <p>
-            <a href="/">お道具箱 for shomiyu</a>
+
+        <nav className={style.globalNav}>
+          <h2 className={style.visuallyHidden}>グローバルナビゲーション</h2>
+          <p className={style.globalNav__title}>
+            <a href="/">
+              <img src="/logo_w.svg" alt="お道具箱" />
+              <span className={style.globalNav__subTitle}>for shomiyu</span>
+            </a>
           </p>
-          <nav>
-            <h2>グローバルナビゲーション</h2>
-            <ul>
-              <li>
+          <div className={style.menu}>
+            <ul className={style.menu__inner}>
+              <li className={style.menu__list}>
                 <a href="#">デザイン</a>
               </li>
-              <li>
+              <li className={style.menu__list}>
                 <a href="#">コーディング</a>
               </li>
-              <li>
+              <li className={style.menu__list}>
                 <a href="#">インフラ</a>
               </li>
-              <li>
+              <li className={style.menu__list}>
                 <a href="#">その他</a>
               </li>
             </ul>
-          </nav>
-        </div>
-        <figure>
-          <img src="" alt="" />
-        </figure>
+          </div>
+        </nav>
       </header>
 
       <h1>お知らせ</h1>
