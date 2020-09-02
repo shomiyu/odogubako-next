@@ -199,6 +199,20 @@ const Home: NextPage<Props> = (props: Props) => {
               </section>
             </div>
           </nav>
+          <div className={style.sns}>
+            <ul className={style.sns__list}>
+              <li>
+                <a href="https://twitter.com/MykiiTech" target="_blank">
+                  <span className={style.visuallyHidden}>
+                    著作者のtwitterアカウントへ移動する
+                  </span>
+                  <figure className={style.sns__icon}>
+                    <img src="/icon-twitter.svg" alt="twitter" />
+                  </figure>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </footer>
     </div>

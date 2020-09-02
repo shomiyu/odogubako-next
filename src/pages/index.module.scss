@@ -235,3 +235,35 @@
   padding-left: em(16, 16);
   line-height: 2;
 }
+
+.sns {
+  &__list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    li + li {
+      margin-left: 1em;
+    }
+
+    a {
+      display: inline-block;
+    }
+  }
+
+  &__icon {
+    width: 40px;
+    height: 40px;
+    background-color: $color-twitter;
+    position: relative;
+
+    img {
+      width: 70%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
