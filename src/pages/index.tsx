@@ -213,6 +213,20 @@ const Home: NextPage<Props> = (props: Props) => {
               </li>
             </ul>
           </div>
+
+          <ul className={style.secondaryNavi}>
+            <li className={style.secondaryNavi__item}>
+              <Link href="/">
+                <a>お道具箱について</a>
+              </Link>
+            </li>
+          </ul>
+          <p className={style.copywrite}>
+            <small>
+              &copy;2019{" "}
+              <a href="https://twitter.com/MykiiTech">お道具箱 for shomiyu</a>
+            </small>
+          </p>
         </div>
       </footer>
     </div>
