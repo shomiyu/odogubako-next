@@ -77,6 +77,130 @@ const Home: NextPage<Props> = (props: Props) => {
           </div>
         ))}
       </dl>
+
+      <footer className={style.footer}>
+        <div className={style.footer__container}>
+          <p className={style.footer__logo}>
+            <img src="/logo_w.svg" alt="お道具箱" />
+            <span className={style.footer__subTitle}>for shomiyu</span>
+          </p>
+          <nav className={style.sitemap}>
+            <h2 className={style.visuallyHidden}>サイトマップ</h2>
+            <div className={style.sitemap__inner}>
+              <section className={style.sitemap__item}>
+                <h3 className={style.sitemap__title}>デザイン</h3>
+                <ul className={style.sitemapList}>
+                  <li>
+                    <Link href="/">
+                      <a>カラー</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/">
+                      <a>素材</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/">
+                      <a>フォント</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/">
+                      <a>ツール</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/">
+                      <a>参考</a>
+                    </Link>
+                  </li>
+                </ul>
+              </section>
+              <section className={style.sitemap__item}>
+                <h3 className={style.sitemap__title}>コーディング</h3>
+                <ul className={style.sitemapList}>
+                  <li>
+                    <Link href="/">
+                      <a>HTML</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/">
+                      <a>CSS</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/">
+                      <a>Sass</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/">
+                      <a>CDN</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/">
+                      <a>ツール</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/">
+                      <a>参考</a>
+                    </Link>
+                  </li>
+                </ul>
+              </section>
+              <section className={style.sitemap__item}>
+                <h3 className={style.sitemap__title}>デザイン</h3>
+                <ul className={style.sitemapList}>
+                  <li>
+                    <Link href="/">
+                      <a>インフラ</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/">
+                      <a>ツール</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/">
+                      <a>環境構築</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/">
+                      <a>管理</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/">
+                      <a>参考</a>
+                    </Link>
+                  </li>
+                </ul>
+              </section>
+              <section className={style.sitemap__item}>
+                <h3 className={style.sitemap__title}>デザイン</h3>
+                <ul className={style.sitemapList}>
+                  <li>
+                    <Link href="/">
+                      <a>その他</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/">
+                      <a>ブックマーク</a>
+                    </Link>
+                  </li>
+                </ul>
+              </section>
+            </div>
+          </nav>
+        </div>
+      </footer>
     </div>
   );
 };

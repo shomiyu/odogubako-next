@@ -183,3 +183,55 @@
     }
   }
 }
+
+// footer
+.footer {
+  background-color: $color-footer-background;
+  color: $color-text-secondary;
+  padding: 4em 0 2em;
+
+  &__container {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  &__logo {
+    padding-bottom: em(16, 28);
+    margin-bottom: em(16, 32);
+    border-bottom: 1px solid $color-white;
+  }
+
+  &__subTitle {
+    display: block;
+    margin-top: em(16, 4);
+  }
+}
+
+.sitemap {
+  &__title {
+    font-size: fz(18);
+    border-left: 5px solid $color-text-secondary;
+    padding: em(18, 4) 1em;
+    margin-bottom: em(18, 16);
+  }
+
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    width: 50%;
+    margin-bottom: em(16, 24);
+
+    @include lap {
+      width: 25%;
+    }
+  }
+}
+
+.sitemapList {
+  list-style: none;
+  padding-left: em(16, 16);
+  line-height: 2;
+}
