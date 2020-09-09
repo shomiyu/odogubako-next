@@ -56,27 +56,47 @@ const Home: NextPage<Props> = (props: Props) => {
         </nav>
       </header>
 
-      <h1>お知らせ</h1>
-      <dl>
-        {newsAry.contents.map((item, index) => (
-          <div className={style.news__wrapper} key={index}>
-            <dt>
-              <time dateTime={item.date}>{item.date}</time>
-            </dt>
-            {item.newsContent.map((news, index) => (
-              <dd key={index}>
-                <h2>{news.title}</h2>
-                <p>
-                  {news.details}
-                  <Link href={{ pathname: news.url }}>
-                    <a>{news.linkName}</a>
-                  </Link>
-                </p>
-              </dd>
-            ))}
+      <main>
+        <section className={`${style.section} ${style.news}`}>
+          <div className={style.section__wrapper}>
+            <h2 className={style.titlePrimary}>
+              news release
+              <small className={style.titlePrimary__ja}>お知らせ</small>
+            </h2>
+            <div className={style.newsboad}>
+              <div className={style.newsboad__inner}>
+                <dl className={style.newsboad__list}>
+                  {newsAry.contents.map((item, index) => (
+                    <div key={index}>
+                      <dt className={style.news}>
+                        <time className={style.news__date} dateTime={item.date}>
+                          {item.date}
+                        </time>
+                      </dt>
+                      {item.newsContent.map((news, index) => (
+                        <dd key={index}>
+                          <section>
+                            <h3 className={style.news__title}>{news.title}</h3>
+                            <p>
+                              {news.details}
+                              <Link
+                                className={style.news__link}
+                                href={{ pathname: news.url }}
+                              >
+                                <a>{news.linkName}</a>
+                              </Link>
+                            </p>
+                          </section>
+                        </dd>
+                      ))}
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </div>
           </div>
-        ))}
-      </dl>
+        </section>
+      </main>
 
       <footer className={style.footer}>
         <div className={style.footer__container}>

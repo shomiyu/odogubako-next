@@ -113,9 +113,61 @@
   }
 }
 
-.news {
+.section {
+  padding: 2em 0;
+
   &__wrapper {
-    display: flex;
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+.newsboad {
+  &__inner {
+    width: 95%;
+    margin: 0 auto;
+    padding: 2em 1em 3em;
+    font-weight: 400;
+    font-style: normal;
+    height: 24em;
+    background-color: #3c6450;
+    color: $color-text-secondary;
+    border: 2px solid $color-black;
+  }
+
+  &__list {
+    height: 100%;
+    overflow: auto;
+  }
+}
+
+.news {
+  &__date {
+    font-weight: 600;
+    font-size: fz(16);
+  }
+
+  &__title {
+    font-family: fot-tsukuardgothic-std, sans-serif;
+    font-weight: 700;
+    font-size: fz(18);
+    margin-bottom: 0.25em;
+  }
+
+  &__link {
+    margin-bottom: 0.75em;
+    display: inline-block;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border: 1px solid;
+      border-color: #fafafa #fafafa transparent transparent;
+      transform: rotate(45deg);
+      margin-right: 0.75em;
+    }
   }
 }
 
