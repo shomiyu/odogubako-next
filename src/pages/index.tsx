@@ -6,6 +6,7 @@ import ArrayList from "../../models/ArrayList";
 import News from "../../models/News";
 import DevCMS from "./api/DevCMS";
 import { formatDate, formatDateDots } from "../utils/FormatUtils";
+import Layout from "../../components/shared/Layout";
 
 interface Props {
   newsAry: ArrayList<News>;
@@ -15,8 +16,7 @@ const Home: NextPage<Props> = (props: Props) => {
   const { newsAry } = props;
 
   return (
-    <div>
-
+    <Layout>
       <main>
         <section className={`${style.section} ${style.news}`}>
           <div className={style.section__wrapper}>
@@ -213,7 +213,7 @@ const Home: NextPage<Props> = (props: Props) => {
           </p>
         </div>
       </footer>
-    </div>
+    </Layout>
   );
 };
 
