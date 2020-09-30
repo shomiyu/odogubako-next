@@ -15,27 +15,240 @@ const Home: NextPage<Props> = (props: Props) => {
 
   return (
     <div>
-      <h1>お知らせ</h1>
-      <dl>
-        {newsAry.contents.map((item, index) => (
-          <div className={style.news__wrapper} key={index}>
-            <dt>
-              <time dateTime={item.date}>{item.date}</time>
-            </dt>
-            {item.newsContent.map((news, index) => (
-              <dd key={index}>
-                <h2>{news.title}</h2>
-                <p>
-                  {news.details}
-                  <Link href={{ pathname: news.url }}>
-                    <a>{news.linkName}</a>
-                  </Link>
-                </p>
-              </dd>
-            ))}
+      <header>
+        <div className={style.hero}>
+          <h1 className={style.hero__inner}>
+            <em className={style.hero__copy}>
+              デザインとコーディングを効率化する
+            </em>
+            <span className={style.hero__title}>
+              <img src="/logo_b.svg" alt="お道具箱" />
+              <span className={style.visuallyHidden}>お道具箱</span>
+            </span>
+            <span className={style.hero__subTitle}>for shomiyu</span>
+          </h1>
+        </div>
+
+        <nav className={style.globalNav}>
+          <h2 className={style.visuallyHidden}>グローバルナビゲーション</h2>
+          <p className={style.globalNav__title}>
+            <a href="/">
+              <img src="/logo_w.svg" alt="お道具箱" />
+              <span className={style.globalNav__subTitle}>for shomiyu</span>
+            </a>
+          </p>
+          <div className={style.menu}>
+            <ul className={style.menu__inner}>
+              <li className={style.menu__list}>
+                <a href="#">デザイン</a>
+              </li>
+              <li className={style.menu__list}>
+                <a href="#">コーディング</a>
+              </li>
+              <li className={style.menu__list}>
+                <a href="#">インフラ</a>
+              </li>
+              <li className={style.menu__list}>
+                <a href="#">その他</a>
+              </li>
+            </ul>
           </div>
-        ))}
-      </dl>
+        </nav>
+      </header>
+
+      <main>
+        <section className={`${style.section} ${style.news}`}>
+          <div className={style.section__wrapper}>
+            <h2 className={style.titlePrimary}>
+              news release
+              <small className={style.titlePrimary__ja}>お知らせ</small>
+            </h2>
+            <div className={style.newsboad}>
+              <div className={style.newsboad__inner}>
+                <dl className={style.newsboad__list}>
+                  {newsAry.contents.map((item, index) => (
+                    <div key={index}>
+                      <dt className={style.news}>
+                        <time className={style.news__date} dateTime={item.date}>
+                          {item.date}
+                        </time>
+                      </dt>
+                      {item.newsContent.map((news, index) => (
+                        <dd key={index}>
+                          <section>
+                            <h3 className={style.news__title}>{news.title}</h3>
+                            <p>
+                              {news.details}
+                              <Link
+                                className={style.news__link}
+                                href={{ pathname: news.url }}
+                              >
+                                <a>{news.linkName}</a>
+                              </Link>
+                            </p>
+                          </section>
+                        </dd>
+                      ))}
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className={style.footer}>
+        <div className={style.footer__container}>
+          <p className={style.footer__logo}>
+            <img src="/logo_w.svg" alt="お道具箱" />
+            <span className={style.footer__subTitle}>for shomiyu</span>
+          </p>
+          <nav className={style.sitemap}>
+            <h2 className={style.visuallyHidden}>サイトマップ</h2>
+            <div className={style.sitemap__inner}>
+              <section className={style.sitemap__item}>
+                <h3 className={style.sitemap__title}>デザイン</h3>
+                <ul className={style.sitemapList}>
+                  <li>
+                    <Link href="/">
+                      <a>カラー</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/">
+                      <a>素材</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/">
+                      <a>フォント</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/">
+                      <a>ツール</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/">
+                      <a>参考</a>
+                    </Link>
+                  </li>
+                </ul>
+              </section>
+              <section className={style.sitemap__item}>
+                <h3 className={style.sitemap__title}>コーディング</h3>
+                <ul className={style.sitemapList}>
+                  <li>
+                    <Link href="/">
+                      <a>HTML</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/">
+                      <a>CSS</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/">
+                      <a>Sass</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/">
+                      <a>CDN</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/">
+                      <a>ツール</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/">
+                      <a>参考</a>
+                    </Link>
+                  </li>
+                </ul>
+              </section>
+              <section className={style.sitemap__item}>
+                <h3 className={style.sitemap__title}>デザイン</h3>
+                <ul className={style.sitemapList}>
+                  <li>
+                    <Link href="/">
+                      <a>インフラ</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/">
+                      <a>ツール</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/">
+                      <a>環境構築</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/">
+                      <a>管理</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/">
+                      <a>参考</a>
+                    </Link>
+                  </li>
+                </ul>
+              </section>
+              <section className={style.sitemap__item}>
+                <h3 className={style.sitemap__title}>デザイン</h3>
+                <ul className={style.sitemapList}>
+                  <li>
+                    <Link href="/">
+                      <a>その他</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/">
+                      <a>ブックマーク</a>
+                    </Link>
+                  </li>
+                </ul>
+              </section>
+            </div>
+          </nav>
+          <div className={style.sns}>
+            <ul className={style.sns__list}>
+              <li>
+                <a href="https://twitter.com/MykiiTech" target="_blank">
+                  <span className={style.visuallyHidden}>
+                    著作者のtwitterアカウントへ移動する
+                  </span>
+                  <figure className={style.sns__icon}>
+                    <img src="/icon-twitter.svg" alt="twitter" />
+                  </figure>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <ul className={style.secondaryNavi}>
+            <li className={style.secondaryNavi__item}>
+              <Link href="/">
+                <a>お道具箱について</a>
+              </Link>
+            </li>
+          </ul>
+          <p className={style.copywrite}>
+            <small>
+              &copy;2019{" "}
+              <a href="https://twitter.com/MykiiTech">お道具箱 for shomiyu</a>
+            </small>
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };
