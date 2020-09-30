@@ -5,6 +5,7 @@ import * as React from "react";
 import ArrayList from "../../models/ArrayList";
 import News from "../../models/News";
 import DevCMS from "./api/DevCMS";
+import { formatDate, formatDateDots } from "../utils/FormatUtils";
 
 interface Props {
   newsAry: ArrayList<News>;
@@ -69,8 +70,11 @@ const Home: NextPage<Props> = (props: Props) => {
                   {newsAry.contents.map((item, index) => (
                     <div key={index}>
                       <dt className={style.news}>
-                        <time className={style.news__date} dateTime={item.date}>
-                          {item.date}
+                        <time
+                          className={style.news__date}
+                          dateTime={formatDate(new Date(item.date))}
+                        >
+                          {formatDateDots(new Date(item.date))}
                         </time>
                       </dt>
                       {item.newsContent.map((news, index) => (
