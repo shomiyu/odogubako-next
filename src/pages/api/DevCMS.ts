@@ -4,6 +4,7 @@ import Axios, {
   AxiosPromise,
 } from "axios";
 import News from "../../../models/News";
+import Categories from "../../../models/Categories";
 import ArrayList from "../../../models/ArrayList";
 
 class DevCMS {
@@ -54,6 +55,10 @@ class DevCMS {
 
   public getNews(): Promise<ArrayList<News>> {
     return this.get<ArrayList<News>>("news");
+  }
+
+  public getCategories(): Promise<ArrayList<Categories>> {
+    return this.get<ArrayList<Categories>>("categories");
   }
 }
 export default DevCMS;

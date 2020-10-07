@@ -4,16 +4,18 @@ import Link from "next/link";
 import * as React from "react";
 import ArrayList from "../../models/ArrayList";
 import News from "../../models/News";
+import Categories from "../../models/Categories";
 import DevCMS from "./api/DevCMS";
 import { formatDate, formatDateDots } from "../utils/FormatUtils";
 import Layout from "../../components/shared/Layout";
 
 interface Props {
   newsAry: ArrayList<News>;
+  categoriesAry: ArrayList<Categories>;
 }
 
 const Home: NextPage<Props> = (props: Props) => {
-  const { newsAry } = props;
+  const { newsAry, categoriesAry } = props;
 
   return (
     <Layout>
@@ -60,6 +62,13 @@ const Home: NextPage<Props> = (props: Props) => {
             </div>
           </div>
         </section>
+
+        {/* design */}
+        <section>
+          {categoriesAry.contents.map((item, index) => (
+            <div key={index}>{item.title}</div>
+          ))}
+        </section>
       </main>
     </Layout>
   );
@@ -71,10 +80,12 @@ export const getStaticProps: GetStaticProps = async (): Promise<{
   const devCMS = new DevCMS();
 
   const newsAry = await devCMS.getNews();
+  const categoriesAry = await devCMS.getCategories();
 
   return {
     props: {
       newsAry,
+      categoriesAry,
     },
   };
 };
