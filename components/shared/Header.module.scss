@@ -1,0 +1,178 @@
+@import "style/mixin";
+@import "style/function";
+@import "style/settings";
+
+.visuallyHidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+
+.hero {
+  background-image: url("/hero-top-sp.png");
+  background-size: contain;
+  padding-top: 128%;
+  position: relative;
+
+  @include tab {
+    background-image: url("/hero-top-tab.png");
+    padding-top: 67.71%;
+  }
+
+  @include lap {
+    background-image: url("/hero-top-pc.png");
+    padding-top: 44.17%;
+  }
+
+  &__inner {
+    width: 90.67vw;
+    padding: 11vw 0 12vw 7vw;
+    margin: 0 auto;
+    background-image: url("/hero-box.png");
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    @include tab {
+      width: 67vw;
+      padding: 10vw 0 11vw 11vw;
+    }
+
+    @include lap {
+      width: 46.74vw;
+      padding: 7vw 0 7vw 8vw;
+    }
+  }
+
+  &__copy {
+    font-size: 3.73vw;
+    margin-top: -1em;
+    font-family: "vdl-yotag";
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 0.12em;
+
+    @include tab {
+      font-size: 2.08vw;
+    }
+
+    @include lap {
+      font-size: 1.11vw;
+      letter-spacing: 0.48em;
+    }
+  }
+
+  &__title {
+    margin-top: 0.125em;
+
+    @include tab {
+      margin-top: 0.25em;
+    }
+
+    img {
+      width: 66vw;
+      max-width: inherit;
+
+      @include tab {
+        width: 37vw;
+      }
+
+      @include lap {
+        width: 26vw;
+      }
+    }
+  }
+
+  &__subTitle {
+    font-size: 3.73vw;
+    text-align: right;
+    margin: 0.25em 18vw 0 0;
+    font-family: "ta-hougan-k500";
+
+    @include tab {
+      font-size: 2.08vw;
+      margin-right: 19vw;
+    }
+
+    @include lap {
+      font-size: 1.11vw;
+      margin-right: 13vw;
+    }
+  }
+}
+
+.globalNav {
+  color: $color-text-secondary;
+  background-color: $color-globalNav-background;
+  padding: 0.5em 0 0;
+
+  @include tab {
+    padding-top: 0.75em;
+  }
+
+  @include lap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5em;
+  }
+
+  &__title {
+    padding: 0 1em;
+  }
+
+  &__subTitle {
+    margin-left: 0.5em;
+  }
+
+  a {
+    display: inline-block;
+  }
+}
+
+.menu {
+  list-style: none;
+  overflow: auto;
+
+  &__inner {
+    min-width: 440px;
+    font-size: 0;
+
+    @include tab {
+      text-align: right;
+    }
+  }
+
+  &__list {
+    display: inline-block;
+    font-size: fz(16);
+
+    a {
+      display: block;
+      padding: em(16, 10) em(16, 16);
+      min-width: 80px;
+      border-left: 1px solid $color-globalNav-background;
+      border-right: 1px solid $color-globalNav-background;
+
+      @include lap {
+        padding: em(16, 20) 1em;
+      }
+
+      &:hover {
+        color: $color-text-primary;
+        background-color: $color-body-background;
+      }
+    }
+  }
+}
