@@ -45,11 +45,10 @@ const Home: NextPage<Props> = (props: Props) => {
                             <h3 className={style.news__title}>{news.title}</h3>
                             <p>
                               {news.details}
-                              <Link
-                                className={style.news__link}
-                                href={{ pathname: news.url }}
-                              >
-                                <a>{news.linkName}</a>
+                              <Link href={{ pathname: news.url }}>
+                                <a className={style.news__link}>
+                                  {news.linkName}
+                                </a>
                               </Link>
                             </p>
                           </section>
