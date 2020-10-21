@@ -176,21 +176,33 @@
     }
   }
 
+  a {
+    display: block;
+    height: 100%;
+    box-shadow: 3px 3px 4px #ddd;
+    border: 1px solid $color-black;
+    border-radius: 5px;
+    @include lap {
+      box-shadow: inherit;
+    }
+
+    @include lap {
+      &:hover {
+        transform: translate(0, -5px);
+        box-shadow: 3px 4px 6px #ddd;
+        transition: 0.2s ease-in-out;
+      }
+    }
+  }
+
   &__item {
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
     justify-content: center;
     padding: 2.5em 8px 1em;
-    border: 1px solid $color-black;
     text-align: center;
     height: 100%;
-    border-radius: 5px;
-    box-shadow: 3px 3px 4px #b3b8bb;
-
-    a {
-      display: block;
-    }
   }
 
   &__title {
