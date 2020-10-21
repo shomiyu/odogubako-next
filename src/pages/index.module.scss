@@ -145,10 +145,35 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  @include tab {
+    &::after {
+      content: "";
+      display: block;
+      width: calc(100% / 3);
+    }
+  }
+  @include lap {
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      width: calc(100% / 4);
+    }
+
+    &::before {
+      order: 1;
+    }
+  }
 
   li {
     width: calc((100% - 1em) / 2);
     margin-bottom: 1em;
+    @include tab {
+      width: calc((100% - 2em) / 3);
+    }
+    @include lap {
+      width: calc((100% - 3em) / 4);
+    }
   }
 
   &__item {
