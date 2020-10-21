@@ -139,3 +139,53 @@
     }
   }
 }
+
+.menu {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  li {
+    width: calc((100% - 1em) / 2);
+    margin-bottom: 1em;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5em 8px 1em;
+    border: 1px solid $color-black;
+    text-align: center;
+    height: 100%;
+    border-radius: 5px;
+    box-shadow: 3px 3px 4px #b3b8bb;
+
+    a {
+      display: block;
+    }
+  }
+
+  &__title {
+    font-family: "fot-tsukuardgothic-std", sans-serif;
+    font-size: fz(16);
+    text-transform: capitalize;
+  }
+
+  &__titleSub {
+    display: block;
+    font-size: fz(14);
+    color: #8f8f8f;
+  }
+
+  &__icon {
+    width: 50px;
+    margin-bottom: em(16, 10);
+
+    img {
+      width: 100%;
+    }
+  }
+}

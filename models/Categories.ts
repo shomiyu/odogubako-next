@@ -11,6 +11,7 @@ interface children {
   fieldId: string;
   title: string;
   path: string;
+  icon: { url: string };
 }
 
 export default Categories;

@@ -64,9 +64,37 @@ const Home: NextPage<Props> = (props: Props) => {
 
         {/* design */}
         <section>
-          {categoriesAry.contents.map((item, index) => (
-            <div key={index}>{item.title}</div>
-          ))}
+          <div className={style.section__wrapper}>
+            {categoriesAry.contents.map((item, index) => (
+              <div key={index}>
+                <h2 className={style.titlePrimary}>
+                  {item.path}
+                  <small className={style.titlePrimary__ja}>{item.title}</small>
+                </h2>
+                <ul className={style.menu}>
+                  {item.children.map((child, index) => (
+                    <li key={index}>
+                      <Link href={{ pathname: child.path }}>
+                        <a>
+                          <section className={style.menu__item}>
+                            <h3 className={style.menu__title}>
+                              {child.path}
+                              <span className={style.menu__titleSub}>
+                                {child.title}
+                              </span>
+                            </h3>
+                            <figure className={style.menu__icon}>
+                              <img src={child.icon.url} alt={child.title} />
+                            </figure>
+                          </section>
+                        </a>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </section>
       </main>
     </Layout>
