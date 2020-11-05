@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Limelight&display=swap");
 @import "style/settings";
 @import "style/mixin";
 @import "style/function";
@@ -12,6 +13,13 @@ html {
   line-height: 1.5;
   letter-spacing: 0.05em;
   word-break: break-word;
+}
+// Webフォントチラつき防止
+html {
+  visibility: hidden;
+}
+html.wf-active {
+  visibility: visible;
 }
 *,
 *:before,
@@ -41,7 +49,6 @@ h5,
 strong {
   font-weight: bold;
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

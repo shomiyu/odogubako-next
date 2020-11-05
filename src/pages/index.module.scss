@@ -15,11 +15,19 @@
   margin: -1px;
 }
 
+.main {
+  padding: 1em 0;
+  @include lap {
+    padding: 4em 0;
+  }
+}
+
 .section {
   padding: 2em 0;
 
   &__wrapper {
     width: 90%;
+    max-width: 1200px;
     margin: 0 auto;
   }
 }
@@ -28,16 +36,18 @@
   font-family: "Limelight", cursive;
   text-transform: capitalize;
   font-size: 2.3em;
-  margin-bottom: 1em;
+  margin-bottom: 1.25em;
+  position: relative;
 
   &__ja {
     display: inline-block;
-    width: 100%;
-    margin-top: -0.5em;
     font-size: 0.5em;
     line-height: 1.05;
     color: #8f8f8f;
     font-family: "kan415typos-std", sans-serif;
+    position: absolute;
+    top: calc(100% - 0.5em);
+    left: 0;
   }
 }
 
@@ -111,9 +121,31 @@
 }
 
 .news {
+  @include lap {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
   &__date {
-    font-weight: 600;
-    font-size: fz(16);
+    margin-bottom: 0.25em;
+
+    time {
+      font-weight: 600;
+      font-size: fz(16);
+    }
+  }
+
+  &__content {
+    @include lap {
+      width: 85%;
+      margin: 0 0 0 auto;
+    }
+  }
+
+  &__content + &__content {
+    margin-top: 0.75em;
   }
 
   &__title {
@@ -124,8 +156,7 @@
   }
 
   &__link {
-    margin-bottom: 0.75em;
-    display: inline-block;
+    display: block;
 
     &::before {
       content: "";
@@ -136,6 +167,15 @@
       border-color: #fafafa #fafafa transparent transparent;
       transform: rotate(45deg);
       margin-right: 0.75em;
+    }
+  }
+
+  + .news {
+    border-top: 1px solid;
+    padding-top: 1em;
+    margin-top: 1em;
+    @include lap {
+      border: none;
     }
   }
 }
