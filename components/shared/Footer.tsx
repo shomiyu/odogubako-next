@@ -5,16 +5,16 @@ import Categories from "../../models/Categories";
 import ArrayList from "../../models/ArrayList";
 
 interface Props {
-  categories: ArrayList<Categories>;
+  footerProps: ArrayList<Categories>;
 }
 
 const Footer: React.FC<Props> = (props: Props) => {
-  const { categories } = props;
+  const { footerProps } = props;
 
   return (
     <footer className={style.footer}>
       <div className={style.footer__container}>
-        <p>{categories}</p>
+        <p>{footerProps}</p>
         <p className={style.footer__logo}>
           <img src="/logo_w.svg" alt="お道具箱" />
           <span className={style.footer__subTitle}>for shomiyu</span>
