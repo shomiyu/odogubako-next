@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { AppProps } from "next/app";
+import Adobe from "./api/adobe";
 import "ress";
 import "../../styles.scss";
 
@@ -8,15 +9,7 @@ const MyApp = (props: AppProps): JSX.Element => {
   const { Component, pageProps } = props;
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const WebFont = require("webfontloader");
-
-      WebFont.load({
-        typekit: {
-          id: "qfd4irr",
-        },
-      });
-    }
+    if (process.browser) Adobe(document);
   }, []);
 
   return <Component {...pageProps} />;
