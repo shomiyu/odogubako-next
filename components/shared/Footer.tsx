@@ -1,22 +1,20 @@
 import React from "react";
 import Link from "next/link";
 import style from "./Footer.module.scss";
-import { GetStaticProps } from "next";
 import Categories from "../../models/Categories";
 import ArrayList from "../../models/ArrayList";
-import DevCMS from "../../src/pages/api/DevCMS";
 
 interface Props {
-  categoriesAry: ArrayList<Categories>;
+  categories: ArrayList<Categories>;
 }
 
-const Footer = (props: Props) => {
-  const { categoriesAry } = props;
-  console.log(categoriesAry);
+const Footer: React.FC<Props> = (props: Props) => {
+  const { categories } = props;
 
   return (
     <footer className={style.footer}>
       <div className={style.footer__container}>
+        <p>{categories}</p>
         <p className={style.footer__logo}>
           <img src="/logo_w.svg" alt="お道具箱" />
           <span className={style.footer__subTitle}>for shomiyu</span>
@@ -167,20 +165,6 @@ const Footer = (props: Props) => {
       </div>
     </footer>
   );
-};
-
-export const getStaticProps: GetStaticProps = async (): Promise<{
-  props: Props;
-}> => {
-  const devCMS = new DevCMS();
-
-  const categoriesAry = await devCMS.getCategories();
-
-  return {
-    props: {
-      categoriesAry,
-    },
-  };
 };
 
 export default Footer;
