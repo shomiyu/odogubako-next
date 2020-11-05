@@ -14,7 +14,6 @@ const Footer: React.FC<Props> = (props: Props) => {
   return (
     <footer className={style.footer}>
       <div className={style.footer__container}>
-        <p>{footerProps}</p>
         <p className={style.footer__logo}>
           <img src="/logo_w.svg" alt="お道具箱" />
           <span className={style.footer__subTitle}>for shomiyu</span>
@@ -22,116 +21,20 @@ const Footer: React.FC<Props> = (props: Props) => {
         <nav className={style.sitemap}>
           <h2 className={style.visuallyHidden}>サイトマップ</h2>
           <div className={style.sitemap__inner}>
-            <section className={style.sitemap__item}>
-              <h3 className={style.sitemap__title}>デザイン</h3>
-              <ul className={style.sitemapList}>
-                <li>
-                  <Link href="/">
-                    <a>カラー</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/">
-                    <a>素材</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/">
-                    <a>フォント</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/">
-                    <a>ツール</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/">
-                    <a>参考</a>
-                  </Link>
-                </li>
-              </ul>
-            </section>
-            <section className={style.sitemap__item}>
-              <h3 className={style.sitemap__title}>コーディング</h3>
-              <ul className={style.sitemapList}>
-                <li>
-                  <Link href="/">
-                    <a>HTML</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/">
-                    <a>CSS</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/">
-                    <a>Sass</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/">
-                    <a>CDN</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/">
-                    <a>ツール</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/">
-                    <a>参考</a>
-                  </Link>
-                </li>
-              </ul>
-            </section>
-            <section className={style.sitemap__item}>
-              <h3 className={style.sitemap__title}>デザイン</h3>
-              <ul className={style.sitemapList}>
-                <li>
-                  <Link href="/">
-                    <a>インフラ</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/">
-                    <a>ツール</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/">
-                    <a>環境構築</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/">
-                    <a>管理</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/">
-                    <a>参考</a>
-                  </Link>
-                </li>
-              </ul>
-            </section>
-            <section className={style.sitemap__item}>
-              <h3 className={style.sitemap__title}>デザイン</h3>
-              <ul className={style.sitemapList}>
-                <li>
-                  <Link href="/">
-                    <a>その他</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/">
-                    <a>ブックマーク</a>
-                  </Link>
-                </li>
-              </ul>
-            </section>
+            {footerProps.contents.map((category, index) => (
+              <section className={style.sitemap__item} key={index}>
+                <h3 className={style.sitemap__title}>{category.title}</h3>
+                <ul className={style.sitemapList}>
+                  {category.children.map((item, childIndex) => (
+                    <li key={childIndex}>
+                      <Link href={{ pathname: item.path }}>
+                        <a>{item.title}</a>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            ))}
           </div>
         </nav>
         <div className={style.sns}>
@@ -148,7 +51,6 @@ const Footer: React.FC<Props> = (props: Props) => {
             </li>
           </ul>
         </div>
-
         <ul className={style.secondaryNavi}>
           <li className={style.secondaryNavi__item}>
             <Link href="/">
