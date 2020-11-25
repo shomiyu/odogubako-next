@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import { AppProps } from "next/app";
 import adobeLoader from "../../loader/adobe";
 import "ress";
-import "../../styles.scss";
+import "../../style/base.scss";
+import "../../style/common.scss";
 import Layout from "../../components/shared/Layout";
 
 const MyApp = (props: AppProps): JSX.Element => {

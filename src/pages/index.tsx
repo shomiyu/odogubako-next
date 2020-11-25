@@ -21,8 +21,8 @@ const Home: NextPage<Props> = (props: Props) => {
     <>
       <main className={style.main}>
         {/* News */}
-        <section className={style.section}>
-          <div className={style.section__wrapper}>
+        <section className="section">
+          <div className="container">
             <h2 lang="en" className={style.titlePrimary}>
               news release
               <small lang="ja" className={style.titlePrimary__ja}>
