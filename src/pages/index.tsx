@@ -8,6 +8,7 @@ import Category from "../../models/Category";
 import DevCMS from "./api/DevCMS";
 import { formatDate, formatDateDots } from "../utils/FormatUtils";
 import Footer from "../../components/shared/Footer";
+import CategoryList from "../../components/shared/categoryList";
 
 interface Props {
   newsAry: ArrayList<News>;
@@ -64,38 +65,7 @@ const Home: NextPage<Props> = (props: Props) => {
           </div>
         </section>
 
-        {/* Menu */}
-        {categories.contents.map((item) => (
-          <section key={item.id} className={style.section}>
-            <div className={style.section__wrapper}>
-              <h2 className={style.titlePrimary}>
-                {item.path}
-                <small className={style.titlePrimary__ja}>{item.title}</small>
-              </h2>
-              <ul className={style.menu}>
-                {item.children.map((child, index) => (
-                  <li key={index}>
-                    <Link href={{ pathname: child.path }}>
-                      <a>
-                        <section className={style.menu__item}>
-                          <h3 className={style.menu__title}>
-                            {child.path}
-                            <span className={style.menu__titleSub}>
-                              {child.title}
-                            </span>
-                          </h3>
-                          <figure className={style.menu__icon}>
-                            <img src={child.icon.url} alt={child.title} />
-                          </figure>
-                        </section>
-                      </a>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </section>
-        ))}
+        <CategoryList categories={categories} />
       </main>
 
       <Footer categories={categories} />
