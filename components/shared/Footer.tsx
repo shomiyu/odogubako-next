@@ -21,12 +21,12 @@ const Footer: React.FC<Props> = (props: Props) => {
         <nav className={style.sitemap}>
           <h2 className={style.visuallyHidden}>サイトマップ</h2>
           <div className={style.sitemap__inner}>
-            {categories.contents.map((category, index) => (
-              <section className={style.sitemap__item} key={index}>
+            {categories.contents.map((category) => (
+              <section className={style.sitemap__item} key={category.id}>
                 <h3 className={style.sitemap__title}>{category.title}</h3>
                 <ul className={style.sitemapList}>
-                  {category.children.map((item, childIndex) => (
-                    <li key={childIndex}>
+                  {category.children.map((item, index) => (
+                    <li key={index}>
                       <Link href={{ pathname: item.path }}>
                         <a>{item.title}</a>
                       </Link>
