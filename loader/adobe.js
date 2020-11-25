@@ -1,4 +1,4 @@
-export default function adobe(d) {
+const adobeLoader = (d) => {
   var config = {
       kitId: "qfd4irr",
       scriptTimeout: 3000,
@@ -25,4 +25,6 @@ export default function adobe(d) {
     } catch (e) {}
   };
   s.parentNode.insertBefore(tk, s);
-}
+};
+
+export default adobeLoader;

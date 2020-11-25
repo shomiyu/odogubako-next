@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { AppProps } from "next/app";
-import Adobe from "./api/adobe";
+import adobeLoader from "../../loader/adobe";
 import "ress";
 import "../../styles.scss";
 import Layout from "../../components/shared/Layout";
@@ -10,7 +10,7 @@ const MyApp = (props: AppProps): JSX.Element => {
   const { Component, pageProps } = props;
 
   useEffect(() => {
-    if (process.browser) Adobe(document);
+    if (process.browser) adobeLoader(document);
   }, []);
 
   return (
