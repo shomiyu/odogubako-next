@@ -7,7 +7,6 @@ import News from "../../models/News";
 import Category from "../../models/Category";
 import DevCMS from "./api/DevCMS";
 import { formatDate, formatDateDots } from "../utils/FormatUtils";
-import Layout from "../../components/shared/Layout";
 import Footer from "../../components/shared/Footer";
 
 interface Props {
@@ -19,7 +18,7 @@ const Home: NextPage<Props> = (props: Props) => {
   const { newsAry, categories } = props;
 
   return (
-    <Layout>
+    <>
       <main className={style.main}>
         {/* News */}
         <section className={style.section}>
@@ -100,7 +99,7 @@ const Home: NextPage<Props> = (props: Props) => {
       </main>
 
       <Footer categories={categories} />
-    </Layout>
+    </>
   );
 };
 
