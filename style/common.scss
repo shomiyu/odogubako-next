@@ -23,3 +23,22 @@
   max-width: 1200px;
   margin: 0 auto;
 }
+
+.titlePrimary {
+  font-family: "Limelight", cursive;
+  text-transform: capitalize;
+  font-size: 2.3em;
+  margin-bottom: 1.25em;
+  position: relative;
+
+  &__ja {
+    display: inline-block;
+    font-size: 0.5em;
+    line-height: 1.05;
+    color: #8f8f8f;
+    font-family: "kan415typos-std", sans-serif;
+    position: absolute;
+    top: calc(100% - 0.5em);
+    left: 0;
+  }
+}
