@@ -1,6 +1,6 @@
 import Model from "./Model";
 
-interface Categories extends Model {
+interface Category extends Model {
   date: string;
   title: string;
   path: string;
@@ -14,4 +14,4 @@ interface children {
   icon: { url: string };
 }
 
-export default Categories;
+export default Category;

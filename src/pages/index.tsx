@@ -4,7 +4,7 @@ import Link from "next/link";
 import * as React from "react";
 import ArrayList from "../../models/ArrayList";
 import News from "../../models/News";
-import Categories from "../../models/Categories";
+import Categories from "../../models/Category";
 import DevCMS from "./api/DevCMS";
 import { formatDate, formatDateDots } from "../utils/FormatUtils";
 import Layout from "../../components/shared/Layout";
@@ -99,7 +99,7 @@ const Home: NextPage<Props> = (props: Props) => {
         ))}
       </main>
 
-      <Footer footerProps={categoriesAry} />
+      <Footer categories={categoriesAry} />
     </Layout>
   );
 };

@@ -1,15 +1,15 @@
 import React from "react";
 import Link from "next/link";
 import style from "./Footer.module.scss";
-import Categories from "../../models/Categories";
+import Category from "../../models/Category";
 import ArrayList from "../../models/ArrayList";
 
 interface Props {
-  footerProps: ArrayList<Categories>;
+  categories: ArrayList<Category>;
 }
 
 const Footer: React.FC<Props> = (props: Props) => {
-  const { footerProps } = props;
+  const { categories } = props;
 
   return (
     <footer className={style.footer}>
@@ -21,7 +21,7 @@ const Footer: React.FC<Props> = (props: Props) => {
         <nav className={style.sitemap}>
           <h2 className={style.visuallyHidden}>サイトマップ</h2>
           <div className={style.sitemap__inner}>
-            {footerProps.contents.map((category, index) => (
+            {categories.contents.map((category, index) => (
               <section className={style.sitemap__item} key={index}>
                 <h3 className={style.sitemap__title}>{category.title}</h3>
                 <ul className={style.sitemapList}>

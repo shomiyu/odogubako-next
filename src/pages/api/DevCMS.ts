@@ -4,7 +4,7 @@ import Axios, {
   AxiosPromise,
 } from "axios";
 import News from "../../../models/News";
-import Categories from "../../../models/Categories";
+import Categories from "../../../models/Category";
 import ArrayList from "../../../models/ArrayList";
 
 class DevCMS {
