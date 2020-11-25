@@ -4,7 +4,7 @@ import Link from "next/link";
 import * as React from "react";
 import ArrayList from "../../models/ArrayList";
 import News from "../../models/News";
-import Categories from "../../models/Category";
+import Category from "../../models/Category";
 import DevCMS from "./api/DevCMS";
 import { formatDate, formatDateDots } from "../utils/FormatUtils";
 import Layout from "../../components/shared/Layout";
@@ -12,11 +12,11 @@ import Footer from "../../components/shared/Footer";
 
 interface Props {
   newsAry: ArrayList<News>;
-  categoriesAry: ArrayList<Categories>;
+  categories: ArrayList<Category>;
 }
 
 const Home: NextPage<Props> = (props: Props) => {
-  const { newsAry, categoriesAry } = props;
+  const { newsAry, categories } = props;
 
   return (
     <Layout>
@@ -66,8 +66,8 @@ const Home: NextPage<Props> = (props: Props) => {
         </section>
 
         {/* Menu */}
-        {categoriesAry.contents.map((item, index) => (
-          <section key={index} className={style.section}>
+        {categories.contents.map((item) => (
+          <section key={item.id} className={style.section}>
             <div className={style.section__wrapper}>
               <h2 className={style.titlePrimary}>
                 {item.path}
@@ -99,7 +99,7 @@ const Home: NextPage<Props> = (props: Props) => {
         ))}
       </main>
 
-      <Footer categories={categoriesAry} />
+      <Footer categories={categories} />
     </Layout>
   );
 };
@@ -110,12 +110,12 @@ export const getStaticProps: GetStaticProps = async (): Promise<{
   const devCMS = new DevCMS();
 
   const newsAry = await devCMS.getNews();
-  const categoriesAry = await devCMS.getCategories();
+  const categories = await devCMS.getCategories();
 
   return {
     props: {
       newsAry,
-      categoriesAry,
+      categories,
     },
   };
 };
