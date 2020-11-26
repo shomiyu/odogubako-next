@@ -1,6 +1,5 @@
-import Model from "./Model";
-
-interface Category extends Model {
+interface Category {
+  id: string;
   title: string;
   path: string;
   children: children[];

@@ -1,6 +1,4 @@
-import { createContext } from "react";
-
-const menu = [
+const MENU = [
   {
     id: "design",
     title: "デザイン",
@@ -127,7 +125,4 @@ const menu = [
   },
 ];
 
-const MenuContext = createContext(menu);
-MenuContext.displayName = "MenuContext";
-
-export { MenuContext, menu };
+export default MENU;

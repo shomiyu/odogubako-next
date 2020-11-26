@@ -1,5 +1,7 @@
 import React from "react";
 import style from "./Header.module.scss";
+import MENU from "../../utils/MenuData";
+import Link from "next/link";
 
 const Header = () => {
   return (
@@ -27,18 +29,11 @@ const Header = () => {
         </p>
         <div className={style.menu}>
           <ul className={style.menu__inner}>
-            <li className={style.menu__list}>
-              <a href="#">デザイン</a>
-            </li>
-            <li className={style.menu__list}>
-              <a href="#">コーディング</a>
-            </li>
-            <li className={style.menu__list}>
-              <a href="#">インフラ</a>
-            </li>
-            <li className={style.menu__list}>
-              <a href="#">その他</a>
-            </li>
+            {MENU.map((category) => (
+              <li className={style.menu__list} key={category.id}>
+                <Link href={category.path}>{category.title}</Link>
+              </li>
+            ))}
           </ul>
         </div>
       </nav>
