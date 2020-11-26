@@ -5,9 +5,8 @@ import ArrayList from "../../models/ArrayList";
 import News from "../../models/News";
 import Category from "../../models/Category";
 import DevCMS from "./api/DevCMS";
-import Footer from "../../components/shared/Footer";
 import NewsList from "../../components/shared/NewsList";
-import CategoryList from "../../components/shared/categoryList";
+import CategoryList from "../../components/shared/CategoryList";
 
 interface Props {
   newsAry: ArrayList<News>;
@@ -15,16 +14,14 @@ interface Props {
 }
 
 const Home: NextPage<Props> = (props: Props) => {
-  const { newsAry, categories } = props;
+  const { newsAry } = props;
 
   return (
     <>
       <main className={style.main}>
         <NewsList newsAry={newsAry} />
-        <CategoryList categories={categories} />
+        <CategoryList />
       </main>
-
-      <Footer categories={categories} />
     </>
   );
 };
