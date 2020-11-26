@@ -16,9 +16,9 @@ const CategoryList: React.FC<Props> = (props: Props) => {
       {categories.contents.map((item) => (
         <section key={item.id} className="section">
           <div className="container">
-            <h2 className={style.titlePrimary}>
+            <h2 className="titlePrimary">
               {item.path}
-              <small className={style.titlePrimary__ja}>{item.title}</small>
+              <small className="titlePrimary__ja">{item.title}</small>
             </h2>
             <ul className={style.menu}>
               {item.children.map((child, index) => (
