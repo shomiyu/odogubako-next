@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import style from "./Footer.module.scss";
-import MENU from "../../utils/MenuData";
+import { MENU } from "../../utils/constantUtils";
 
 const Footer: React.FC = () => {
   return (
