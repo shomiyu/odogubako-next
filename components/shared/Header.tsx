@@ -13,14 +13,14 @@ const Header = () => {
           </em>
           <span className={style.hero__title}>
             <img src="/logo_b.svg" alt="お道具箱" />
-            <span className={style.visuallyHidden}>お道具箱</span>
+            <span className="visuallyHidden">お道具箱</span>
           </span>
           <span className={style.hero__subTitle}>for shomiyu</span>
         </h1>
       </div>
 
       <nav className={style.globalNav}>
-        <h2 className={style.visuallyHidden}>グローバルナビゲーション</h2>
+        <h2 className="visuallyHidden">グローバルナビゲーション</h2>
         <p className={style.globalNav__title}>
           <a href="/">
             <img src="/logo_w.svg" alt="お道具箱" />

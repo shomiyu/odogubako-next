@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
             <span className={style.footer__subTitle}>for shomiyu</span>
           </p>
           <nav className={style.sitemap}>
-            <h2 className={style.visuallyHidden}>サイトマップ</h2>
+            <h2 className="visuallyHidden">サイトマップ</h2>
             <div className={style.sitemap__inner}>
               {MENU.map((category) => (
                 <section className={style.sitemap__item} key={category.id}>
@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
             <ul className={style.sns__list}>
               <li>
                 <a href="https://twitter.com/MykiiTech" target="_blank">
-                  <span className={style.visuallyHidden}>
+                  <span className="visuallyHidden">
                     著作者のtwitterアカウントへ移動する
                   </span>
                   <figure className={style.sns__icon}>
