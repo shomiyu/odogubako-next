@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./CategoryList.module.scss";
 import Link from "next/link";
-import MENU from "../../utils/MenuData";
+import { MENU } from "../../utils/constantUtils";
 
 const CategoryList: React.FC = () => {
   return (

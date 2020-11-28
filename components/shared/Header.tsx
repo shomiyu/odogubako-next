@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./Header.module.scss";
-import MENU from "../../utils/MenuData";
+import { MENU } from "../../utils/constantUtils";
 import Link from "next/link";
 
 const Header = () => {
