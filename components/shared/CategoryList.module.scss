@@ -11,7 +11,7 @@
     &::after {
       content: "";
       display: block;
-      width: calc(100% / 3);
+      width: calc((100% - 2em) / 3);
     }
   }
   @include lap {
@@ -19,7 +19,7 @@
     &::after {
       content: "";
       display: block;
-      width: calc(100% / 4);
+      width: calc((100% - 3em) / 4);
     }
 
     &::before {
