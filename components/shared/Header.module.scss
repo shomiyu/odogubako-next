@@ -2,32 +2,19 @@
 @import "style/function";
 @import "style/settings";
 
-.visuallyHidden {
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  border: 0;
-  padding: 0;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  margin: -1px;
-}
-
 .hero {
-  background-image: url("/hero-top-sp.png");
+  background-image: url("/public/hero-top-sp.png");
   background-size: contain;
   padding-top: 128%;
   position: relative;
 
   @include tab {
-    background-image: url("/hero-top-tab.png");
+    background-image: url("/public//hero-top-tab.png");
     padding-top: 67.71%;
   }
 
   @include lap {
-    background-image: url("/hero-top-pc.png");
+    background-image: url("/public//hero-top-pc.png");
     padding-top: 44.17%;
   }
 
@@ -35,7 +22,7 @@
     width: 90.67vw;
     padding: 11vw 0 12vw 7vw;
     margin: 0 auto;
-    background-image: url("/hero-box.png");
+    background-image: url("/public/hero-box.png");
     background-size: contain;
     display: flex;
     flex-direction: column;
@@ -61,7 +48,7 @@
     font-family: "vdl-yotag";
     font-weight: 500;
     font-style: normal;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.06em;
 
     @include tab {
       font-size: 2.08vw;
@@ -69,7 +56,7 @@
 
     @include lap {
       font-size: 1.11vw;
-      letter-spacing: 0.48em;
+      letter-spacing: 0.4em;
     }
   }
 
@@ -134,6 +121,8 @@
 
   &__subTitle {
     margin-left: 0.5em;
+    font-family: "ta-hougan-k500";
+    vertical-align: bottom;
   }
 
   a {

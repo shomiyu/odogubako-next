@@ -8,6 +8,7 @@ interface Props {
 
 const Layout: React.FC<Props> = (props: Props) => {
   const { children } = props;
+
   return (
     <>
       <Header />
