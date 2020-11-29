@@ -165,3 +165,49 @@
     }
   }
 }
+
+.heroChild {
+  background-image: url("/public/images/hero-child-sp.png");
+  background-size: contain;
+  padding-top: 64%;
+  position: relative;
+  @include tab {
+    background-image: url("/public/images/hero-child-tab.png");
+    padding-top: 41.93%;
+  }
+  @include lap {
+    background-image: url("/public/images/hero-child-pc.png");
+    padding-top: 16.67%;
+  }
+
+  &__inner {
+    padding: 6vw 0 7vw;
+    text-align: center;
+    width: 78.67vw;
+    background-image: url("/public/images/hero-box-child.svg");
+    background-size: contain;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @include tab {
+      width: 47.23vw;
+      padding: 4vw 0 5vw;
+    }
+    @include lap {
+      width: 33.85vw;
+      padding: 3.5vw 0 4vw;
+    }
+  }
+
+  &__title {
+    text-transform: capitalize;
+    font-size: 8.53vw;
+    @include tab {
+      font-size: 5.28vw;
+    }
+    @include lap {
+      font-size: 3.33vw;
+    }
+  }
+}

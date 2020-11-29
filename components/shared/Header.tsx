@@ -39,6 +39,7 @@ const Header: React.FC<Props> = (props: Props) => {
         </div>
       )}
 
+      {/* グローバルナビ */}
       <nav className={style.globalNav}>
         <h2 className="visuallyHidden">グローバルナビゲーション</h2>
         <p className={style.globalNav__title}>
