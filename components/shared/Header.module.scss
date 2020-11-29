@@ -116,7 +116,10 @@
   }
 
   &__title {
-    padding: 0 1em;
+    padding: 0 1em 0.5em;
+    @include lap {
+      padding: 0;
+    }
   }
 
   &__subTitle {

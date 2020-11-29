@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
                   <ul className={style.sitemapList}>
                     {category.children.map((item, index) => (
                       <li key={index}>
-                        <Link href={{ pathname: item.path }}>
+                        <Link href={`${category.path}/${item.path}`}>
                           <a>{item.title}</a>
                         </Link>
                       </li>

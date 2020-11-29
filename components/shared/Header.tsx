@@ -54,7 +54,12 @@ const Header: React.FC<Props> = (props: Props) => {
           <ul className={style.menu__inner}>
             {MENU.map((category) => (
               <li className={style.menu__list} key={category.id}>
-                <Link href={category.path}>{category.title}</Link>
+                <Link
+                  as={`${category.path}/${category.children[0].path}`}
+                  href={category.path}
+                >
+                  {category.title}
+                </Link>
               </li>
             ))}
           </ul>
