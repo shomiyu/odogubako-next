@@ -3,18 +3,18 @@
 @import "style/settings";
 
 .hero {
-  background-image: url("/public/hero-top-sp.png");
+  background-image: url("/public/images/hero-top-sp.png");
   background-size: contain;
   padding-top: 128%;
   position: relative;
 
   @include tab {
-    background-image: url("/public//hero-top-tab.png");
+    background-image: url("/public/images/hero-top-tab.png");
     padding-top: 67.71%;
   }
 
   @include lap {
-    background-image: url("/public//hero-top-pc.png");
+    background-image: url("/public/images/hero-top-pc.png");
     padding-top: 44.17%;
   }
 
@@ -22,7 +22,7 @@
     width: 90.67vw;
     padding: 11vw 0 12vw 7vw;
     margin: 0 auto;
-    background-image: url("/public/hero-box.png");
+    background-image: url("/public/images/hero-box.png");
     background-size: contain;
     display: flex;
     flex-direction: column;

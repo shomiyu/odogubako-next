@@ -20,7 +20,7 @@ const Header: React.FC<Props> = (props: Props) => {
                 デザインとコーディングを効率化する
               </em>
               <span className={style.hero__title}>
-                <img src="/logo_b.svg" alt="お道具箱" />
+                <img src="/images/logo_b.svg" alt="お道具箱" />
                 <span className="visuallyHidden">お道具箱</span>
               </span>
               <span className={style.hero__subTitle}>for shomiyu</span>
@@ -44,7 +44,7 @@ const Header: React.FC<Props> = (props: Props) => {
         <p className={style.globalNav__title}>
           <Link href="/">
             <a>
-              <img src="/logo_w.svg" alt="お道具箱" />
+              <img src="/images/logo_w.svg" alt="お道具箱" />
               <span className={style.globalNav__subTitle}>for shomiyu</span>
             </a>
           </Link>
