@@ -80,9 +80,9 @@ const MENU = [
     ],
   },
   {
-    id: "infra",
+    id: "infrastructure",
     title: "インフラ",
-    path: "infrastructure",
+    path: "infra",
     children: [
       {
         title: "ツール",

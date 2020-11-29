@@ -4,12 +4,7 @@ import { MENU } from "../../utils/constantUtils";
 import Link from "next/link";
 
 interface Props {
-  currentPage: CurrentPage,
-}
-
-interface CurrentPage {
-  name: String,
-  path: String,
+  currentPage: String,
 }
 
 const Header: React.FC<Props> = (props: Props) => {
@@ -18,7 +13,7 @@ const Header: React.FC<Props> = (props: Props) => {
   return (
     <header>
       {/* TOP */}
-      { currentPage.name === 'home' && (
+      { currentPage === 'home' && (
         <div className={style.hero}>
             <h1 className={style.hero__inner}>
               <em className={style.hero__copy}>
@@ -34,11 +29,11 @@ const Header: React.FC<Props> = (props: Props) => {
       )}
 
       {/* 下層 */}
-      { currentPage.name !== 'home' && (
+      { currentPage !== 'home' && (
         <div className={style.heroChild}>
           <h1 className={style.heroChild__inner}>
             <span className={style.heroChild__title}>
-              { currentPage.name }
+              { currentPage }
             </span>
           </h1>
         </div>

@@ -19,18 +19,16 @@ const Layout: React.FC<Props> = (props: Props) => {
   const pathArray = currentPath.split('/').filter((v) => v);
   let pageData = {
     name: 'home',
-    path: '',
   };
   // MEMO: TOPのときは空配列なので1つ以上の要素がある場合に下層と見なす
   if (pathArray.length >= 1) {
     const arr = pathArray.map((item) => {
       const currentPage = MENU.filter((hoge) => {
-        return item === hoge.id
+        return item === hoge.path
       })
 
       return {
         name: currentPage[0]?.id,
-        path: currentPage[0]?.path,
       }
     })
     pageData = arr[0]
@@ -38,7 +36,7 @@ const Layout: React.FC<Props> = (props: Props) => {
 
   return (
     <>
-      <Header currentPage={pageData} />
+      <Header currentPage={pageData.name} />
       {children}
       <Footer />
     </>
