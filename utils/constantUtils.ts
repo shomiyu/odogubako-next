@@ -80,7 +80,7 @@ const MENU = [
     ],
   },
   {
-    id: "infrastructure",
+    id: "infra",
     title: "インフラ",
     path: "infrastructure",
     children: [

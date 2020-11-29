@@ -3,29 +3,56 @@ import style from "./Header.module.scss";
 import { MENU } from "../../utils/constantUtils";
 import Link from "next/link";
 
-const Header = () => {
+interface Props {
+  currentPage: CurrentPage,
+}
+
+interface CurrentPage {
+  name: String,
+  path: String,
+}
+
+const Header: React.FC<Props> = (props: Props) => {
+  const { currentPage } = props;
+
   return (
     <header>
-      <div className={style.hero}>
-        <h1 className={style.hero__inner}>
-          <em className={style.hero__copy}>
-            デザインとコーディングを効率化する
-          </em>
-          <span className={style.hero__title}>
-            <img src="/logo_b.svg" alt="お道具箱" />
-            <span className="visuallyHidden">お道具箱</span>
-          </span>
-          <span className={style.hero__subTitle}>for shomiyu</span>
-        </h1>
-      </div>
+      {/* TOP */}
+      { currentPage.name === 'home' && (
+        <div className={style.hero}>
+            <h1 className={style.hero__inner}>
+              <em className={style.hero__copy}>
+                デザインとコーディングを効率化する
+              </em>
+              <span className={style.hero__title}>
+                <img src="/logo_b.svg" alt="お道具箱" />
+                <span className="visuallyHidden">お道具箱</span>
+              </span>
+              <span className={style.hero__subTitle}>for shomiyu</span>
+            </h1>
+        </div>
+      )}
+
+      {/* 下層 */}
+      { currentPage.name !== 'home' && (
+        <div className={style.heroChild}>
+          <h1 className={style.heroChild__inner}>
+            <span className={style.heroChild__title}>
+              { currentPage.name }
+            </span>
+          </h1>
+        </div>
+      )}
 
       <nav className={style.globalNav}>
         <h2 className="visuallyHidden">グローバルナビゲーション</h2>
         <p className={style.globalNav__title}>
-          <a href="/">
-            <img src="/logo_w.svg" alt="お道具箱" />
-            <span className={style.globalNav__subTitle}>for shomiyu</span>
-          </a>
+          <Link href="/">
+            <a>
+              <img src="/logo_w.svg" alt="お道具箱" />
+              <span className={style.globalNav__subTitle}>for shomiyu</span>
+            </a>
+          </Link>
         </p>
         <div className={style.menu}>
           <ul className={style.menu__inner}>
