@@ -5,7 +5,7 @@ const Design: React.FC = () => {
   return (
     <>
       <main>
-        <p>デザインのページ</p>
+        <p>デザイン</p>
       </main>
     </>
   );
