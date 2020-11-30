@@ -5,10 +5,21 @@ import Link from "next/link";
 
 interface Props {
   currentPage: String,
+  onClickPageName: (name:string) => void;
 }
 
 const Header: React.FC<Props> = (props: Props) => {
-  const { currentPage } = props;
+  const { currentPage, onClickPageName } = props;
+
+  const handleClickPageName = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    const { dataset } = e.currentTarget;
+    const { path } = dataset;
+    console.log(path)
+
+    if (typeof path !== "string") return;
+
+    onClickPageName(path);
+  }
 
   return (
     <header>
@@ -53,7 +64,7 @@ const Header: React.FC<Props> = (props: Props) => {
         <div className={style.menu}>
           <ul className={style.menu__inner}>
             {MENU.map((category) => (
-              <li className={style.menu__list} key={category.id}>
+              <li className={style.menu__list} key={category.id} data-path={category.path} onClick={handleClickPageName}>
                 <Link
                   as={`${category.path}/${category.children[0].path}`}
                   href={category.path}
