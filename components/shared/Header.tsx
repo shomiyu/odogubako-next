@@ -14,7 +14,6 @@ const Header: React.FC<Props> = (props: Props) => {
   const handleClickPageName = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     const { dataset } = e.currentTarget;
     const { path } = dataset;
-    console.log(path)
 
     if (typeof path !== "string") return;
 
