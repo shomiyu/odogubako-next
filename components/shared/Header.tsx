@@ -53,7 +53,7 @@ const Header: React.FC<Props> = (props: Props) => {
       {/* グローバルナビ */}
       <nav className={style.globalNav}>
         <h2 className="visuallyHidden">グローバルナビゲーション</h2>
-        <p className={style.globalNav__title}>
+        <p className={style.globalNav__title} data-path="home" onClick={handleClickPageName}>
           <Link href="/">
             <a>
               <img src="/images/logo_w.svg" alt="お道具箱" />
