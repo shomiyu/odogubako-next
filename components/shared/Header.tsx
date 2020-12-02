@@ -23,8 +23,8 @@ const Header: React.FC<Props> = (props: Props) => {
 
   return (
     <header>
-      {/* TOP */}
-      {currentPage === "home" && (
+      {currentPage === "home" ? (
+        // TOP
         <div className={style.hero}>
           <h1 className={style.hero__inner}>
             <em className={style.hero__copy}>
@@ -37,10 +37,8 @@ const Header: React.FC<Props> = (props: Props) => {
             <span className={style.hero__subTitle}>for shomiyu</span>
           </h1>
         </div>
-      )}
-
-      {/* 下層 */}
-      {currentPage !== "home" && (
+      ) : (
+        // /* 下層 */
         <div className={style.heroChild}>
           <h1 className={style.heroChild__inner}>
             <span className={style.heroChild__title}>{currentPage}</span>
@@ -63,10 +61,7 @@ const Header: React.FC<Props> = (props: Props) => {
           <ul className={style.menu__inner}>
             {MENU.map((category) => (
               <li className={style.menu__list} key={category.id}>
-                <Link
-                  as={`${category.path}/${category.children[0].path}`}
-                  href={category.path}
-                >
+                <Link href={`${category.path}/${category.children[0]?.path}`}>
                   <a data-name={category.id} onClick={handleClickPageName}>
                     {category.title}
                   </a>
