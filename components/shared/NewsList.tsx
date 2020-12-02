@@ -24,8 +24,8 @@ const NewsList: React.FC<Props> = (props: Props) => {
           <div className={style.newsboad}>
             <div className={style.newsboad__inner}>
               <dl className={style.newsboad__list}>
-                {newsAry.contents.map((item, index) => (
-                  <div key={index} className={style.news}>
+                {newsAry.contents.map((item) => (
+                  <div key={item.id} className={style.news}>
                     <dt className={style.news__date}>
                       <time dateTime={formatDate(new Date(item.date))}>
                         {formatDateDots(new Date(item.date))}
@@ -38,7 +38,7 @@ const NewsList: React.FC<Props> = (props: Props) => {
                           <p>
                             {news.details}
                             {news.url && (
-                              <Link href={{ pathname: news.url }}>
+                              <Link href={news.url}>
                                 <a className={style.news__link}>
                                   {news.linkName}
                                 </a>

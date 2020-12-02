@@ -6,27 +6,27 @@ import { MENU } from "../../utils/constantUtils";
 const CategoryList: React.FC = () => {
   return (
     <>
-      {MENU.map((item) => (
-        <section key={item.id} className="section">
+      {MENU.map((category) => (
+        <section key={category.id} className="section">
           <div className="container">
             <h2 className="titlePrimary">
-              {item.path}
-              <small className="titlePrimary__ja">{item.title}</small>
+              {category.id}
+              <small className="titlePrimary__ja">{category.title}</small>
             </h2>
             <ul className={style.menu}>
-              {item.children.map((child, index) => (
+              {category.children.map((item, index) => (
                 <li key={index}>
-                  <Link href={{ pathname: child.path }}>
+                  <Link href={`/${category.path}/${item.path}`}>
                     <a>
                       <section className={style.menu__item}>
                         <h3 className={style.menu__title}>
-                          {child.path}
+                          {item.path}
                           <span className={style.menu__titleSub}>
-                            {child.title}
+                            {item.title}
                           </span>
                         </h3>
                         <figure className={style.menu__icon}>
-                          <img src={child.icon} alt={child.title} />
+                          <img src={item.icon} alt={item.title} />
                         </figure>
                       </section>
                     </a>
