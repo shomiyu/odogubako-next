@@ -1,10 +1,10 @@
-@import "style/mixin";
-@import "style/function";
-@import "style/settings";
+@use "style/mixin";
+@use "style/function";
+@use "style/settings";
 
 .newsboad {
   width: 95%;
-  margin: 0 auto em(16, 32) auto;
+  margin: 0 auto function.em(16, 32) auto;
   position: relative;
 
   &::before {
@@ -26,9 +26,9 @@
     content: "";
     display: inline-block;
     width: 100%;
-    padding-top: em(16, 32);
+    padding-top: function.em(16, 32);
     background-color: #aaa;
-    border: 2px solid $color-black;
+    border: 2px solid settings.$color-black;
     position: absolute;
     top: calc(100% - 2px);
   }
@@ -41,11 +41,11 @@
     font-style: normal;
     height: 24em;
     background-color: #3c6450;
-    color: $color-text-secondary;
-    border: 2px solid $color-black;
+    color: settings.$color-text-secondary;
+    border: 2px solid settings.$color-black;
     position: relative;
 
-    @include pc {
+    @include mixin.pc {
       padding: 2em 5em 3em 3em;
 
       &::before {
@@ -71,7 +71,7 @@
 }
 
 .news {
-  @include lap {
+  @include mixin.lap {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -83,12 +83,12 @@
 
     time {
       font-weight: 600;
-      font-size: fz(16);
+      font-size: function.fz(16);
     }
   }
 
   &__content {
-    @include lap {
+    @include mixin.lap {
       width: 85%;
       margin: 0 0 0 auto;
     }
@@ -99,9 +99,9 @@
   }
 
   &__title {
-    font-family: fot-tsukuardgothic-std, sans-serif;
+    font-family: "fot-tsukuardgothic-std", sans-serif;
     font-weight: 700;
-    font-size: fz(18);
+    font-size: function.fz(18);
     margin-bottom: 0.25em;
   }
 
@@ -114,7 +114,8 @@
       width: 10px;
       height: 10px;
       border: 1px solid;
-      border-color: #fafafa #fafafa transparent transparent;
+      border-color: settings.$color-white settings.$color-white transparent
+        transparent;
       transform: rotate(45deg);
       margin-right: 0.75em;
     }
@@ -124,7 +125,7 @@
     border-top: 1px solid;
     padding-top: 1em;
     margin-top: 1em;
-    @include lap {
+    @include mixin.lap {
       border: none;
     }
   }

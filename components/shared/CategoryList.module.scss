@@ -1,20 +1,20 @@
-@import "style/mixin";
-@import "style/function";
-@import "style/settings";
+@use "style/mixin";
+@use "style/function";
+@use "style/settings";
 
 .menu {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  @include tab {
+  @include mixin.tab {
     &::after {
       content: "";
       display: block;
       width: calc((100% - 2em) / 3);
     }
   }
-  @include lap {
+  @include mixin.lap {
     &::before,
     &::after {
       content: "";
@@ -30,10 +30,10 @@
   li {
     width: calc((100% - 1em) / 2);
     margin-bottom: 1em;
-    @include tab {
+    @include mixin.tab {
       width: calc((100% - 2em) / 3);
     }
-    @include lap {
+    @include mixin.lap {
       width: calc((100% - 3em) / 4);
     }
   }
@@ -42,13 +42,13 @@
     display: block;
     height: 100%;
     box-shadow: 3px 3px 4px #ddd;
-    border: 1px solid $color-black;
+    border: 1px solid settings.$color-black;
     border-radius: 5px;
-    @include lap {
+    @include mixin.lap {
       box-shadow: inherit;
     }
 
-    @include lap {
+    @include mixin.lap {
       &:hover {
         transform: translate(0, -5px);
         box-shadow: 3px 4px 6px #ddd;
@@ -69,19 +69,19 @@
 
   &__title {
     font-family: "fot-tsukuardgothic-std", sans-serif;
-    font-size: fz(16);
+    font-size: function.fz(16);
     text-transform: capitalize;
   }
 
   &__titleSub {
     display: block;
-    font-size: fz(14);
+    font-size: function.fz(14);
     color: #8f8f8f;
   }
 
   &__icon {
     width: 50px;
-    margin-bottom: em(16, 10);
+    margin-bottom: function.em(16, 10);
 
     img {
       width: 100%;

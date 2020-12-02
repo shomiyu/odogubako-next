@@ -1,10 +1,10 @@
-@import "style/mixin";
-@import "style/function";
-@import "style/settings";
+@use "style/mixin";
+@use "style/function";
+@use "style/settings";
 
 .footer {
-  background-color: $color-footer-background;
-  color: $color-text-secondary;
+  background-color: settings.$color-footer-background;
+  color: settings.$color-text-secondary;
   padding: 4em 0 2em;
 
   &__container {
@@ -13,41 +13,41 @@
   }
 
   &__logo {
-    padding-bottom: em(16, 28);
-    margin-bottom: em(16, 32);
-    border-bottom: 1px solid $color-white;
+    padding-bottom: function.em(16, 28);
+    margin-bottom: function.em(16, 32);
+    border-bottom: 1px solid settings.$color-white;
   }
 
   &__subTitle {
     display: block;
-    margin-top: em(16, 4);
+    margin-top: function.em(16, 4);
     font-family: "ta-hougan-k500";
   }
 }
 
 .sitemap {
   &__title {
-    font-size: fz(18);
-    border-left: 5px solid $color-text-secondary;
-    padding: em(18, 4) 1em;
-    margin-bottom: em(18, 16);
+    font-size: function.fz(18);
+    border-left: 5px solid settings.$color-text-secondary;
+    padding: function.em(18, 4) 1em;
+    margin-bottom: function.em(18, 16);
   }
 
   &__inner {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: em(16, 24);
+    margin-bottom: function.em(16, 24);
 
-    @include lap {
-      margin-bottom: em(16, 32);
+    @include mixin.lap {
+      margin-bottom: function.em(16, 32);
     }
   }
 
   &__item {
     width: 50%;
-    margin-bottom: em(16, 24);
+    margin-bottom: function.em(16, 24);
 
-    @include lap {
+    @include mixin.lap {
       width: 25%;
     }
   }
@@ -55,7 +55,7 @@
 
 .sitemapList {
   list-style: none;
-  padding-left: em(16, 16);
+  padding-left: function.em(16, 16);
   line-height: 2;
 
   a {
@@ -73,8 +73,8 @@
     align-items: center;
     justify-content: center;
 
-    @include lap {
-      margin-bottom: en(16, 32);
+    @include mixin.lap {
+      margin-bottom: function.em(16, 32);
     }
 
     li + li {
@@ -90,7 +90,7 @@
   &__icon {
     width: 40px;
     height: 40px;
-    background-color: $color-twitter;
+    background-color: settings.$color-twitter;
     position: relative;
 
     img {
@@ -105,38 +105,38 @@
 
 .secondaryNavi {
   list-style: none;
-  margin-top: em(16, 16);
+  margin-top: function.em(16, 16);
 
-  @include tab {
+  @include mixin.tab {
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
   &__item {
-    font-size: fz(14);
+    font-size: function.fz(14);
     text-align: center;
 
-    @include tab {
-      padding: 0 em(14, 16);
+    @include mixin.tab {
+      padding: 0 function.em(14, 16);
     }
   }
 
   &__item + &__item {
-    margin-top: em(14, 4);
+    margin-top: function.em(14, 4);
 
-    @include tab {
+    @include mixin.tab {
       margin-top: 0;
-      border-left: 1px solid $color-white;
+      border-left: 1px solid settings.$color-white;
     }
   }
 }
 
 .copywrite {
   text-align: center;
-  margin-top: em(16, 8);
+  margin-top: function.em(16, 8);
 
   small {
-    font-size: fz(14);
+    font-size: function.fz(14);
   }
 }
