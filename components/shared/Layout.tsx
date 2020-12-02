@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import { MENU } from "../../utils/constantUtils";
-import { useRouter } from "next/router";
 
 interface Props {
   children: React.ReactNode;
@@ -18,9 +16,9 @@ const Layout: React.FC<Props> = (props: Props) => {
 
   return (
     <>
-      <Header currentPage={pageName} />
+      <Header currentPage={pageName} onClickPageName={handleClickPageName} />
       {children}
-      <Footer />
+      <Footer onClickPageName={handleClickPageName} />
     </>
   );
 };

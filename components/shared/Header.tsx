@@ -5,10 +5,21 @@ import Link from "next/link";
 
 interface Props {
   currentPage: String;
+  onClickPageName: (name: string) => void;
 }
 
 const Header: React.FC<Props> = (props: Props) => {
-  const { currentPage } = props;
+  const { currentPage, onClickPageName } = props;
+
+  const handleClickPageName = (
+    e: React.MouseEvent<HTMLElement, MouseEvent>
+  ) => {
+    const { dataset } = e.currentTarget;
+    const { name } = dataset;
+
+    if (typeof name !== "string") return;
+    onClickPageName(name);
+  };
 
   return (
     <header>
@@ -42,7 +53,7 @@ const Header: React.FC<Props> = (props: Props) => {
         <h2 className="visuallyHidden">グローバルナビゲーション</h2>
         <p className={style.globalNav__title}>
           <Link href="/">
-            <a>
+            <a data-name="home" onClick={handleClickPageName}>
               <img src="/images/logo_w.svg" alt="お道具箱" />
               <span className={style.globalNav__subTitle}>for shomiyu</span>
             </a>
@@ -56,7 +67,9 @@ const Header: React.FC<Props> = (props: Props) => {
                   as={`${category.path}/${category.children[0].path}`}
                   href={category.path}
                 >
-                  {category.title}
+                  <a data-name={category.id} onClick={handleClickPageName}>
+                    {category.title}
+                  </a>
                 </Link>
               </li>
             ))}

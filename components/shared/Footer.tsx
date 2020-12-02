@@ -3,7 +3,23 @@ import Link from "next/link";
 import style from "./Footer.module.scss";
 import { MENU } from "../../utils/constantUtils";
 
-const Footer: React.FC = () => {
+interface Props {
+  onClickPageName: (name: string) => void;
+}
+
+const Footer: React.FC<Props> = (props: Props) => {
+  const { onClickPageName } = props;
+
+  const handleClickPageName = (
+    e: React.MouseEvent<HTMLElement, MouseEvent>
+  ) => {
+    const { dataset } = e.currentTarget;
+    const { name } = dataset;
+
+    if (typeof name !== "string") return;
+
+    onClickPageName(name);
+  };
   return (
     <>
       <footer className={style.footer}>
@@ -22,7 +38,12 @@ const Footer: React.FC = () => {
                     {category.children.map((item, index) => (
                       <li key={index}>
                         <Link href={`${category.path}/${item.path}`}>
-                          <a>{item.title}</a>
+                          <a
+                            data-name={category.id}
+                            onClick={handleClickPageName}
+                          >
+                            {item.title}
+                          </a>
                         </Link>
                       </li>
                     ))}
