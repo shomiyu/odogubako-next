@@ -16,22 +16,22 @@ const Layout: React.FC<Props> = (props: Props) => {
    */
   const router = useRouter();
   const currentPath = router.pathname;
-  const pathArray = currentPath.split('/').filter((v) => v);
+  const pathArray = currentPath.split("/").filter((v) => v);
   let pageData = {
-    name: 'home',
+    name: "home",
   };
   // MEMO: TOPのときは空配列なので1つ以上の要素がある場合に下層と見なす
   if (pathArray.length >= 1) {
     const arr = pathArray.map((item) => {
       const currentPage = MENU.filter((hoge) => {
-        return item === hoge.path
-      })
+        return item === hoge.path;
+      });
 
       return {
         name: currentPage[0]?.id,
-      }
-    })
-    pageData = arr[0]
+      };
+    });
+    pageData = arr[0];
   }
 
   return (

@@ -4,7 +4,7 @@ import { MENU } from "../../utils/constantUtils";
 import Link from "next/link";
 
 interface Props {
-  currentPage: String,
+  currentPage: String;
 }
 
 const Header: React.FC<Props> = (props: Props) => {
@@ -13,28 +13,26 @@ const Header: React.FC<Props> = (props: Props) => {
   return (
     <header>
       {/* TOP */}
-      { currentPage === 'home' && (
+      {currentPage === "home" && (
         <div className={style.hero}>
-            <h1 className={style.hero__inner}>
-              <em className={style.hero__copy}>
-                デザインとコーディングを効率化する
-              </em>
-              <span className={style.hero__title}>
-                <img src="/images/logo_b.svg" alt="お道具箱" />
-                <span className="visuallyHidden">お道具箱</span>
-              </span>
-              <span className={style.hero__subTitle}>for shomiyu</span>
-            </h1>
+          <h1 className={style.hero__inner}>
+            <em className={style.hero__copy}>
+              デザインとコーディングを効率化する
+            </em>
+            <span className={style.hero__title}>
+              <img src="/images/logo_b.svg" alt="お道具箱" />
+              <span className="visuallyHidden">お道具箱</span>
+            </span>
+            <span className={style.hero__subTitle}>for shomiyu</span>
+          </h1>
         </div>
       )}
 
       {/* 下層 */}
-      { currentPage !== 'home' && (
+      {currentPage !== "home" && (
         <div className={style.heroChild}>
           <h1 className={style.heroChild__inner}>
-            <span className={style.heroChild__title}>
-              { currentPage }
-            </span>
+            <span className={style.heroChild__title}>{currentPage}</span>
           </h1>
         </div>
       )}
