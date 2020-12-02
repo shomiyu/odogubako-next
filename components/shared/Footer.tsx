@@ -37,7 +37,7 @@ const Footer: React.FC<Props> = (props: Props) => {
                   <ul className={style.sitemapList}>
                     {category.children.map((item, index) => (
                       <li key={index}>
-                        <Link href={`${category.path}/${item.path}`}>
+                        <Link href={`/${category.path}/${item.path}`}>
                           <a
                             data-name={category.id}
                             onClick={handleClickPageName}

@@ -61,7 +61,7 @@ const Header: React.FC<Props> = (props: Props) => {
           <ul className={style.menu__inner}>
             {MENU.map((category) => (
               <li className={style.menu__list} key={category.id}>
-                <Link href={`${category.path}/${category.children[0]?.path}`}>
+                <Link href={`/${category.path}/${category.children[0]?.path}`}>
                   <a data-name={category.id} onClick={handleClickPageName}>
                     {category.title}
                   </a>
