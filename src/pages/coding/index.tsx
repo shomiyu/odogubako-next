@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Coding = () => {
   return (
@@ -6,6 +6,6 @@ const Coding = () => {
       <p>コーディング</p>
     </>
   );
-}
+};
 
 export default Coding;
