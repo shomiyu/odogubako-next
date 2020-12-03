@@ -5,21 +5,10 @@ import Link from "next/link";
 
 interface Props {
   currentPage: String;
-  onClickPageName: (name: string) => void;
 }
 
 const Header: React.FC<Props> = (props: Props) => {
-  const { currentPage, onClickPageName } = props;
-
-  const handleClickPageName = (
-    e: React.MouseEvent<HTMLElement, MouseEvent>
-  ) => {
-    const { dataset } = e.currentTarget;
-    const { name } = dataset;
-
-    if (typeof name !== "string") return;
-    onClickPageName(name);
-  };
+  const { currentPage } = props;
 
   return (
     <header>
@@ -51,7 +40,7 @@ const Header: React.FC<Props> = (props: Props) => {
         <h2 className="visuallyHidden">グローバルナビゲーション</h2>
         <p className={style.globalNav__title}>
           <Link href="/">
-            <a data-name="home" onClick={handleClickPageName}>
+            <a>
               <img src="/images/logo_w.svg" alt="お道具箱" />
               <span className={style.globalNav__subTitle}>for shomiyu</span>
             </a>
@@ -62,9 +51,7 @@ const Header: React.FC<Props> = (props: Props) => {
             {MENU.map((category) => (
               <li className={style.menu__list} key={category.id}>
                 <Link href={`/${category.path}/${category.children[0]?.path}`}>
-                  <a data-name={category.id} onClick={handleClickPageName}>
-                    {category.title}
-                  </a>
+                  <a>{category.title}</a>
                 </Link>
               </li>
             ))}
