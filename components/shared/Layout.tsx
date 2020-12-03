@@ -12,29 +12,18 @@ const Layout: React.FC<Props> = (props: Props) => {
   const { children } = props;
 
   const router = useRouter();
-  const currentPage = router.asPath;
-  const pathArray = currentPage.split("/").filter((v) => v);
-  let pageName = {
-    name: "home",
-  };
+  const currentPath = router.asPath;
+  const categoryData = MENU.find((item) => {
+    const data = currentPath.match(item.path);
 
-  if (pathArray.length >= 1) {
-    const arr = pathArray.map((item) => {
-      const currentPage = MENU.filter((hoge) => {
-        return item === hoge.path;
-      });
-
-      return {
-        name: currentPage[0]?.id,
-      };
-    });
-
-    pageName = arr[0];
-  }
+    if (!data) return;
+    return item.path === data[0];
+  });
+  const pageName = categoryData ? categoryData.id : "home";
 
   return (
     <>
-      <Header currentPage={pageName.name} />
+      <Header currentPage={pageName} />
       {children}
       <Footer />
     </>
