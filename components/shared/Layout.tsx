@@ -26,9 +26,10 @@ const Layout: React.FC<Props> = (props: Props) => {
 
   return (
     <>
-      <Link href="#main">
+      {/* ToDo: tabTargetからのページ遷移でWarning出てるので対応する
+      <Link href={`${currentPath}#main`}>
         <a className="visuallyHidden">本文までスキップする</a>
-      </Link>
+      </Link> */}
       <Header currentPage={pageName} />
       <main id="main" className="main">
         {children}

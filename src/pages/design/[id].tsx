@@ -12,13 +12,17 @@ interface Props {
 
 const DesignContentPage: NextPage<Props> = (props: Props) => {
   const { designArray, designContent } = props;
+  const tabHeaderList = designArray.contents.map((el) => {
+    return {
+      title: el.title,
+      path: `/design/${el.id}`,
+    }
+  });
 
   return (
     <>
-      {console.log(designContent)}
-      {console.log(designArray)}
       <div className="container">
-        <Tab />
+        <Tab header={tabHeaderList} body={designContent} />
       </div>
     </>
   );
