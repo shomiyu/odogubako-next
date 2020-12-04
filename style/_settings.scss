@@ -1,16 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap");
-
 // --- color ---
 $color-black: #0d0d0d;
-$color-gray: #c6c6c6;
-$color-hight-gray: #ededed;
-$color-hight-green: #2abca7;
+$color-gray: #8f8f8f;
+$color-offWfite: #e5e5e5;
 $color-white: #fafafa;
-$color-blue: #3333ff;
-$color-right-blue: #8ad9f5;
-$color-hight-blue: #e5f5fa;
-$color-red: #f44336;
-$color-dark-blue: #454b72;
+$color-skyBlue: #f0f8ff;
+$color-yellow: #fff657;
+$color-cyan: #58b2d8;
+$color-blue: #1169be;
+$color-pink: #f77f79;
 
 // --- color brands---
 $color-twitter: #1da1f2;
@@ -28,6 +25,3 @@ $color-text-sub: $color-gray;
 $color-globalNav-background: $color-black;
 $color-body-background: $color-white;
 $color-footer-background: $color-black;
-
-// --- font family ---
-$fontFamily-primary: "'Ubuntu,'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif";
