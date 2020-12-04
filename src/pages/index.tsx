@@ -16,10 +16,8 @@ const Home: NextPage<Props> = (props: Props) => {
 
   return (
     <>
-      <main className={style.main}>
-        <NewsList newsAry={newsAry} />
-        <CategoryList />
-      </main>
+      <NewsList newsAry={newsAry} />
+      <CategoryList />
     </>
   );
 };

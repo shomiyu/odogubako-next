@@ -1,14 +1,15 @@
 import * as React from "react";
+import Tab from "../../../../components/shared/Tab";
 
-const Design: React.FC = () => {
+const Color: React.FC = () => {
 
   return (
     <>
-      <main>
-        <p>カラーのページ</p>
-      </main>
+      <div className="container">
+        <Tab />
+      </div>
     </>
   );
 };
 
-export default Design;
+export default Color;

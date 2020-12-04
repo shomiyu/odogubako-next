@@ -30,7 +30,7 @@ const Layout: React.FC<Props> = (props: Props) => {
         <a className="visuallyHidden">本文までスキップする</a>
       </Link>
       <Header currentPage={pageName} />
-      <main id="main">
+      <main id="main" className="main">
         {children}
       </main>
       <Footer />
