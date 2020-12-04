@@ -3,6 +3,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { useRouter } from "next/router";
 import { MENU } from "../../utils/constantUtils";
+import Link from "next/link";
 
 interface Props {
   children: React.ReactNode;
@@ -25,8 +26,13 @@ const Layout: React.FC<Props> = (props: Props) => {
 
   return (
     <>
+      <Link href="#main">
+        <a className="visuallyHidden">本文までスキップする</a>
+      </Link>
       <Header currentPage={pageName} />
-      {children}
+      <main id="main">
+        {children}
+      </main>
       <Footer />
     </>
   );
