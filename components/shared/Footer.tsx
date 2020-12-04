@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
       <footer className={style.footer}>
         <div className={style.footer__container}>
           <p className={style.footer__logo}>
-            <img src="/logo_w.svg" alt="お道具箱" />
+            <img src="/images/logo_w.svg" alt="お道具箱" />
             <span className={style.footer__subTitle}>for shomiyu</span>
           </p>
           <nav className={style.sitemap}>
@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
                   <ul className={style.sitemapList}>
                     {category.children.map((item, index) => (
                       <li key={index}>
-                        <Link href={{ pathname: item.path }}>
+                        <Link href={`/${category.path}/${item.path}`}>
                           <a>{item.title}</a>
                         </Link>
                       </li>
@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
                     著作者のtwitterアカウントへ移動する
                   </span>
                   <figure className={style.sns__icon}>
-                    <img src="/icon-twitter.svg" alt="twitter" />
+                    <img src="/icons/icon-twitter.svg" alt="twitter" />
                   </figure>
                 </a>
               </li>

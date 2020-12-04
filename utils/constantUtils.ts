@@ -82,7 +82,7 @@ const MENU = [
   {
     id: "infrastructure",
     title: "インフラ",
-    path: "infrastructure",
+    path: "infra",
     children: [
       {
         title: "ツール",

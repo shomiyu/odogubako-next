@@ -1,5 +1,5 @@
+@use "style/settings";
 @import url("https://fonts.googleapis.com/css2?family=Limelight&display=swap");
-@import "style/settings";
 
 html {
   box-sizing: border-box;
@@ -26,8 +26,8 @@ html.wf-active {
 }
 body {
   height: 100%;
-  color: $color-text-primary;
-  background-color: $color-body-background;
+  color: settings.$color-text-primary;
+  background-color: settings.$color-body-background;
   min-width: 320px;
 }
 img {
