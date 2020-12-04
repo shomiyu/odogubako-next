@@ -1,10 +1,10 @@
 import Link from "next/link";
 import React from "react";
-import style from "./Tab.module.scss"
+import style from "./Tab.module.scss";
 import { useRouter } from "next/router";
-import DesignContents from "../../models/Contents";
+import DesignContents from "../../models/DesignContents";
 
-interface Props  {
+interface Props {
   header: tabItem[];
   body: DesignContents;
 }
@@ -26,7 +26,12 @@ const Tab = (props: Props) => {
         <div className={style.headerWrapper}>
           <ul className={style.header}>
             {header.map((item, index) => (
-              <li className={`${String(style.header__item)} ${String((currentPath.includes(item.path) ? style.isActive : ''))} `} key={index}>
+              <li
+                className={`${String(style.header__item)} ${String(
+                  currentPath.includes(item.path) ? style.isActive : ""
+                )}`}
+                key={index}
+              >
                 <Link href={`${item.path}#tabTarget`}>
                   <a>{item.title}</a>
                 </Link>
@@ -40,7 +45,9 @@ const Tab = (props: Props) => {
             <section>
               <h2 className={style.title} lang="en">
                 color
-                <small className={style.title__ja} lang="ja">カラーツール</small>
+                <small className={style.title__ja} lang="ja">
+                  カラーツール
+                </small>
               </h2>
               <div className={style.hogeWrap}>
                 <p className={style.hoge}>コンテンツ</p>
@@ -55,6 +62,6 @@ const Tab = (props: Props) => {
       </div>
     </>
   );
-}
+};
 
 export default Tab;

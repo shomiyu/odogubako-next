@@ -10,7 +10,7 @@ interface DesignCategory {
   categoryName: string;
   enTitle: string;
   jaTitle: string;
-  icon: { url: string },
+  icon: { url: string };
   postsType: Array<string>;
   posts: DesignPosts[];
 }

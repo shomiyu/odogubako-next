@@ -5,7 +5,7 @@ import Axios, {
 } from "axios";
 import News from "../../../models/News";
 import ArrayList from "../../../models/ArrayList";
-import DesignContent from "../../../models/Contents";
+import DesignContent from "../../../models/DesignContents";
 
 class DevCMS {
   private axios = Axios.create({

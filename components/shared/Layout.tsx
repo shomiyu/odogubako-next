@@ -15,14 +15,14 @@ const Layout: React.FC<Props> = (props: Props) => {
   /**
    * パス情報からヘッダー見出しを取得する
    */
-    const router = useRouter();
-    const currentPath = router.asPath;
-    const REG_MATCH_INDEX = 0 as const;
-    const menuItem = MENU.find((item) => {
-      const regExpMatchArray = currentPath.match(item.path);
-      return regExpMatchArray && item.path === regExpMatchArray[REG_MATCH_INDEX];
-    });
-    const pageName = menuItem?.path ?? "home";
+  const router = useRouter();
+  const currentPath = router.asPath;
+  const REG_MATCH_INDEX = 0 as const;
+  const menuItem = MENU.find((item) => {
+    const regExpMatchArray = currentPath.match(item.path);
+    return regExpMatchArray && item.path === regExpMatchArray[REG_MATCH_INDEX];
+  });
+  const pageName = menuItem?.path ?? "home";
 
   return (
     <>

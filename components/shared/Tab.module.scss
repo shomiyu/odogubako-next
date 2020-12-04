@@ -45,7 +45,7 @@ $tabMaxNum: 10;
     }
 
     // タブが奇数個の場合最後の要素を全幅にする
-    &:nth-child(2n+1) {
+    &:nth-child(2n + 1) {
       &:last-child {
         width: 100%;
         @include mixin.lap {
@@ -63,18 +63,20 @@ $tabMaxNum: 10;
         width: 154px;
         line-height: 57px;
         padding: 0;
-        background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTcxIiBoZWlnaHQ9IjY0IiB2aWV3Qm94PSIwIDAgMTcxIDY0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMS41IDEuNUgxNTguNzI2TDE2OC43MzQgNjIuNUgxLjVWMS41WiIgZmlsbD0iI2ZhZmFmYSIgc3Ryb2tlPSIjMEQwRDBEIiBzdHJva2Utd2lkdGg9IjMiLz4KPHBhdGggZD0iTTMgNTNMMTY1LjUgNTRMMTY3LjUgNjRIM1Y1M1oiIGZpbGw9IiNmYWZhZmEiLz4KPC9zdmc+Cg==) no-repeat;
+        background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTcxIiBoZWlnaHQ9IjY0IiB2aWV3Qm94PSIwIDAgMTcxIDY0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMS41IDEuNUgxNTguNzI2TDE2OC43MzQgNjIuNUgxLjVWMS41WiIgZmlsbD0iI2ZhZmFmYSIgc3Ryb2tlPSIjMEQwRDBEIiBzdHJva2Utd2lkdGg9IjMiLz4KPHBhdGggZD0iTTMgNTNMMTY1LjUgNTRMMTY3LjUgNjRIM1Y1M1oiIGZpbGw9IiNmYWZhZmEiLz4KPC9zdmc+Cg==)
+          no-repeat;
         background-size: contain;
         cursor: pointer;
       }
 
       &::after {
         // arrow
-        content: '';
+        content: "";
         display: inline-block;
         width: 1em;
         height: 1em;
-        background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOSIgaGVpZ2h0PSIxNCIgdmlld0JveD0iMCAwIDkgMTQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xIDFMOCA2Ljk5N0wxIDEzIiBzdHJva2U9IiMwMjAxMEMiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=) center no-repeat;
+        background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOSIgaGVpZ2h0PSIxNCIgdmlld0JveD0iMCAwIDkgMTQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xIDFMOCA2Ljk5N0wxIDEzIiBzdHJva2U9IiMwMjAxMEMiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=)
+          center no-repeat;
         background-size: contain;
         position: absolute;
         top: 50%;
@@ -96,7 +98,8 @@ $tabMaxNum: 10;
         @include mixin.lap {
           width: 162px;
           line-height: 60px;
-          background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTc2IiBoZWlnaHQ9IjY2IiB2aWV3Qm94PSIwIDAgMTc2IDY2IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMS41IDEuNUgxNjMuODg4TDE3NC4yMzQgNjQuNUgxLjVWMS41WiIgZmlsbD0iI0ZBRkFGQSIgc3Ryb2tlPSIjMEQwRDBEIiBzdHJva2Utd2lkdGg9IjMiLz4KPHBhdGggZD0iTTMgNTRIMTcxTDE3MyA2NkgzVjU0WiIgZmlsbD0iI0ZBRkFGQSIvPgo8cGF0aCBkPSJNMyAzSDE2Mi42MTNMMTY0LjQyIDE0SDNWM1oiIGZpbGw9IiNGRkY2NTciLz4KPC9zdmc+Cg==) no-repeat;
+          background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTc2IiBoZWlnaHQ9IjY2IiB2aWV3Qm94PSIwIDAgMTc2IDY2IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMS41IDEuNUgxNjMuODg4TDE3NC4yMzQgNjQuNUgxLjVWMS41WiIgZmlsbD0iI0ZBRkFGQSIgc3Ryb2tlPSIjMEQwRDBEIiBzdHJva2Utd2lkdGg9IjMiLz4KPHBhdGggZD0iTTMgNTRIMTcxTDE3MyA2NkgzVjU0WiIgZmlsbD0iI0ZBRkFGQSIvPgo8cGF0aCBkPSJNMyAzSDE2Mi42MTNMMTY0LjQyIDE0SDNWM1oiIGZpbGw9IiNGRkY2NTciLz4KPC9zdmc+Cg==)
+            no-repeat;
           background-color: inherit;
           background-size: contain;
         }

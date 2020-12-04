@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import * as React from "react";
 import Tab from "../../../components/shared/Tab";
 import ArrayList from "../../../models/ArrayList";
-import DesignContents from "../../../models/Contents";
+import DesignContents from "../../../models/DesignContents";
 import DevCMS from "../api/DevCMS";
 
 interface Props {
@@ -16,7 +16,7 @@ const DesignContentPage: NextPage<Props> = (props: Props) => {
     return {
       title: el.title,
       path: `/design/${el.id}`,
-    }
+    };
   });
 
   return (
@@ -31,17 +31,21 @@ const DesignContentPage: NextPage<Props> = (props: Props) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const devCMS = new DevCMS();
   const designArray = await devCMS.getDesignArray();
-  const paths = designArray.contents.map((content) => `/design/${content.id ?? ''}`);
+  const paths = designArray.contents.map(
+    (content) => `/design/${content.id ?? ""}`
+  );
 
   return { paths, fallback: false };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }): Promise<{
+export const getStaticProps: GetStaticProps = async ({
+  params,
+}): Promise<{
   props: Props;
 }> => {
   const devCMS = new DevCMS();
 
-  const paramsId = params?.id?.toString() ?? '';
+  const paramsId = params?.id?.toString() ?? "";
   const designArray = await devCMS.getDesignArray();
   const designContent = await devCMS.getDesignContent(paramsId);
 
@@ -50,7 +54,7 @@ export const getStaticProps: GetStaticProps = async ({ params }): Promise<{
       designArray,
       designContent,
     },
-  }
-}
+  };
+};
 
 export default DesignContentPage;
