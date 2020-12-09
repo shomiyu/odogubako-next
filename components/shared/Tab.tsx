@@ -3,6 +3,7 @@ import React from "react";
 import style from "./Tab.module.scss";
 import { useRouter } from "next/router";
 import DesignContents from "../../models/DesignContents";
+import CardItem from "./CardItem";
 
 interface Props {
   header: tabItem[];
@@ -50,11 +51,7 @@ const Tab = (props: Props) => {
                 </small>
               </h2>
               <div className={style.hogeWrap}>
-                <p className={style.hoge}>コンテンツ</p>
-                <p className={style.hoge}>コンテンツ</p>
-                <p className={style.hoge}>コンテンツ</p>
-                <p className={style.hoge}>コンテンツ</p>
-                <p className={style.hoge}>コンテンツ</p>
+                <CardItem />
               </div>
             </section>
           </div>
