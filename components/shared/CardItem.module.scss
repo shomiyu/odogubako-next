@@ -2,11 +2,16 @@
 @use "style/function";
 @use "style/settings";
 
+.wrapper {
+  height: 100%;
+}
+
 .inner {
+  height: 100%;
   border: 2px solid;
-  width: calc((100% - (24px * 3)) / 4);
   display: flex;
   flex-direction: column-reverse;
+  justify-content: flex-end;
   position: relative;
 
   &:hover,
@@ -33,6 +38,12 @@
     font-size: function.fz(14);
     padding: 1em;
   }
+
+  &.hasTag {
+    .description {
+      padding-bottom: function.em(14, 35);
+    }
+  }
 }
 
 .thumbnail {
@@ -51,4 +62,26 @@
   position: absolute;
   top: 0.5em;
   right: 0.5em;
+}
+
+.tags {
+  font-size: function.fz(11);
+  position: absolute;
+  bottom: 1em;
+  right: 1.25em;
+
+  li {
+    color: settings.$color-white;
+    background-color: settings.$color-black;
+    padding: function.em(11, 2);
+    display: inline-block;
+
+    &.red {
+      background-color: settings.$color-red;
+    }
+
+    + li {
+      margin-left: 0.5em;
+    }
+  }
 }
