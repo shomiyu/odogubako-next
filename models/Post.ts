@@ -4,7 +4,7 @@ interface Post {
   url: string;
   externalLink: boolean;
   image: { url: string };
-  alt: string;
+  alt?: string;
   description: string;
   commercialUse: boolean;
   credit: boolean;

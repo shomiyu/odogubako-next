@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import DesignContents from "../../models/DesignContents";
 import CardItem from "./CardItem";
 import CardItemList from "./CardItemList";
+import TabChild from "./TabChild";
 
 interface Props {
   header: tabItem[];
@@ -43,28 +44,7 @@ const Tab: React.FC<Props> = (props: Props) => {
         </div>
 
         <div className={style.body}>
-          {body.Categories.map((childCategory, index) => (
-            <div className="" key={index}>
-              <section>
-                <div className={style.title}>
-                  <h2 className={style.title__main} lang="en">
-                    {childCategory.enTitle}
-                    <small className={style.title__ja} lang="ja">
-                      {childCategory.jaTitle}
-                    </small>
-                  </h2>
-                  <figure className={style.title__icon}>
-                    <img
-                      src={childCategory.icon.url}
-                      alt={childCategory.enTitle}
-                    />
-                  </figure>
-                </div>
-
-                <CardItemList posts={childCategory.posts} />
-              </section>
-            </div>
-          ))}
+          <TabChild childTabs={body} />
         </div>
       </div>
     </>
