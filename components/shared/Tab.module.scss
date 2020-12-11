@@ -149,24 +149,3 @@ $tabMaxNum: 10;
     font-family: "kan415typos-std", sans-serif;
   }
 }
-
-.hogeWrap {
-  width: 100%;
-
-  @include mixin.tab {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-}
-
-.hoge {
-  width: 100%;
-
-  @include mixin.tab {
-    width: calc((100% - 16px) / 2);
-  }
-  @include mixin.lap {
-    width: calc((100% - (24px * 3)) / 4);
-  }
-}

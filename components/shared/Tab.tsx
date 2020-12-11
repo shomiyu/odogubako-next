@@ -4,6 +4,7 @@ import style from "./Tab.module.scss";
 import { useRouter } from "next/router";
 import DesignContents from "../../models/DesignContents";
 import CardItem from "./CardItem";
+import CardItemList from "./CardItemList";
 
 interface Props {
   header: tabItem[];
@@ -59,14 +60,7 @@ const Tab: React.FC<Props> = (props: Props) => {
                   />
                 </figure>
 
-                <div className={style.hogeWrap}>
-                  {childCategory.posts.map((post, postIndex) => (
-                    <div className={style.hoge} key={postIndex}>
-                      <CardItem post={post} />
-                      {/* <CardItem post={childCategory} /> */}
-                    </div>
-                  ))}
-                </div>
+                <CardItemList posts={childCategory.posts} />
               </section>
             </div>
           ))}
