@@ -1,0 +1,87 @@
+@use "style/mixin";
+@use "style/function";
+@use "style/settings";
+
+.wrapper {
+  height: 100%;
+}
+
+.inner {
+  height: 100%;
+  border: 2px solid;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  position: relative;
+
+  &:hover,
+  &:focus {
+    .thumbnail {
+      img {
+        transform: scale(1.1);
+        transition: 0.3s ease-in-out;
+      }
+    }
+  }
+}
+
+.main {
+  .title {
+    color: settings.$color-white;
+    background-color: settings.$color-black;
+    font-size: 1em;
+    width: 100%;
+    padding: 0.5em 1em;
+  }
+
+  .description {
+    font-size: function.fz(14);
+    padding: 1em;
+  }
+
+  &.hasTag {
+    .description {
+      padding-bottom: function.em(14, 35);
+    }
+  }
+}
+
+.thumbnail {
+  height: 8.2em;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.externalIcon {
+  width: 1.25em;
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+}
+
+.tags {
+  font-size: function.fz(11);
+  position: absolute;
+  bottom: 1em;
+  right: 1.25em;
+
+  li {
+    color: settings.$color-white;
+    background-color: settings.$color-black;
+    padding: function.em(11, 2);
+    display: inline-block;
+
+    &.red {
+      background-color: settings.$color-red;
+    }
+
+    + li {
+      margin-left: 0.5em;
+    }
+  }
+}

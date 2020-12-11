@@ -151,13 +151,22 @@ $tabMaxNum: 10;
 }
 
 .hogeWrap {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  width: 100%;
+
+  @include mixin.tab {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
 }
 
 .hoge {
-  border: 2px solid;
-  padding: 1em;
-  width: calc((100% - (24px * 3)) / 4);
+  width: 100%;
+
+  @include mixin.tab {
+    width: calc((100% - 16px) / 2);
+  }
+  @include mixin.lap {
+    width: calc((100% - (24px * 3)) / 4);
+  }
 }
