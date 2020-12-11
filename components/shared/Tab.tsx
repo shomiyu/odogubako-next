@@ -46,19 +46,20 @@ const Tab: React.FC<Props> = (props: Props) => {
           {body.Categories.map((childCategory, index) => (
             <div className="" key={index}>
               <section>
-                <h2 className={style.title} lang="en">
-                  {childCategory.enTitle}
-                  <small className={style.title__ja} lang="ja">
-                    {childCategory.jaTitle}
-                  </small>
-                </h2>
-                {/* アイコン */}
-                <figure>
-                  <img
-                    src={childCategory.icon.url}
-                    alt={childCategory.enTitle}
-                  />
-                </figure>
+                <div className={style.title}>
+                  <h2 className={style.title__main} lang="en">
+                    {childCategory.enTitle}
+                    <small className={style.title__ja} lang="ja">
+                      {childCategory.jaTitle}
+                    </small>
+                  </h2>
+                  <figure className={style.title__icon}>
+                    <img
+                      src={childCategory.icon.url}
+                      alt={childCategory.enTitle}
+                    />
+                  </figure>
+                </div>
 
                 <CardItemList posts={childCategory.posts} />
               </section>

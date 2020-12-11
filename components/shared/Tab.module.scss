@@ -136,16 +136,28 @@ $tabMaxNum: 10;
 }
 
 .title {
-  font-family: "Limelight", cursive;
-  text-transform: capitalize;
-  font-size: function.fz(24);
-  line-height: 1;
-  margin-bottom: function.em(24, 24);
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: function.em(16, 24);
+
+  &__main {
+    font-family: "Limelight", cursive;
+    text-transform: capitalize;
+    font-size: function.fz(24);
+    line-height: 1;
+  }
 
   &__ja {
     display: block;
     font-size: function.fz(14);
     color: settings.$color-gray;
     font-family: "kan415typos-std", sans-serif;
+  }
+
+  &__icon {
+    width: 60px;
+    margin-right: function.em(16, 10);
   }
 }
