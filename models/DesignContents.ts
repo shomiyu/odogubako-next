@@ -1,12 +1,12 @@
 import Model from "./Model";
 import Post from "./Post";
 
-interface DesignContent extends Model {
+export interface DesignContent extends Model {
   title: string;
   Categories: DesignCategory[];
 }
 
-interface DesignCategory {
+export interface DesignCategory {
   fieldId: string;
   categoryName: string;
   enTitle: string;
@@ -15,5 +15,3 @@ interface DesignCategory {
   postsType: Array<string>;
   posts: Post[];
 }
-
-export default DesignContent;

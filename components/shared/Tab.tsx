@@ -2,14 +2,16 @@ import Link from "next/link";
 import React from "react";
 import style from "./Tab.module.scss";
 import { useRouter } from "next/router";
-import DesignContents from "../../models/DesignContents";
+import { DesignContent, DesignCategory } from "../../models/DesignContents";
 import CardItem from "./CardItem";
 import CardItemList from "./CardItemList";
 import TabChild from "./TabChild";
 
 interface Props {
   header: tabItem[];
-  body: DesignContents;
+  body: DesignContent;
+  category: DesignCategory;
+  onClickCategory: (index: number) => void;
 }
 
 interface tabItem {
@@ -18,7 +20,7 @@ interface tabItem {
 }
 
 const Tab: React.FC<Props> = (props: Props) => {
-  const { header, body } = props;
+  const { header, body, category, onClickCategory } = props;
 
   const router = useRouter();
   const currentPath = router.asPath;
@@ -44,7 +46,11 @@ const Tab: React.FC<Props> = (props: Props) => {
         </div>
 
         <div className={style.body}>
-          <TabChild childTabs={body} />
+          <TabChild
+            childTabs={body}
+            category={category}
+            onClickCategory={onClickCategory}
+          />
         </div>
       </div>
     </>

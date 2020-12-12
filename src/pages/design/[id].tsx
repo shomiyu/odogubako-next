@@ -1,17 +1,25 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import * as React from "react";
+import { useState } from "react";
 import Tab from "../../../components/shared/Tab";
 import ArrayList from "../../../models/ArrayList";
-import DesignContents from "../../../models/DesignContents";
+import { DesignContent } from "../../../models/DesignContents";
 import DevCMS from "../api/DevCMS";
 
 interface Props {
-  designArray: ArrayList<DesignContents>;
-  designContent: DesignContents;
+  designArray: ArrayList<DesignContent>;
+  designContent: DesignContent;
 }
 
 const DesignContentPage: NextPage<Props> = (props: Props) => {
   const { designArray, designContent } = props;
+
+  const [category, setCategory] = useState(designContent.Categories[0]);
+  const handleClickCategory = (index: number) => {
+    console.log(designContent.Categories);
+    setCategory(designContent.Categories[index]);
+  };
+
   const tabHeaderList = designArray.contents.map((el) => {
     return {
       title: el.title,
@@ -22,7 +30,12 @@ const DesignContentPage: NextPage<Props> = (props: Props) => {
   return (
     <>
       <div className="container">
-        <Tab header={tabHeaderList} body={designContent} />
+        <Tab
+          header={tabHeaderList}
+          body={designContent}
+          category={category}
+          onClickCategory={handleClickCategory}
+        />
       </div>
     </>
   );
