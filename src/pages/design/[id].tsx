@@ -32,7 +32,7 @@ const DesignContentPage: NextPage<Props> = (props: Props) => {
   }, [designContent]);
 
   return (
-    <>
+    category && (
       <div className="container">
         <Tab
           header={tabHeaderList}
@@ -41,7 +41,7 @@ const DesignContentPage: NextPage<Props> = (props: Props) => {
           onClickCategory={handleClickCategory}
         />
       </div>
-    </>
+    )
   );
 };
 
