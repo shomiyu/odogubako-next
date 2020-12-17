@@ -36,18 +36,18 @@
     }
   }
 
-  // &.isActive {
-  //   font-weight: bold;
+  &.isActive {
+    font-weight: bold;
 
-  //   &::before {
-  //     width: 13px;
-  //     height: 13px;
-  //     border: 2px solid;
-  //     border-color: settings.$color-black settings.$color-black transparent
-  //       transparent;
-  //     transform: translate(0, -70%) rotate(135deg);
-  //   }
-  // }
+    &::before {
+      width: 13px;
+      height: 13px;
+      border: 2px solid;
+      border-color: settings.$color-black settings.$color-black transparent
+        transparent;
+      transform: translate(0, -70%) rotate(135deg);
+    }
+  }
 }
 
 .title {

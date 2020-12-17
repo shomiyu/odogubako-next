@@ -30,7 +30,11 @@ const TabChild: React.FC<Props> = (props: Props) => {
               type="button"
               key={titleKey}
               data-index={titleKey}
-              className={`${String(style.button)} ${String(style.isActive)}`}
+              className={`${String(style.button)} ${String(
+                category.categoryName === item.categoryName
+                  ? style.isActive
+                  : ""
+              )}`}
               onClick={handleClickCategory}
             >
               {item.categoryName}
