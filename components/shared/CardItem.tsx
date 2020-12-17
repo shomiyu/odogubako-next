@@ -13,8 +13,11 @@ const CardItem: React.FC<Props> = (props: Props) => {
     <section className={style.wrapper}>
       <a
         href={post.url}
+        title="外部サイトに移動する"
         target={post.externalLink ? "_target" : "_self"}
-        className={style.inner}
+        className={`${String(style.inner)} ${String(
+          post.externalLink ? style.hasExternalIcon : ""
+        )}`}
       >
         {/* テキストコンテンツ */}
         <div
@@ -33,17 +36,9 @@ const CardItem: React.FC<Props> = (props: Props) => {
         </div>
 
         {/* サムネイル */}
-        <figure className={style.thumbnail}>
+        <div className={style.thumbnail}>
           <img src={post.image.url} alt={post.alt} />
-        </figure>
-
-        {/* 外部リンクアイコン */}
-        {post.externalLink && (
-          <p className={style.externalIcon}>
-            <img src="/icons/external-link.svg" alt="外部ページへ移動する" />
-            <span className="visuallyHidden">外部ページへ移動する</span>
-          </p>
-        )}
+        </div>
       </a>
     </section>
   );

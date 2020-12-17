@@ -206,6 +206,7 @@
   &__title {
     text-transform: capitalize;
     font-size: 8.53vw;
+    font-weight: 700;
     @include mixin.tab {
       font-size: 5.28vw;
     }

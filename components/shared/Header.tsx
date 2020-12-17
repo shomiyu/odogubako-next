@@ -29,9 +29,9 @@ const Header: React.FC<Props> = (props: Props) => {
       ) : (
         // /* 下層 */
         <div className={style.heroChild}>
-          <h1 className={style.heroChild__inner}>
+          <p className={style.heroChild__inner}>
             <span className={style.heroChild__title}>{currentPage}</span>
-          </h1>
+          </p>
         </div>
       )}
 

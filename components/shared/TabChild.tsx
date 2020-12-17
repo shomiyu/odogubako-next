@@ -45,18 +45,21 @@ const TabChild: React.FC<Props> = (props: Props) => {
 
       <section>
         <div className={style.title}>
-          <h2 className={style.title__main} lang="en">
+          <h1 className={style.title__main} lang="en">
             {category?.enTitle}
-            <small className={style.title__ja} lang="ja">
+            <b className={style.title__ja} lang="ja">
               {category?.jaTitle}
-            </small>
-          </h2>
-          <figure className={style.title__icon}>
+            </b>
+          </h1>
+          <div className={style.title__icon}>
             <img src={category?.icon.url} alt={category?.enTitle} />
-          </figure>
+          </div>
         </div>
 
-        <CardItemList posts={category?.posts} />
+        <section>
+          <h2 className="visuallyHidden">リンク先一覧</h2>
+          <CardItemList posts={category?.posts} />
+        </section>
       </section>
     </>
   );

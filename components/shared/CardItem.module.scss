@@ -57,11 +57,17 @@
   }
 }
 
-.externalIcon {
-  width: 1.25em;
-  position: absolute;
-  top: 0.5em;
-  right: 0.5em;
+.hasExternalIcon {
+  &::after {
+    content: "";
+    display: block;
+    width: 1.25em;
+    height: 1.25em;
+    background-image: url("/public/icons/external-link.svg");
+    position: absolute;
+    top: 0.5em;
+    right: 0.5em;
+  }
 }
 
 .tags {
