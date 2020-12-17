@@ -126,10 +126,10 @@ $tabMaxNum: 10;
   border: 3px solid settings.$color-black;
   margin-top: -3px;
   @include mixin.tab {
-    padding: 2.5em 2em;
+    padding: function.em(16, 40) function.em(16, 32) function.em(16, 48);
   }
   @include mixin.lap {
-    padding: 2.5em 4em;
+    padding: function.em(16, 40) function.em(16, 64) function.em(16, 48);
     position: relative;
     z-index: $tabMaxNum;
   }

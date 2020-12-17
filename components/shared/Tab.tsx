@@ -3,8 +3,6 @@ import React from "react";
 import style from "./Tab.module.scss";
 import { useRouter } from "next/router";
 import { DesignContent, DesignCategory } from "../../models/DesignContents";
-import CardItem from "./CardItem";
-import CardItemList from "./CardItemList";
 import TabChild from "./TabChild";
 
 interface Props {

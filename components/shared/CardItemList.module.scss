@@ -1,4 +1,5 @@
 @use "style/mixin";
+@use "style/function";
 
 .wrapper {
   list-style: none;
@@ -34,5 +35,6 @@
   }
   @include mixin.lap {
     width: calc((100% - (24px * 3)) / 4);
+    margin-bottom: function.em(16, 24);
   }
 }

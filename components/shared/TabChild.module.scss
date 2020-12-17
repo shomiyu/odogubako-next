@@ -3,7 +3,7 @@
 @use "style/settings";
 
 .header {
-  margin-bottom: 2.5em;
+  margin-bottom: function.em(16, 24);
 }
 
 .button {
