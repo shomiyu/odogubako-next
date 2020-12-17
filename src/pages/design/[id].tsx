@@ -1,9 +1,9 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import * as React from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Tab from "../../../components/shared/Tab";
 import ArrayList from "../../../models/ArrayList";
-import { DesignContent } from "../../../models/DesignContents";
+import { DesignCategory, DesignContent } from "../../../models/DesignContents";
 import DevCMS from "../api/DevCMS";
 
 interface Props {
@@ -14,9 +14,11 @@ interface Props {
 const DesignContentPage: NextPage<Props> = (props: Props) => {
   const { designArray, designContent } = props;
 
-  const [category, setCategory] = useState(designContent.Categories[0]);
+  const [category, setCategory] = useState<DesignCategory>(
+    designContent.Categories[0]
+  );
+
   const handleClickCategory = (index: number) => {
-    console.log(designContent.Categories);
     setCategory(designContent.Categories[index]);
   };
 
@@ -26,6 +28,10 @@ const DesignContentPage: NextPage<Props> = (props: Props) => {
       path: `/design/${el.id}`,
     };
   });
+
+  useEffect(() => {
+    setCategory(designContent.Categories[0]);
+  }, [designContent]);
 
   return (
     <>
