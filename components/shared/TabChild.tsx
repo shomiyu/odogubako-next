@@ -31,7 +31,7 @@ const TabChild: React.FC<Props> = (props: Props) => {
               key={titleKey}
               data-index={titleKey}
               className={`${String(style.button)} ${String(
-                category.categoryName === item.categoryName
+                category?.categoryName === item.categoryName
                   ? style.isActive
                   : ""
               )}`}
@@ -46,17 +46,17 @@ const TabChild: React.FC<Props> = (props: Props) => {
       <section>
         <div className={style.title}>
           <h2 className={style.title__main} lang="en">
-            {category.enTitle}
+            {category?.enTitle}
             <small className={style.title__ja} lang="ja">
-              {category.jaTitle}
+              {category?.jaTitle}
             </small>
           </h2>
           <figure className={style.title__icon}>
-            <img src={category.icon.url} alt={category.enTitle} />
+            <img src={category?.icon.url} alt={category?.enTitle} />
           </figure>
         </div>
 
-        <CardItemList posts={category.posts} />
+        <CardItemList posts={category?.posts} />
       </section>
     </>
   );

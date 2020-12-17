@@ -12,7 +12,7 @@ const CardItemList: React.FC<Props> = (props: Props) => {
 
   return (
     <ul className={style.wrapper}>
-      {posts.map((post, index) => (
+      {posts?.map((post, index) => (
         <li className={style.item} key={index}>
           <CardItem post={post} />
         </li>

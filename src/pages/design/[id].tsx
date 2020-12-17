@@ -14,9 +14,7 @@ interface Props {
 const DesignContentPage: NextPage<Props> = (props: Props) => {
   const { designArray, designContent } = props;
 
-  const [category, setCategory] = useState<DesignCategory>(
-    designContent.Categories[0]
-  );
+  const [category, setCategory] = useState<DesignCategory | null>(null);
 
   const handleClickCategory = (index: number) => {
     setCategory(designContent.Categories[index]);
