@@ -1,10 +1,10 @@
 import React from "react";
-import { DesignContent, DesignCategory } from "../../models/DesignContents";
+import { CategoryContent, DesignCategory } from "../../models/DesignContents";
 import CardItemList from "./CardItemList";
 import style from "./TabChild.module.scss";
 
 interface Props {
-  childTabs: DesignContent;
+  childTabs: DesignCategory[];
   category: DesignCategory;
   onClickCategory: (index: number) => void;
 }
@@ -23,18 +23,18 @@ const TabChild: React.FC<Props> = (props: Props) => {
 
   return (
     <>
-      {childTabs.Categories.length >= 2 && (
+      {childTabs.length >= 2 && (
         <div className={style.header}>
-          {childTabs.Categories.map((item, titleKey) => (
+          {childTabs.map((item, titleKey) => (
             <button
               type="button"
               key={titleKey}
               data-index={titleKey}
-              className={`${String(style.button)} ${String(
+              className={`${style.button} ${
                 category.categoryName === item.categoryName
                   ? style.isActive
                   : ""
-              )}`}
+              }`}
               onClick={handleClickCategory}
             >
               {item.categoryName}

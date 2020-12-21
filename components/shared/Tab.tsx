@@ -2,12 +2,12 @@ import Link from "next/link";
 import React from "react";
 import style from "./Tab.module.scss";
 import { useRouter } from "next/router";
-import { DesignContent, DesignCategory } from "../../models/DesignContents";
+import { CategoryContent, DesignCategory } from "../../models/DesignContents";
 import TabChild from "./TabChild";
 
 interface Props {
-  header: tabItem[];
-  body: DesignContent;
+  tabItems: tabItem[];
+  designContent: CategoryContent;
   category: DesignCategory;
   onClickCategory: (index: number) => void;
 }
@@ -18,7 +18,7 @@ interface tabItem {
 }
 
 const Tab: React.FC<Props> = (props: Props) => {
-  const { header, body, category, onClickCategory } = props;
+  const { tabItems, designContent, category, onClickCategory } = props;
 
   const router = useRouter();
   const currentPath = router.asPath;
@@ -28,7 +28,7 @@ const Tab: React.FC<Props> = (props: Props) => {
       <div id="tabTarget">
         <div className={style.headerWrapper}>
           <ul className={style.header}>
-            {header.map((item, index) => (
+            {tabItems.map((item, index) => (
               <li
                 className={`${String(style.header__item)} ${String(
                   currentPath.includes(item.path) ? style.isActive : ""
@@ -45,7 +45,7 @@ const Tab: React.FC<Props> = (props: Props) => {
 
         <div className={style.body}>
           <TabChild
-            childTabs={body}
+            childTabs={designContent.Categories}
             category={category}
             onClickCategory={onClickCategory}
           />

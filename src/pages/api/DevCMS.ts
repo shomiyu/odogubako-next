@@ -5,7 +5,7 @@ import Axios, {
 } from "axios";
 import News from "../../../models/News";
 import ArrayList from "../../../models/ArrayList";
-import DesignContent from "../../../models/DesignContents";
+import { CategoryContent } from "../../../models/DesignContents";
 
 class DevCMS {
   private axios = Axios.create({
@@ -57,12 +57,12 @@ class DevCMS {
     return this.get<ArrayList<News>>("news");
   }
 
-  public getDesignArray(): Promise<ArrayList<DesignContent>> {
-    return this.get<ArrayList<DesignContent>>("design");
+  public getDesignArray(): Promise<ArrayList<CategoryContent>> {
+    return this.get<ArrayList<CategoryContent>>("design");
   }
 
-  public getDesignContent(id: string): Promise<DesignContent> {
-    return this.get<DesignContent>(`design/${id}`);
+  public getDesignContent(id: string): Promise<CategoryContent> {
+    return this.get<CategoryContent>(`design/${id}`);
   }
 }
 export default DevCMS;

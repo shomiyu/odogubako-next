@@ -1,7 +1,7 @@
 import Model from "./Model";
 import Post from "./Post";
 
-export interface DesignContent extends Model {
+export interface CategoryContent extends Model {
   title: string;
   Categories: DesignCategory[];
 }

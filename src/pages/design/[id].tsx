@@ -3,12 +3,15 @@ import * as React from "react";
 import { useEffect, useState } from "react";
 import Tab from "../../../components/shared/Tab";
 import ArrayList from "../../../models/ArrayList";
-import { DesignCategory, DesignContent } from "../../../models/DesignContents";
+import {
+  DesignCategory,
+  CategoryContent,
+} from "../../../models/DesignContents";
 import DevCMS from "../api/DevCMS";
 
 interface Props {
-  designArray: ArrayList<DesignContent>;
-  designContent: DesignContent;
+  designArray: ArrayList<CategoryContent>;
+  designContent: CategoryContent;
 }
 
 const DesignContentPage: NextPage<Props> = (props: Props) => {
@@ -35,8 +38,8 @@ const DesignContentPage: NextPage<Props> = (props: Props) => {
     category && (
       <div className="container">
         <Tab
-          header={tabHeaderList}
-          body={designContent}
+          tabItems={tabHeaderList}
+          designContent={designContent}
           category={category}
           onClickCategory={handleClickCategory}
         />
