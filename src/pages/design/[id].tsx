@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import * as React from "react";
 import { useEffect, useState } from "react";
-import Tab from "../../../components/shared/Tab";
+import CategoryContents from "../../../components/shared/CategoryContents";
 import ArrayList from "../../../models/ArrayList";
 import {
   DesignCategory,
@@ -37,7 +37,7 @@ const DesignContentPage: NextPage<Props> = (props: Props) => {
   return (
     category && (
       <div className="container">
-        <Tab
+        <CategoryContents
           tabItems={tabHeaderList}
           designContent={designContent}
           category={category}

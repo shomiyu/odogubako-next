@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import style from "./Tab.module.scss";
+import style from "./CategoryContents.module.scss";
 import { useRouter } from "next/router";
 import { CategoryContent, DesignCategory } from "../../models/DesignContents";
 import TabChild from "./TabChild";
@@ -17,7 +17,7 @@ interface tabItem {
   path: string;
 }
 
-const Tab: React.FC<Props> = (props: Props) => {
+const CategoryContents: React.FC<Props> = (props: Props) => {
   const { tabItems, designContent, category, onClickCategory } = props;
 
   const router = useRouter();
@@ -55,4 +55,4 @@ const Tab: React.FC<Props> = (props: Props) => {
   );
 };
 
-export default Tab;
+export default CategoryContents;
