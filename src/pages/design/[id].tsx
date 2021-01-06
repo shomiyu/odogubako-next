@@ -23,7 +23,7 @@ const DesignContentPage: NextPage<Props> = (props: Props) => {
     setCategory(designContent.Categories[index]);
   };
 
-  const tabHeaderList = designArray.contents.map((el) => {
+  const tabItems = designArray.contents.map((el) => {
     return {
       title: el.title,
       path: `/design/${el.id}`,
@@ -38,7 +38,7 @@ const DesignContentPage: NextPage<Props> = (props: Props) => {
     category && (
       <div className="container">
         <CategoryContents
-          tabItems={tabHeaderList}
+          tabItems={tabItems}
           designContent={designContent}
           category={category}
           onClickCategory={handleClickCategory}

@@ -1,9 +1,8 @@
-import Link from "next/link";
 import React from "react";
 import style from "./CategoryContents.module.scss";
-import { useRouter } from "next/router";
 import { CategoryContent, DesignCategory } from "../../models/DesignContents";
 import TabChild from "./TabChild";
+import Tabs from "./Tabs";
 
 interface Props {
   tabItems: tabItem[];
@@ -20,30 +19,14 @@ interface tabItem {
 const CategoryContents: React.FC<Props> = (props: Props) => {
   const { tabItems, designContent, category, onClickCategory } = props;
 
-  const router = useRouter();
-  const currentPath = router.asPath;
-
   return (
     <>
       <div id="tabTarget">
-        <div className={style.headerWrapper}>
-          <ul className={style.header}>
-            {tabItems.map((item, index) => (
-              <li
-                className={`${String(style.header__item)} ${String(
-                  currentPath.includes(item.path) ? style.isActive : ""
-                )}`}
-                key={index}
-              >
-                <Link href={`${item.path}#tabTarget`}>
-                  <a>{item.title}</a>
-                </Link>
-              </li>
-            ))}
-          </ul>
+        <div className={style.tabWrapper}>
+          <Tabs tabItems={tabItems} />
         </div>
 
-        <div className={style.body}>
+        <div className={style.content}>
           <TabChild
             childTabs={designContent.Categories}
             category={category}
