@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./CategoryContents.module.scss";
 import { CategoryContent, DesignCategory } from "../../models/DesignContents";
-import TabChild from "./TabChild";
+import ChildContents from "./ChildContents";
 import Tabs from "./Tabs";
 
 interface Props {
@@ -27,7 +27,7 @@ const CategoryContents: React.FC<Props> = (props: Props) => {
         </div>
 
         <div className={style.content}>
-          <TabChild
+          <ChildContents
             childTabs={designContent.Categories}
             category={category}
             onClickCategory={onClickCategory}
