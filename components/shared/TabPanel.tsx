@@ -1,7 +1,7 @@
 import React from "react";
 import { DesignCategory } from "../../models/DesignContents";
 import CardItemList from "./CardItemList";
-import style from "./ChildContents.module.scss";
+import style from "./TabPanel.module.scss";
 
 interface Props {
   childTabs: DesignCategory[];
@@ -9,7 +9,7 @@ interface Props {
   onClickCategory: (index: number) => void;
 }
 
-const ChildContents: React.FC<Props> = (props: Props) => {
+const TabPanel: React.FC<Props> = (props: Props) => {
   const { childTabs, category, onClickCategory } = props;
 
   const handleClickCategory = (
@@ -65,4 +65,4 @@ const ChildContents: React.FC<Props> = (props: Props) => {
   );
 };
 
-export default ChildContents;
+export default TabPanel;

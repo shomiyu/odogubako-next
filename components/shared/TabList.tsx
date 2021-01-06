@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
-import style from "./Tabs.module.scss";
+import style from "./TabList.module.scss";
 
 interface Props {
   tabItems: tabItem[];
@@ -12,17 +12,17 @@ interface tabItem {
   path: string;
 }
 
-const Tabs: React.FC<Props> = (props: Props) => {
+const TabList: React.FC<Props> = (props: Props) => {
   const { tabItems } = props;
 
   const router = useRouter();
   const currentPath = router.asPath;
 
   return (
-    <ul className={style.tab}>
+    <ul className={style.list}>
       {tabItems.map((item, index) => (
         <li
-          className={`${String(style.tab__item)} ${String(
+          className={`${String(style.list__item)} ${String(
             currentPath.includes(item.path) ? style.isActive : ""
           )}`}
           key={index}
@@ -36,4 +36,4 @@ const Tabs: React.FC<Props> = (props: Props) => {
   );
 };
 
-export default Tabs;
+export default TabList;

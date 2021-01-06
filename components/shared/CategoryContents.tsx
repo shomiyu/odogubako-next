@@ -1,8 +1,8 @@
 import React from "react";
 import style from "./CategoryContents.module.scss";
 import { CategoryContent, DesignCategory } from "../../models/DesignContents";
-import ChildContents from "./ChildContents";
-import Tabs from "./Tabs";
+import TabPanel from "./TabPanel";
+import TabList from "./TabList";
 
 interface Props {
   tabItems: tabItem[];
@@ -23,11 +23,11 @@ const CategoryContents: React.FC<Props> = (props: Props) => {
     <>
       <div id="tabTarget">
         <div className={style.tabWrapper}>
-          <Tabs tabItems={tabItems} />
+          <TabList tabItems={tabItems} />
         </div>
 
         <div className={style.content}>
-          <ChildContents
+          <TabPanel
             childTabs={designContent.Categories}
             category={category}
             onClickCategory={onClickCategory}
