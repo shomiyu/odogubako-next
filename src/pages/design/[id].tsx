@@ -18,9 +18,11 @@ const DesignContentPage: NextPage<Props> = (props: Props) => {
   const { designArray, designContent } = props;
 
   const [category, setCategory] = useState<DesignCategory | null>(null);
+  const [tabIndex, setTabIndex] = useState<number>(0);
 
   const handleClickCategory = (index: number) => {
     setCategory(designContent.Categories[index]);
+    setTabIndex(index);
   };
 
   const tabItems = designArray.contents.map((el) => {
@@ -32,6 +34,7 @@ const DesignContentPage: NextPage<Props> = (props: Props) => {
 
   useEffect(() => {
     setCategory(designContent.Categories[0]);
+    setTabIndex(0);
   }, [designContent]);
 
   return (
@@ -41,6 +44,7 @@ const DesignContentPage: NextPage<Props> = (props: Props) => {
           tabItems={tabItems}
           designContent={designContent}
           category={category}
+          tabIndex={tabIndex}
           onClickCategory={handleClickCategory}
         />
       </div>

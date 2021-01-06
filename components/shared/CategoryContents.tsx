@@ -8,6 +8,7 @@ interface Props {
   tabItems: tabItem[];
   designContent: CategoryContent;
   category: DesignCategory;
+  tabIndex: number;
   onClickCategory: (index: number) => void;
 }
 
@@ -17,7 +18,13 @@ interface tabItem {
 }
 
 const CategoryContents: React.FC<Props> = (props: Props) => {
-  const { tabItems, designContent, category, onClickCategory } = props;
+  const {
+    tabItems,
+    designContent,
+    category,
+    tabIndex,
+    onClickCategory,
+  } = props;
 
   return (
     <>
@@ -30,6 +37,7 @@ const CategoryContents: React.FC<Props> = (props: Props) => {
           <TabPanel
             childTabs={designContent.Categories}
             category={category}
+            tabIndex={tabIndex}
             onClickCategory={onClickCategory}
           />
         </div>

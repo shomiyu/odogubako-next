@@ -6,11 +6,13 @@ import style from "./TabPanel.module.scss";
 interface Props {
   childTabs: DesignCategory[];
   category: DesignCategory;
+  tabIndex: number;
   onClickCategory: (index: number) => void;
 }
 
 const TabPanel: React.FC<Props> = (props: Props) => {
-  const { childTabs, category, onClickCategory } = props;
+  const { childTabs, category, tabIndex, onClickCategory } = props;
+  console.log(category);
 
   const handleClickCategory = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -35,6 +37,9 @@ const TabPanel: React.FC<Props> = (props: Props) => {
                   ? style.isActive
                   : ""
               }`}
+              role="tab"
+              aria-controls={"tabPanel-" + titleKey}
+              aria-selected={category.categoryName === item.categoryName}
               onClick={handleClickCategory}
             >
               {item.categoryName}
@@ -43,7 +48,10 @@ const TabPanel: React.FC<Props> = (props: Props) => {
         </div>
       )}
 
-      <section>
+      <section
+        id={childTabs.length >= 2 ? "tabPanel-" + tabIndex : ""}
+        role="tabpanel"
+      >
         <div className={style.title}>
           <h1 className={style.title__main} lang="en">
             {category.enTitle}
