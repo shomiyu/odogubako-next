@@ -7,9 +7,8 @@ import TabList from "./TabList";
 interface Props {
   tabItems: tabItem[];
   designContent: CategoryContent;
-  category: DesignCategory;
-  tabIndex: number;
-  onClickCategory: (tabId: string) => void;
+  tabState: string;
+  onClickTab: (tabId: string) => void;
 }
 
 interface tabItem {
@@ -18,13 +17,7 @@ interface tabItem {
 }
 
 const CategoryContents: React.FC<Props> = (props: Props) => {
-  const {
-    tabItems,
-    designContent,
-    category,
-    tabIndex,
-    onClickCategory,
-  } = props;
+  const { tabItems, designContent, tabState, onClickTab } = props;
 
   return (
     <>
@@ -36,9 +29,8 @@ const CategoryContents: React.FC<Props> = (props: Props) => {
         <div className={style.content}>
           <TabPanel
             childTabs={designContent.Categories}
-            category={category}
-            tabIndex={tabIndex}
-            onClickCategory={onClickCategory}
+            tabState={tabState}
+            onClickTab={onClickTab}
           />
         </div>
       </div>

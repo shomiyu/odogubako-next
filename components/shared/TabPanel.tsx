@@ -5,22 +5,18 @@ import style from "./TabPanel.module.scss";
 
 interface Props {
   childTabs: DesignCategory[];
-  category: DesignCategory;
-  tabIndex: number;
-  onClickCategory: (tabId: string) => void;
+  tabState: string;
+  onClickTab: (tabId: string) => void;
 }
 
 const TabPanel: React.FC<Props> = (props: Props) => {
-  const { childTabs, onClickCategory } = props;
+  const { childTabs, tabState, onClickTab } = props;
 
-  const [state, setState] = useState("tabPanel-0");
-
-  const handleClickCategory = useCallback((e) => {
+  const handleClickTab = useCallback((e) => {
     const element = e.currentTarget;
-    const tabState = element.getAttribute("aria-controls");
-    console.log(tabState);
+    const tabId = element.getAttribute("aria-controls");
 
-    setState(tabState);
+    onClickTab(tabId);
   });
 
   return (
@@ -33,12 +29,12 @@ const TabPanel: React.FC<Props> = (props: Props) => {
               key={titleKey}
               data-index={titleKey}
               className={`${style.button} ${
-                state === "tabPanel-" + titleKey ? style.isActive : ""
+                tabState === "tabPanel-" + titleKey ? style.isActive : ""
               }`}
               role="tab"
               aria-controls={"tabPanel-" + titleKey}
-              aria-selected={state === "tabPanel-" + titleKey}
-              onClick={handleClickCategory}
+              aria-selected={tabState === "tabPanel-" + titleKey}
+              onClick={handleClickTab}
             >
               {item.categoryName}
             </button>
@@ -50,9 +46,9 @@ const TabPanel: React.FC<Props> = (props: Props) => {
         <section
           id={childTabs.length >= 2 ? "tabPanel-" + index : ""}
           role="tabpanel"
-          aria-hidden={state !== "tabPanel-" + index}
+          aria-hidden={tabState !== "tabPanel-" + index}
           className={`${style.childTab} ${
-            state === "tabPanel-" + index ? style.isShow : ""
+            tabState === "tabPanel-" + index ? style.isShow : ""
           }`}
           key={index}
         >
