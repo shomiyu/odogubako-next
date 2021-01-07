@@ -17,10 +17,10 @@ interface Props {
 const DesignContentPage: NextPage<Props> = (props: Props) => {
   const { designArray, designContent } = props;
 
-  const [tabState, setTabState] = useState("tabPanel-0");
+  const [tabId, setTabId] = useState("tabPanel-0");
 
   const handleChangeTabId = useCallback((tabId: string) => {
-    setTabState(tabId);
+    setTabId(tabId);
   }, []);
 
   const tabItems = designArray.contents.map((el) => {
@@ -31,7 +31,7 @@ const DesignContentPage: NextPage<Props> = (props: Props) => {
   });
 
   useEffect(() => {
-    setTabState("tabPanel-0");
+    setTabId("tabPanel-0");
   }, [designContent]);
 
   return (
@@ -39,8 +39,8 @@ const DesignContentPage: NextPage<Props> = (props: Props) => {
       <CategoryContents
         tabItems={tabItems}
         designContent={designContent}
-        tabState={tabState}
-        onClickTab={handleChangeTabId}
+        tabId={tabId}
+        onChangeTabId={handleChangeTabId}
       />
     </div>
   );
