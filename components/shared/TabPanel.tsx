@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import { DesignCategory } from "../../models/DesignContents";
 import CardItemList from "./CardItemList";
 import style from "./TabPanel.module.scss";
@@ -7,21 +7,21 @@ interface Props {
   childTabs: DesignCategory[];
   category: DesignCategory;
   tabIndex: number;
-  onClickCategory: (index: number) => void;
+  onClickCategory: (tabId: string) => void;
 }
 
 const TabPanel: React.FC<Props> = (props: Props) => {
-  const { childTabs, category, tabIndex, onClickCategory } = props;
-  console.log(category);
+  const { childTabs, onClickCategory } = props;
 
-  const handleClickCategory = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
-    const { index } = e.currentTarget.dataset;
-    if (typeof index === "undefined") return;
+  const [state, setState] = useState("tabPanel-0");
 
-    onClickCategory(Number.parseInt(index, 10));
-  };
+  const handleClickCategory = useCallback((e) => {
+    const element = e.currentTarget;
+    const tabState = element.getAttribute("aria-controls");
+    console.log(tabState);
+
+    setState(tabState);
+  });
 
   return (
     <>
@@ -33,13 +33,11 @@ const TabPanel: React.FC<Props> = (props: Props) => {
               key={titleKey}
               data-index={titleKey}
               className={`${style.button} ${
-                category.categoryName === item.categoryName
-                  ? style.isActive
-                  : ""
+                state === "tabPanel-" + titleKey ? style.isActive : ""
               }`}
               role="tab"
               aria-controls={"tabPanel-" + titleKey}
-              aria-selected={category.categoryName === item.categoryName}
+              aria-selected={state === "tabPanel-" + titleKey}
               onClick={handleClickCategory}
             >
               {item.categoryName}
@@ -48,27 +46,33 @@ const TabPanel: React.FC<Props> = (props: Props) => {
         </div>
       )}
 
-      <section
-        id={childTabs.length >= 2 ? "tabPanel-" + tabIndex : ""}
-        role="tabpanel"
-      >
-        <div className={style.title}>
-          <h1 className={style.title__main} lang="en">
-            {category.enTitle}
-            <b className={style.title__ja} lang="ja">
-              {category.jaTitle}
-            </b>
-          </h1>
-          <div className={style.title__icon}>
-            <img src={category.icon.url} alt={category.enTitle} />
+      {childTabs.map((childTab, index) => (
+        <section
+          id={childTabs.length >= 2 ? "tabPanel-" + index : ""}
+          role="tabpanel"
+          aria-hidden={state !== "tabPanel-" + index}
+          className={`${style.childTab} ${
+            state === "tabPanel-" + index ? style.isShow : ""
+          }`}
+          key={index}
+        >
+          <div className={style.title}>
+            <h1 className={style.title__main} lang="en">
+              {childTab.enTitle}
+              <b className={style.title__ja} lang="ja">
+                {childTab.jaTitle}
+              </b>
+            </h1>
+            <div className={style.title__icon}>
+              <img src={childTab.icon.url} alt={childTab.enTitle} />
+            </div>
           </div>
-        </div>
-
-        <section>
-          <h2 className="visuallyHidden">リンク先一覧</h2>
-          <CardItemList posts={category.posts} />
+          <section>
+            <h2 className="visuallyHidden">リンク先一覧</h2>
+            <CardItemList posts={childTab.posts} />
+          </section>
         </section>
-      </section>
+      ))}
     </>
   );
 };

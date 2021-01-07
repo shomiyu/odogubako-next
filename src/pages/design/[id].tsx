@@ -19,10 +19,10 @@ const DesignContentPage: NextPage<Props> = (props: Props) => {
 
   const [category, setCategory] = useState<DesignCategory | null>(null);
   const [tabIndex, setTabIndex] = useState<number>(0);
+  const [tabState, setTabState] = useState("tabPanel-0");
 
-  const handleClickCategory = (index: number) => {
-    setCategory(designContent.Categories[index]);
-    setTabIndex(index);
+  const handleClickCategory = () => {
+    setTabState(tabState);
   };
 
   const tabItems = designArray.contents.map((el) => {
@@ -31,6 +31,8 @@ const DesignContentPage: NextPage<Props> = (props: Props) => {
       path: `/design/${el.id}`,
     };
   });
+
+  console.log(tabState);
 
   useEffect(() => {
     setCategory(designContent.Categories[0]);

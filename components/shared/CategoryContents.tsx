@@ -9,7 +9,7 @@ interface Props {
   designContent: CategoryContent;
   category: DesignCategory;
   tabIndex: number;
-  onClickCategory: (index: number) => void;
+  onClickCategory: (tabId: string) => void;
 }
 
 interface tabItem {
