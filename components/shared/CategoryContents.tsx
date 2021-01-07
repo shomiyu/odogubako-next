@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./CategoryContents.module.scss";
-import { CategoryContent, DesignCategory } from "../../models/DesignContents";
+import { CategoryContent } from "../../models/DesignContents";
 import TabPanel from "./TabPanel";
 import TabList from "./TabList";
 

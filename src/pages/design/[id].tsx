@@ -3,10 +3,7 @@ import * as React from "react";
 import { useCallback, useEffect, useState } from "react";
 import CategoryContents from "../../../components/shared/CategoryContents";
 import ArrayList from "../../../models/ArrayList";
-import {
-  DesignCategory,
-  CategoryContent,
-} from "../../../models/DesignContents";
+import { CategoryContent } from "../../../models/DesignContents";
 import DevCMS from "../api/DevCMS";
 
 interface Props {
