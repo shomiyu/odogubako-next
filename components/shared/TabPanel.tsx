@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback } from "react";
 import { DesignCategory } from "../../models/DesignContents";
 import CardItemList from "./CardItemList";
 import style from "./TabPanel.module.scss";
@@ -12,12 +12,15 @@ interface Props {
 const TabPanel: React.FC<Props> = (props: Props) => {
   const { childTabs, tabState, onClickTab } = props;
 
-  const handleClickTab = useCallback((e) => {
-    const element = e.currentTarget;
-    const tabId = element.getAttribute("aria-controls");
+  const handleClickTab = useCallback(
+    (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+      const element = e.currentTarget;
+      const tabId = element.getAttribute("aria-controls") ?? "";
 
-    onClickTab(tabId);
-  });
+      onClickTab(tabId);
+    },
+    []
+  );
 
   return (
     <>
