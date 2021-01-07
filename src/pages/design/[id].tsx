@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import * as React from "react";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import CategoryContents from "../../../components/shared/CategoryContents";
 import ArrayList from "../../../models/ArrayList";
 import {
@@ -19,9 +19,9 @@ const DesignContentPage: NextPage<Props> = (props: Props) => {
 
   const [tabState, setTabState] = useState("tabPanel-0");
 
-  const handleClickTab = (tabId: string) => {
+  const handleChangeTabId = useCallback((tabId: string) => {
     setTabState(tabId);
-  };
+  }, []);
 
   const tabItems = designArray.contents.map((el) => {
     return {
@@ -40,7 +40,7 @@ const DesignContentPage: NextPage<Props> = (props: Props) => {
         tabItems={tabItems}
         designContent={designContent}
         tabState={tabState}
-        onClickTab={handleClickTab}
+        onClickTab={handleChangeTabId}
       />
     </div>
   );
