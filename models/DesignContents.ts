@@ -3,10 +3,10 @@ import Post from "./Post";
 
 export interface CategoryContent extends Model {
   title: string;
-  Categories: DesignCategory[];
+  Categories: PageCategory[];
 }
 
-export interface DesignCategory {
+export interface PageCategory {
   fieldId: string;
   categoryName: string;
   enTitle: string;

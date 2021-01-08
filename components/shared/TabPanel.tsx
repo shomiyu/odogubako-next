@@ -1,10 +1,10 @@
 import React, { useCallback } from "react";
-import { DesignCategory } from "../../models/DesignContents";
+import { PageCategory } from "../../models/DesignContents";
 import CardItemList from "./CardItemList";
 import style from "./TabPanel.module.scss";
 
 interface Props {
-  childTabs: DesignCategory[];
+  childTabs: PageCategory[];
   tabId: string;
   onChangeTabId: (tabId: string) => void;
 }

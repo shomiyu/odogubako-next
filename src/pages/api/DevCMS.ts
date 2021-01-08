@@ -64,5 +64,13 @@ class DevCMS {
   public getDesignContent(id: string): Promise<CategoryContent> {
     return this.get<CategoryContent>(`design/${id}`);
   }
+
+  public getCodingArray(): Promise<ArrayList<CategoryContent>> {
+    return this.get<ArrayList<CategoryContent>>("coding");
+  }
+
+  public getCodingContent(id: string): Promise<CategoryContent> {
+    return this.get<CategoryContent>(`coding/${id}`);
+  }
 }
 export default DevCMS;
