@@ -27,7 +27,7 @@ const TabList: React.FC<Props> = (props: Props) => {
           )}`}
           key={index}
         >
-          <Link href={`${item.path}#tabTarget`}>
+          <Link href={`${item.path}#contents`}>
             <a>{item.title}</a>
           </Link>
         </li>

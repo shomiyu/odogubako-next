@@ -21,7 +21,7 @@ const CategoryContents: React.FC<Props> = (props: Props) => {
 
   return (
     <>
-      <div id="tabTarget">
+      <div id="contents" className={style.target}>
         <div className={style.tabWrapper}>
           <TabList tabItems={tabItems} />
         </div>

@@ -3,7 +3,6 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { useRouter } from "next/router";
 import { MENU } from "../../utils/constantUtils";
-import Link from "next/link";
 
 interface Props {
   children: React.ReactNode;
@@ -26,10 +25,6 @@ const Layout: React.FC<Props> = (props: Props) => {
 
   return (
     <>
-      {/* ToDo: tabTargetからのページ遷移でWarning出てるので対応する
-      <Link href={`${currentPath}#main`}>
-        <a className="visuallyHidden">本文までスキップする</a>
-      </Link> */}
       <Header currentPage={pageName} />
       <main id="main" className="main">
         {children}
