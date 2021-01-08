@@ -1,15 +1,14 @@
 import React from "react";
 import style from "./CategoryContents.module.scss";
-import { CategoryContent, DesignCategory } from "../../models/DesignContents";
+import { CategoryContent } from "../../models/DesignContents";
 import TabPanel from "./TabPanel";
 import TabList from "./TabList";
 
 interface Props {
   tabItems: tabItem[];
   designContent: CategoryContent;
-  category: DesignCategory;
-  tabIndex: number;
-  onClickCategory: (index: number) => void;
+  tabId: string;
+  onChangeTabId: (tabId: string) => void;
 }
 
 interface tabItem {
@@ -18,13 +17,7 @@ interface tabItem {
 }
 
 const CategoryContents: React.FC<Props> = (props: Props) => {
-  const {
-    tabItems,
-    designContent,
-    category,
-    tabIndex,
-    onClickCategory,
-  } = props;
+  const { tabItems, designContent, tabId, onChangeTabId } = props;
 
   return (
     <>
@@ -36,9 +29,8 @@ const CategoryContents: React.FC<Props> = (props: Props) => {
         <div className={style.content}>
           <TabPanel
             childTabs={designContent.Categories}
-            category={category}
-            tabIndex={tabIndex}
-            onClickCategory={onClickCategory}
+            tabId={tabId}
+            onChangeTabId={onChangeTabId}
           />
         </div>
       </div>

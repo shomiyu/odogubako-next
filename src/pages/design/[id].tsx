@@ -1,12 +1,9 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import * as React from "react";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import CategoryContents from "../../../components/shared/CategoryContents";
 import ArrayList from "../../../models/ArrayList";
-import {
-  DesignCategory,
-  CategoryContent,
-} from "../../../models/DesignContents";
+import { CategoryContent } from "../../../models/DesignContents";
 import DevCMS from "../api/DevCMS";
 
 interface Props {
@@ -17,13 +14,11 @@ interface Props {
 const DesignContentPage: NextPage<Props> = (props: Props) => {
   const { designArray, designContent } = props;
 
-  const [category, setCategory] = useState<DesignCategory | null>(null);
-  const [tabIndex, setTabIndex] = useState<number>(0);
+  const [tabId, setTabId] = useState("tabPanel-0");
 
-  const handleClickCategory = (index: number) => {
-    setCategory(designContent.Categories[index]);
-    setTabIndex(index);
-  };
+  const handleChangeTabId = useCallback((tabId: string) => {
+    setTabId(tabId);
+  }, []);
 
   const tabItems = designArray.contents.map((el) => {
     return {
@@ -33,22 +28,18 @@ const DesignContentPage: NextPage<Props> = (props: Props) => {
   });
 
   useEffect(() => {
-    setCategory(designContent.Categories[0]);
-    setTabIndex(0);
+    setTabId("tabPanel-0");
   }, [designContent]);
 
   return (
-    category && (
-      <div className="container">
-        <CategoryContents
-          tabItems={tabItems}
-          designContent={designContent}
-          category={category}
-          tabIndex={tabIndex}
-          onClickCategory={handleClickCategory}
-        />
-      </div>
-    )
+    <div className="container">
+      <CategoryContents
+        tabItems={tabItems}
+        designContent={designContent}
+        tabId={tabId}
+        onChangeTabId={handleChangeTabId}
+      />
+    </div>
   );
 };
 

@@ -37,7 +37,10 @@ const CardItem: React.FC<Props> = (props: Props) => {
 
         {/* サムネイル */}
         <div className={style.thumbnail}>
-          <img src={post.image.url} alt={post.alt} />
+          <img
+            src={`${post.image.url}?auto=format,compress&q=90&w=400`}
+            alt={post.alt}
+          />
         </div>
       </a>
     </section>
