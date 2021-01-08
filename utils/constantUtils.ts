@@ -24,13 +24,13 @@ const MENU = [
       },
       {
         title: "ツール",
-        path: "tools",
+        path: "tool",
         icon:
           "https://images.microcms-assets.io/protected/ap-northeast-1:b7599113-36d1-4105-9bdc-e29b6d1179fe/service/odogubako/media/icon-design-tool.png",
       },
       {
         title: "参考",
-        path: "reference",
+        path: "references",
         icon:
           "https://images.microcms-assets.io/protected/ap-northeast-1:b7599113-36d1-4105-9bdc-e29b6d1179fe/service/odogubako/media/icon-reference.png",
       },
@@ -73,7 +73,7 @@ const MENU = [
       },
       {
         title: "参考",
-        path: "reference",
+        path: "references",
         icon:
           "https://images.microcms-assets.io/protected/ap-northeast-1:b7599113-36d1-4105-9bdc-e29b6d1179fe/service/odogubako/media/icon-reference.png",
       },
@@ -104,7 +104,7 @@ const MENU = [
       },
       {
         title: "参考",
-        path: "reference",
+        path: "references",
         icon:
           "https://images.microcms-assets.io/protected/ap-northeast-1:b7599113-36d1-4105-9bdc-e29b6d1179fe/service/odogubako/media/icon-reference.png",
       },
