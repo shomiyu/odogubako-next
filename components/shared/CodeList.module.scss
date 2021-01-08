@@ -1,0 +1,10 @@
+@use "style/mixin";
+@use "style/function";
+
+.wrapper {
+  margin-bottom: function.em(16, -24);
+}
+
+.item {
+  margin-bottom: function.em(16, 24);
+}

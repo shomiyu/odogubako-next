@@ -1,6 +1,7 @@
 import React, { useCallback } from "react";
 import { PageCategory } from "../../models/DesignContents";
 import CardItemList from "./CardItemList";
+import CodeList from "./CodeList";
 import style from "./TabPanel.module.scss";
 
 interface Props {
@@ -68,7 +69,12 @@ const TabPanel: React.FC<Props> = (props: Props) => {
           </div>
           <section>
             <h2 className="visuallyHidden">リンク先一覧</h2>
-            <CardItemList posts={childTab.posts} />
+            {childTab.postsType[0] === "cardList" && (
+              <CardItemList posts={childTab.posts} />
+            )}
+            {childTab.postsType[0] === "code" && (
+              <CodeList posts={childTab.posts} />
+            )}
           </section>
         </section>
       ))}

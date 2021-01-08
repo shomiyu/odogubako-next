@@ -35,7 +35,7 @@ const DesignContentPage: NextPage<Props> = (props: Props) => {
     <div className="container">
       <CategoryContents
         tabItems={tabItems}
-        designContent={designContent}
+        content={designContent}
         tabId={tabId}
         onChangeTabId={handleChangeTabId}
       />

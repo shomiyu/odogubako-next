@@ -1,5 +1,7 @@
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import * as React from "react";
+import { useCallback, useEffect, useState } from "react";
+import CategoryContents from "../../../components/shared/CategoryContents";
 import ArrayList from "../../../models/ArrayList";
 import { CategoryContent } from "../../../models/DesignContents";
 import DevCMS from "../api/DevCMS";
@@ -9,13 +11,35 @@ interface Props {
   codingContent: CategoryContent;
 }
 
-const CodingContentPage = (props: Props) => {
+const CodingContentPage: NextPage<Props> = (props: Props) => {
   const { codingArray, codingContent } = props;
 
+  const [tabId, setTabId] = useState("tabPanel-0");
+
+  const handleChangeTabId = useCallback((tabId: string) => {
+    setTabId(tabId);
+  }, []);
+
+  useEffect(() => {
+    setTabId("tabPanel-0");
+  }, [codingContent]);
+
+  const tabItems = codingArray.contents.map((el) => {
+    return {
+      title: el.title,
+      path: `/coding/${el.id}`,
+    };
+  });
+
   return (
-    <>
-      <div>コーディング</div>
-    </>
+    <div className="container">
+      <CategoryContents
+        tabItems={tabItems}
+        content={codingContent}
+        tabId={tabId}
+        onChangeTabId={handleChangeTabId}
+      />
+    </div>
   );
 };
 
