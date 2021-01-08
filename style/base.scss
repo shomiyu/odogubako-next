@@ -1,11 +1,12 @@
 @use "style/settings";
 @import url("https://fonts.googleapis.com/css2?family=Limelight&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital@0;1&display=swap');
 
 html {
   box-sizing: border-box;
   height: 100%;
   font-size: medium;
-  font-family: "fot-tsukuardgothic-std", sans-serif;
+  font-family: "fot-tsukuardgothic-std", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "YuGothic", "Meiryo", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -48,6 +49,5 @@ strong {
   font-weight: bold;
 }
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: "Source Code Pro", monospace;
 }

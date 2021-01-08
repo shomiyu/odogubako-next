@@ -187,7 +187,7 @@
     padding: 6vw 0 7vw;
     text-align: center;
     width: 78.67vw;
-    background-image: url("/public/images/hero-box-child.svg");
+    background: url("/public/images/hero-box-child.svg") center center no-repeat;
     background-size: contain;
     position: absolute;
     top: 50%;
@@ -206,6 +206,7 @@
   &__title {
     text-transform: capitalize;
     font-size: 8.53vw;
+    font-weight: 700;
     @include mixin.tab {
       font-size: 5.28vw;
     }

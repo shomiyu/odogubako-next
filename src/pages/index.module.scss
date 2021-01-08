@@ -1,8 +1,0 @@
-@use "style/mixin";
-
-.main {
-  padding: 1em 0;
-  @include mixin.lap {
-    padding: 4em 0;
-  }
-}

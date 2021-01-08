@@ -1,3 +1,7 @@
+@use "style/mixin";
+@use "style/function";
+@use "style/settings";
+
 /**
  * 共通スタイル
  */
@@ -14,8 +18,26 @@
   margin: -1px;
 }
 
+.main {
+  padding: function.em(16, 48) 0 function.em(16, 64);
+  @include mixin.lap {
+    padding: function.em(16, 64) 0;
+  }
+}
+
 .section {
-  padding: 2em 0;
+  padding: function.em(16, 24) 0 function.em(16, 16);
+  @include mixin.lap {
+    padding: function.em(16, 32) 0 function.em(16, 16);
+  }
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+  }
 }
 
 .container {
@@ -27,18 +49,14 @@
 .titlePrimary {
   font-family: "Limelight", cursive;
   text-transform: capitalize;
-  font-size: 2.3em;
-  margin-bottom: 1.25em;
-  position: relative;
+  line-height: 1;
+  font-size: function.fz(32);
+  margin-bottom: function.em(32, 28);
 
   &__ja {
-    display: inline-block;
-    font-size: 0.5em;
-    line-height: 1.05;
-    color: #8f8f8f;
+    display: block;
+    font-size: function.em(32, 18);
+    color: settings.$color-gray;
     font-family: "kan415typos-std", sans-serif;
-    position: absolute;
-    top: calc(100% - 0.5em);
-    left: 0;
   }
 }
