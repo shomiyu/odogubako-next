@@ -8,9 +8,9 @@ interface Props {
   tabItems: tabItem[];
   content: CategoryContent;
   tabId: string;
-  copyStatus: boolean;
+  copyIndex: number | null;
   onChangeTabId: (tabId: string) => void;
-  onChangeCopyStatus: (status: boolean) => void;
+  onChangeCopyIndex: (copyIndex: number | null) => void;
 }
 
 interface tabItem {
@@ -23,9 +23,9 @@ const CategoryContents: React.FC<Props> = (props: Props) => {
     tabItems,
     content,
     tabId,
-    copyStatus,
+    copyIndex,
     onChangeTabId,
-    onChangeCopyStatus,
+    onChangeCopyIndex,
   } = props;
 
   return (
@@ -39,9 +39,9 @@ const CategoryContents: React.FC<Props> = (props: Props) => {
           <TabPanel
             childTabs={content.Categories}
             tabId={tabId}
-            copyStatus={copyStatus}
+            copyIndex={copyIndex}
             onChangeTabId={onChangeTabId}
-            onChangeCopyStatus={onChangeCopyStatus}
+            onChangeCopyIndex={onChangeCopyIndex}
           />
         </div>
       </div>

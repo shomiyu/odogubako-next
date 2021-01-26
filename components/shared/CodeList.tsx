@@ -5,12 +5,12 @@ import Code from "./Code";
 
 interface Props {
   posts: Post[];
-  copyStatus: boolean;
-  onChangeCopyStatus: (status: boolean) => void;
+  copyIndex: number | null;
+  onChangeCopyIndex: (copyIndex: number | null) => void;
 }
 
 const CodeList: React.FC<Props> = (props: Props) => {
-  const { posts, copyStatus, onChangeCopyStatus } = props;
+  const { posts, copyIndex, onChangeCopyIndex } = props;
 
   return (
     <ul className={style.wrapper}>
@@ -18,8 +18,8 @@ const CodeList: React.FC<Props> = (props: Props) => {
         <li className={style.item} key={index}>
           <Code
             post={post}
-            copyStatus={copyStatus}
-            onChangeCopyStatus={onChangeCopyStatus}
+            copyStatus={copyIndex === index}
+            onChangeCopyIndex={onChangeCopyIndex}
             dataIndex={index}
           />
         </li>

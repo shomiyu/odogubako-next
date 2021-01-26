@@ -9,7 +9,6 @@ interface Post {
   commercialUse: boolean;
   credit: boolean;
   code?: string;
-  code_2?: string;
 }
 
 export default Post;

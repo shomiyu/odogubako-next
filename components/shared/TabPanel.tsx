@@ -7,18 +7,18 @@ import style from "./TabPanel.module.scss";
 interface Props {
   childTabs: PageCategory[];
   tabId: string;
-  copyStatus: boolean;
+  copyIndex: number | null;
   onChangeTabId: (tabId: string) => void;
-  onChangeCopyStatus: (status: boolean) => void;
+  onChangeCopyIndex: (copyIndex: number | null) => void;
 }
 
 const TabPanel: React.FC<Props> = (props: Props) => {
   const {
     childTabs,
     tabId,
-    copyStatus,
+    copyIndex,
     onChangeTabId,
-    onChangeCopyStatus,
+    onChangeCopyIndex,
   } = props;
 
   const handleChangeTabId = useCallback(
@@ -83,8 +83,8 @@ const TabPanel: React.FC<Props> = (props: Props) => {
             {childTab.postsType[0] === "code" && (
               <CodeList
                 posts={childTab.posts}
-                copyStatus={copyStatus}
-                onChangeCopyStatus={onChangeCopyStatus}
+                copyIndex={copyIndex}
+                onChangeCopyIndex={onChangeCopyIndex}
               />
             )}
           </section>

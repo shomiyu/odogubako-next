@@ -15,14 +15,14 @@ const CodingContentPage: NextPage<Props> = (props: Props) => {
   const { codingArray, codingContent } = props;
 
   const [tabId, setTabId] = useState("tabPanel-0");
-  const [copyStatus, setCopyStatus] = useState(false);
+  const [copyIndex, setCopyIndex] = useState<number | null>(null);
 
   const handleChangeTabId = useCallback((tabId: string) => {
     setTabId(tabId);
   }, []);
 
-  const handleChangeCopyStatus = useCallback((copyStatus: boolean) => {
-    setCopyStatus(copyStatus);
+  const handleChangeCopyIndex = useCallback((copyIndex: number | null) => {
+    setCopyIndex(copyIndex);
   }, []);
 
   useEffect(() => {
@@ -42,9 +42,9 @@ const CodingContentPage: NextPage<Props> = (props: Props) => {
         tabItems={tabItems}
         content={codingContent}
         tabId={tabId}
-        copyStatus={copyStatus}
+        copyIndex={copyIndex}
         onChangeTabId={handleChangeTabId}
-        onChangeCopyStatus={handleChangeCopyStatus}
+        onChangeCopyIndex={handleChangeCopyIndex}
       />
     </div>
   );
