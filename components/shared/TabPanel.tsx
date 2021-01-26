@@ -7,11 +7,19 @@ import style from "./TabPanel.module.scss";
 interface Props {
   childTabs: PageCategory[];
   tabId: string;
+  copyStatus: boolean;
   onChangeTabId: (tabId: string) => void;
+  onChangeCopyStatus: (status: boolean) => void;
 }
 
 const TabPanel: React.FC<Props> = (props: Props) => {
-  const { childTabs, tabId, onChangeTabId } = props;
+  const {
+    childTabs,
+    tabId,
+    copyStatus,
+    onChangeTabId,
+    onChangeCopyStatus,
+  } = props;
 
   const handleChangeTabId = useCallback(
     (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -73,7 +81,11 @@ const TabPanel: React.FC<Props> = (props: Props) => {
               <CardItemList posts={childTab.posts} />
             )}
             {childTab.postsType[0] === "code" && (
-              <CodeList posts={childTab.posts} />
+              <CodeList
+                posts={childTab.posts}
+                copyStatus={copyStatus}
+                onChangeCopyStatus={onChangeCopyStatus}
+              />
             )}
           </section>
         </section>

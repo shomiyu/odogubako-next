@@ -1,0 +1,11 @@
+@use "style/mixin";
+@use "style/function";
+
+.copyMessage {
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+
+  &.isShow {
+    opacity: 1;
+  }
+}
