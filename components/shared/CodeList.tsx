@@ -14,7 +14,7 @@ const CodeList: React.FC<Props> = (props: Props) => {
     <ul className={style.wrapper}>
       {posts.map((post, index) => (
         <li className={style.item} key={index}>
-          <Code post={post} />
+          <Code post={post} dataIndex={index} />
         </li>
       ))}
     </ul>
