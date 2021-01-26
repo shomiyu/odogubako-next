@@ -7,9 +7,9 @@ import style from "./TabPanel.module.scss";
 interface Props {
   childTabs: PageCategory[];
   tabId: string;
-  copyIndex: number | null;
+  copyIndex?: number | null;
   onChangeTabId: (tabId: string) => void;
-  onChangeCopyIndex: (copyIndex: number | null) => void;
+  onChangeCopyIndex?: (copyIndex: number | null) => void;
 }
 
 const TabPanel: React.FC<Props> = (props: Props) => {

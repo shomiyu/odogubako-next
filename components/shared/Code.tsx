@@ -6,7 +6,7 @@ interface Props {
   post: Post;
   copyStatus: boolean;
   dataIndex: number | null;
-  onChangeCopyIndex: (copyIndex: number | null) => void;
+  onChangeCopyIndex?: (copyIndex: number | null) => void;
 }
 
 const Code = (props: Props) => {
@@ -19,8 +19,10 @@ const Code = (props: Props) => {
       const copyItem = document.getElementById(`${copyId}`)?.innerText ?? "";
       navigator.clipboard.writeText(copyItem);
 
-      onChangeCopyIndex(dataIndex);
-      setTimeout(onChangeCopyIndex, 2000, null);
+      if (onChangeCopyIndex) {
+        onChangeCopyIndex(dataIndex);
+        setTimeout(onChangeCopyIndex, 2000, null);
+      }
     },
     []
   );

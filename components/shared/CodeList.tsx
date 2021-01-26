@@ -5,8 +5,8 @@ import Code from "./Code";
 
 interface Props {
   posts: Post[];
-  copyIndex: number | null;
-  onChangeCopyIndex: (copyIndex: number | null) => void;
+  copyIndex?: number | null;
+  onChangeCopyIndex?: (copyIndex: number | null) => void;
 }
 
 const CodeList: React.FC<Props> = (props: Props) => {

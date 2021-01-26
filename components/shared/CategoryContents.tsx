@@ -8,9 +8,9 @@ interface Props {
   tabItems: tabItem[];
   content: CategoryContent;
   tabId: string;
-  copyIndex: number | null;
+  copyIndex?: number | null;
   onChangeTabId: (tabId: string) => void;
-  onChangeCopyIndex: (copyIndex: number | null) => void;
+  onChangeCopyIndex?: (copyIndex: number | null) => void;
 }
 
 interface tabItem {
