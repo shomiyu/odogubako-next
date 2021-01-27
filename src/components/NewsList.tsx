@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import ArrayList from "../../models/ArrayList";
-import News from "../../models/News";
+import ArrayList from "../models/ArrayList";
+import News from "../models/News";
 import style from "./NewsList.module.scss";
 import { formatDate, formatDateDots } from "../utils/FormatUtils";
 

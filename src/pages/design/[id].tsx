@@ -1,18 +1,18 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import * as React from "react";
 import { useCallback, useEffect, useState } from "react";
-import CategoryContents from "../../components/CategoryContents";
-import ArrayList from "../../../models/ArrayList";
-import { CategoryContent } from "../../../models/DesignContents";
+import CategoryContentComponent from "../../components/CategoryContent";
+import ArrayList from "../../models/ArrayList";
+import { CategoryContent } from "../../models/CategoryContent";
 import DevCMS from "../api/DevCMS";
 
 interface Props {
-  designArray: ArrayList<CategoryContent>;
+  designContents: ArrayList<CategoryContent>;
   designContent: CategoryContent;
 }
 
 const DesignContentPage: NextPage<Props> = (props: Props) => {
-  const { designArray, designContent } = props;
+  const { designContents, designContent } = props;
 
   const [tabId, setTabId] = useState("tabPanel-0");
 
@@ -20,22 +20,15 @@ const DesignContentPage: NextPage<Props> = (props: Props) => {
     setTabId(nextTabId);
   }, []);
 
-  const tabItems = designArray.contents.map((el) => {
-    return {
-      title: el.title,
-      path: `/design/${el.id}`,
-    };
-  });
-
   useEffect(() => {
     setTabId("tabPanel-0");
   }, [designContent]);
 
   return (
     <div className="container">
-      <CategoryContents
-        tabItems={tabItems}
+      <CategoryContentComponent
         content={designContent}
+        contents={designContents}
         tabId={tabId}
         onChangeTabId={handleChangeTabId}
       />
@@ -61,12 +54,12 @@ export const getStaticProps: GetStaticProps = async ({
   const devCMS = new DevCMS();
 
   const paramsId = params?.id?.toString() ?? "";
-  const designArray = await devCMS.getDesignArray();
+  const designContents = await devCMS.getDesignArray();
   const designContent = await devCMS.getDesignContent(paramsId);
 
   return {
     props: {
-      designArray,
+      designContents,
       designContent,
     },
   };

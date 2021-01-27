@@ -1,6 +1,14 @@
 @use "style/mixin";
 @use "style/function";
 
+.wrapper {
+  margin-bottom: function.em(16, -24);
+}
+
+.item {
+  margin-bottom: function.em(16, 24);
+}
+
 .copyMessage {
   opacity: 0;
   transition: all 0.3s ease-in-out;

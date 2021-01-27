@@ -1,7 +1,7 @@
 import { NextPage, GetStaticProps } from "next";
 import * as React from "react";
-import ArrayList from "../../models/ArrayList";
-import News from "../../models/News";
+import ArrayList from "../models/ArrayList";
+import News from "../models/News";
 import DevCMS from "./api/DevCMS";
 import NewsList from "../components/NewsList";
 import CategoryList from "../components/CategoryList";

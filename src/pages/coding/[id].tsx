@@ -1,18 +1,18 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import * as React from "react";
 import { useCallback, useEffect, useState } from "react";
-import CategoryContents from "../../components/CategoryContents";
-import ArrayList from "../../../models/ArrayList";
-import { CategoryContent } from "../../../models/DesignContents";
+import CategoryContentComponent from "../../components/CategoryContent";
+import ArrayList from "../../models/ArrayList";
+import { CategoryContent } from "../../models/CategoryContent";
 import DevCMS from "../api/DevCMS";
 
 interface Props {
-  codingArray: ArrayList<CategoryContent>;
+  codingContents: ArrayList<CategoryContent>;
   codingContent: CategoryContent;
 }
 
 const CodingContentPage: NextPage<Props> = (props: Props) => {
-  const { codingArray, codingContent } = props;
+  const { codingContents, codingContent } = props;
 
   const [tabId, setTabId] = useState("tabPanel-0");
   const [copyIndex, setCopyIndex] = useState<number | null>(null);
@@ -29,18 +29,11 @@ const CodingContentPage: NextPage<Props> = (props: Props) => {
     setTabId("tabPanel-0");
   }, [codingContent]);
 
-  const tabItems = codingArray.contents.map((el) => {
-    return {
-      title: el.title,
-      path: `/coding/${el.id}`,
-    };
-  });
-
   return (
     <div className="container">
-      <CategoryContents
-        tabItems={tabItems}
+      <CategoryContentComponent
         content={codingContent}
+        contents={codingContents}
         tabId={tabId}
         copyIndex={copyIndex}
         onChangeTabId={handleChangeTabId}
@@ -65,12 +58,12 @@ export const getStaticProps: GetStaticProps = async ({
 }): Promise<{ props: Props }> => {
   const devCMS = new DevCMS();
   const paramsId = params?.id?.toString() ?? "";
-  const codingArray = await devCMS.getCodingArray();
+  const codingContents = await devCMS.getCodingArray();
   const codingContent = await devCMS.getCodingContent(paramsId);
 
   return {
     props: {
-      codingArray,
+      codingContents,
       codingContent,
     },
   };

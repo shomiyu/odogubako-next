@@ -9,6 +9,7 @@ interface Post {
   commercialUse: boolean;
   credit: boolean;
   code?: string;
+  // eslint-disable-next-line camelcase
   code_2: string;
 }
 

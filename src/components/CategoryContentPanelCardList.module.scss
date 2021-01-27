@@ -3,6 +3,44 @@
 @use "style/settings";
 
 .wrapper {
+  list-style: none;
+  width: 100%;
+  margin-bottom: -1em;
+
+  @include mixin.tab {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &::before,
+  &::after {
+    @include mixin.lap {
+      content: "";
+      display: block;
+      width: calc((100% - (24px * 3)) / 4);
+    }
+  }
+
+  &::before {
+    order: 1;
+  }
+}
+
+.item {
+  width: 100%;
+  margin-bottom: 1em;
+
+  @include mixin.tab {
+    width: calc((100% - 16px) / 2);
+  }
+  @include mixin.lap {
+    width: calc((100% - (24px * 3)) / 4);
+    margin-bottom: function.em(16, 24);
+  }
+}
+
+.wrap {
   height: 100%;
 }
 
