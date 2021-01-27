@@ -4,6 +4,10 @@ import { CategoryContent } from "../../models/DesignContents";
 import TabPanel from "./TabPanel";
 import TabList from "./TabList";
 
+interface tabItem {
+  title: string;
+  path: string;
+}
 interface Props {
   tabItems: tabItem[];
   content: CategoryContent;
@@ -11,11 +15,6 @@ interface Props {
   copyIndex?: number | null;
   onChangeTabId: (tabId: string) => void;
   onChangeCopyIndex?: (copyIndex: number | null) => void;
-}
-
-interface tabItem {
-  title: string;
-  path: string;
 }
 
 const CategoryContents: React.FC<Props> = (props: Props) => {

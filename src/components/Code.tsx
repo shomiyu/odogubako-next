@@ -1,8 +1,8 @@
 import React, { useCallback } from "react";
-import Post from "../../models/Post";
-import style from "./Code.module.scss";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { monokaiSublime } from "react-syntax-highlighter/dist/cjs/styles/hljs";
+import Post from "../../models/Post";
+import style from "./Code.module.scss";
 
 interface Props {
   post: Post;
@@ -19,14 +19,14 @@ const Code = (props: Props) => {
       const element = e.currentTarget;
       const copyId = element.getAttribute("data-target") ?? "";
       const copyItem = document.getElementById(`${copyId}`)?.innerText ?? "";
-      navigator.clipboard.writeText(copyItem);
+      void navigator.clipboard.writeText(copyItem);
 
       if (onChangeCopyIndex) {
         onChangeCopyIndex(dataIndex);
         setTimeout(onChangeCopyIndex, 2000, null);
       }
     },
-    []
+    [dataIndex, onChangeCopyIndex]
   );
 
   return (
@@ -35,17 +35,17 @@ const Code = (props: Props) => {
       {post.code && (
         <div>
           <div
-            id={`code-${dataIndex}`}
+            id={`code-${dataIndex ?? ""}`}
             contentEditable
             spellCheck={false}
-            suppressContentEditableWarning={true}
+            suppressContentEditableWarning
           >
             <SyntaxHighlighter language="htmlbars" style={monokaiSublime}>
               {post.code_2}
             </SyntaxHighlighter>
           </div>
           <span
-            id={`message-${dataIndex}`}
+            id={`message-${dataIndex ?? ""}`}
             className={`${style.copyMessage} ${copyStatus ? style.isShow : ""}`}
           >
             Copied!

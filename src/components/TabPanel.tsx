@@ -24,11 +24,11 @@ const TabPanel: React.FC<Props> = (props: Props) => {
   const handleChangeTabId = useCallback(
     (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
       const element = e.currentTarget;
-      const tabId = element.getAttribute("aria-controls") ?? "";
+      const nextTabId = element.getAttribute("aria-controls") ?? "";
 
-      onChangeTabId(tabId);
+      onChangeTabId(nextTabId);
     },
-    []
+    [onChangeTabId]
   );
 
   return (
@@ -41,11 +41,11 @@ const TabPanel: React.FC<Props> = (props: Props) => {
               key={titleKey}
               data-index={titleKey}
               className={`${style.button} ${
-                tabId === "tabPanel-" + titleKey ? style.isActive : ""
+                tabId === `tabPanel-${titleKey}` ? style.isActive : ""
               }`}
               role="tab"
-              aria-controls={"tabPanel-" + titleKey}
-              aria-selected={tabId === "tabPanel-" + titleKey}
+              aria-controls={`tabPanel-${titleKey}`}
+              aria-selected={tabId === `tabPanel-${titleKey}`}
               onClick={handleChangeTabId}
             >
               {item.categoryName}
@@ -56,11 +56,11 @@ const TabPanel: React.FC<Props> = (props: Props) => {
 
       {childTabs.map((childTab, index) => (
         <section
-          id={childTabs.length >= 2 ? "tabPanel-" + index : ""}
+          id={childTabs.length >= 2 ? `tabPanel-${index}` : ""}
           role="tabpanel"
-          aria-hidden={tabId !== "tabPanel-" + index}
+          aria-hidden={tabId !== `tabPanel-${index}`}
           className={`${style.childTab} ${
-            tabId === "tabPanel-" + index ? style.isShow : ""
+            tabId === `tabPanel-${index}` ? style.isShow : ""
           }`}
           key={index}
         >

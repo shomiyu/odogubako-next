@@ -1,6 +1,7 @@
+import { NextPage } from "next";
 import React from "react";
 
-const Coding = () => {
+const CodingPage: NextPage = () => {
   return (
     <>
       <p>コーディング</p>
@@ -8,4 +9,4 @@ const Coding = () => {
   );
 };
 
-export default Coding;
+export default CodingPage;

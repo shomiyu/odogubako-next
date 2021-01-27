@@ -1,11 +1,12 @@
-import React from 'react';
+import { NextPage } from "next";
+import React from "react";
 
-const Other = () => {
+const OtherPage: NextPage = () => {
   return (
     <>
       <p>その他</p>
     </>
   );
-}
+};
 
-export default Other;
+export default OtherPage;

@@ -1,6 +1,7 @@
+import { NextPage } from "next";
 import React from "react";
 
-const Bookmark = () => {
+const BookmarkPage: NextPage = () => {
   return (
     <>
       <p>その他ブックマーク</p>
@@ -8,4 +9,4 @@ const Bookmark = () => {
   );
 };
 
-export default Bookmark;
+export default BookmarkPage;

@@ -1,11 +1,10 @@
-import style from "./index.module.scss";
 import { NextPage, GetStaticProps } from "next";
 import * as React from "react";
 import ArrayList from "../../models/ArrayList";
 import News from "../../models/News";
 import DevCMS from "./api/DevCMS";
-import NewsList from "../../components/shared/NewsList";
-import CategoryList from "../../components/shared/CategoryList";
+import NewsList from "../components/NewsList";
+import CategoryList from "../components/CategoryList";
 
 interface Props {
   newsAry: ArrayList<News>;

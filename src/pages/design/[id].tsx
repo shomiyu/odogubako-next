@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import * as React from "react";
 import { useCallback, useEffect, useState } from "react";
-import CategoryContents from "../../../components/shared/CategoryContents";
+import CategoryContents from "../../components/CategoryContents";
 import ArrayList from "../../../models/ArrayList";
 import { CategoryContent } from "../../../models/DesignContents";
 import DevCMS from "../api/DevCMS";
@@ -16,8 +16,8 @@ const DesignContentPage: NextPage<Props> = (props: Props) => {
 
   const [tabId, setTabId] = useState("tabPanel-0");
 
-  const handleChangeTabId = useCallback((tabId: string) => {
-    setTabId(tabId);
+  const handleChangeTabId = useCallback((nextTabId: string) => {
+    setTabId(nextTabId);
   }, []);
 
   const tabItems = designArray.contents.map((el) => {

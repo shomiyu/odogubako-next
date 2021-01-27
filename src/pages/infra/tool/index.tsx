@@ -1,6 +1,7 @@
+import { NextPage } from "next";
 import React from "react";
 
-const Tool = () => {
+const ToolPage: NextPage = () => {
   return (
     <>
       <p>インフラツール</p>
@@ -8,4 +9,4 @@ const Tool = () => {
   );
 };
 
-export default Tool;
+export default ToolPage;

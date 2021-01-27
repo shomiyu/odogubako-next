@@ -3,13 +3,13 @@ import { useRouter } from "next/router";
 import React from "react";
 import style from "./TabList.module.scss";
 
-interface Props {
-  tabItems: tabItem[];
-}
-
 interface tabItem {
   title: string;
   path: string;
+}
+
+interface Props {
+  tabItems: tabItem[];
 }
 
 const TabList: React.FC<Props> = (props: Props) => {
