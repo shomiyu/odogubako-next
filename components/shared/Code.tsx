@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import Post from "../../models/Post";
 import style from "./Code.module.scss";
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { monokaiSublime } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { monokaiSublime } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 
 interface Props {
   post: Post;
@@ -32,7 +32,7 @@ const Code = (props: Props) => {
   return (
     <section>
       <h2>{post.title}</h2>
-      {post.code_2 && (
+      {post.code && (
         <div>
           <div
             id={`code-${dataIndex}`}
