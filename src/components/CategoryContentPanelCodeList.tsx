@@ -29,13 +29,13 @@ const CategoryContentPanelCodeList: React.FC<Props> = (props: Props) => {
   );
 
   return (
-    <ul className={style.wrapper}>
+    <ul className={style.list}>
       {posts.map((post, index) => (
         <li className={style.item} key={index}>
           <section>
-            <h2>{post.title}</h2>
+            <h2 className={style.title}>{post.title}</h2>
             {post.code && (
-              <div>
+              <div className={style.wrapper}>
                 <div
                   id={`code-${index ?? ""}`}
                   contentEditable
@@ -59,9 +59,10 @@ const CategoryContentPanelCodeList: React.FC<Props> = (props: Props) => {
                   data-index={index}
                   data-target={`code-${index}`}
                   onClick={handleClickCopyIndex}
+                  className={style.copyButton}
                   title="クリップボードにコピーする"
                 >
-                  クリップボードにコピーする
+                  <img src="/icons/copy.svg" alt="copy" />
                 </button>
               </div>
             )}
