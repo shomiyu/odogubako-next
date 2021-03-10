@@ -1,10 +1,10 @@
 import React from "react";
-import style from "./Header.module.scss";
-import { MENU } from "../../utils/constantUtils";
 import Link from "next/link";
+import style from "./Header.module.scss";
+import { MENU } from "../utils/ConstantUtils";
 
 interface Props {
-  currentPage: String;
+  currentPage: string;
 }
 
 const Header: React.FC<Props> = (props: Props) => {

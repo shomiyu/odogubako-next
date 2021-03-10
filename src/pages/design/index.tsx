@@ -1,7 +1,7 @@
+import { NextPage } from "next";
 import * as React from "react";
 
-const Design: React.FC = () => {
-
+const DesignPage: NextPage = () => {
   return (
     <>
       <main>
@@ -11,4 +11,4 @@ const Design: React.FC = () => {
   );
 };
 
-export default Design;
+export default DesignPage;

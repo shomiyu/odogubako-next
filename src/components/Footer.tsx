@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import style from "./Footer.module.scss";
-import { MENU } from "../../utils/constantUtils";
+import { MENU } from "../utils/ConstantUtils";
 
 const Footer: React.FC = () => {
   return (
@@ -34,7 +34,11 @@ const Footer: React.FC = () => {
           <div className={style.sns}>
             <ul className={style.sns__list}>
               <li>
-                <a href="https://twitter.com/MykiiTech" target="_blank">
+                <a
+                  href="https://twitter.com/MykiiTech"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <span className="visuallyHidden">
                     著作者のtwitterアカウントへ移動する
                   </span>

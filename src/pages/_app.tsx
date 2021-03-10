@@ -4,10 +4,9 @@ import adobeLoader from "../../loader/adobe";
 import "ress";
 import "../../style/base.scss";
 import "../../style/common.scss";
-import Layout from "../../components/shared/Layout";
+import Layout from "../components/Layout";
 
 const MyApp = (props: AppProps): JSX.Element => {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const { Component, pageProps } = props;
 
   useEffect(() => {

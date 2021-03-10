@@ -1,9 +1,9 @@
 import React from "react";
-import ArrayList from "../../models/ArrayList";
-import News from "../../models/News";
-import style from "./NewsList.module.scss";
-import { formatDate, formatDateDots } from "../../src/utils/FormatUtils";
 import Link from "next/link";
+import ArrayList from "../models/ArrayList";
+import News from "../models/News";
+import style from "./NewsList.module.scss";
+import { formatDate, formatDateDots } from "../utils/FormatUtils";
 
 interface Props {
   newsAry: ArrayList<News>;

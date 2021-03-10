@@ -3,9 +3,9 @@ import Axios, {
   AxiosRequestConfig,
   AxiosPromise,
 } from "axios";
-import News from "../../../models/News";
-import ArrayList from "../../../models/ArrayList";
-import { CategoryContent } from "../../../models/DesignContents";
+import News from "../../models/News";
+import ArrayList from "../../models/ArrayList";
+import { CategoryContent } from "../../models/CategoryContent";
 
 class DevCMS {
   private axios = Axios.create({
@@ -29,6 +29,7 @@ class DevCMS {
     return config;
   };
 
+  // eslint-disable-next-line class-methods-use-this
   private resolvePromise<T>(promise: AxiosPromise<T>) {
     return new Promise<T>((resolve, reject) => {
       promise
@@ -63,6 +64,14 @@ class DevCMS {
 
   public getDesignContent(id: string): Promise<CategoryContent> {
     return this.get<CategoryContent>(`design/${id}`);
+  }
+
+  public getCodingArray(): Promise<ArrayList<CategoryContent>> {
+    return this.get<ArrayList<CategoryContent>>("coding");
+  }
+
+  public getCodingContent(id: string): Promise<CategoryContent> {
+    return this.get<CategoryContent>(`coding/${id}`);
   }
 }
 export default DevCMS;

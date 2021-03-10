@@ -7,30 +7,37 @@ import { CategoryContent } from "../../models/CategoryContent";
 import DevCMS from "../api/DevCMS";
 
 interface Props {
-  designContents: ArrayList<CategoryContent>;
-  designContent: CategoryContent;
+  codingContents: ArrayList<CategoryContent>;
+  codingContent: CategoryContent;
 }
 
-const DesignContentPage: NextPage<Props> = (props: Props) => {
-  const { designContents, designContent } = props;
+const CodingContentPage: NextPage<Props> = (props: Props) => {
+  const { codingContents, codingContent } = props;
 
   const [tabId, setTabId] = useState("tabPanel-0");
+  const [copyIndex, setCopyIndex] = useState<number | null>(null);
 
   const handleChangeTabId = useCallback((nextTabId: string) => {
     setTabId(nextTabId);
   }, []);
 
+  const handleChangeCopyIndex = useCallback((nextCopyIndex: number | null) => {
+    setCopyIndex(nextCopyIndex);
+  }, []);
+
   useEffect(() => {
     setTabId("tabPanel-0");
-  }, [designContent]);
+  }, [codingContent]);
 
   return (
     <div className="container">
       <CategoryContentComponent
-        content={designContent}
-        contents={designContents}
+        content={codingContent}
+        contents={codingContents}
         tabId={tabId}
+        copyIndex={copyIndex}
         onChangeTabId={handleChangeTabId}
+        onChangeCopyIndex={handleChangeCopyIndex}
       />
     </div>
   );
@@ -38,9 +45,9 @@ const DesignContentPage: NextPage<Props> = (props: Props) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const devCMS = new DevCMS();
-  const designArray = await devCMS.getDesignArray();
-  const paths = designArray.contents.map(
-    (content) => `/design/${content.id ?? ""}`
+  const codingArray = await devCMS.getCodingArray();
+  const paths = codingArray.contents.map(
+    (content) => `/coding/${content.id ?? ""}`
   );
 
   return { paths, fallback: false };
@@ -48,21 +55,18 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({
   params,
-}): Promise<{
-  props: Props;
-}> => {
+}): Promise<{ props: Props }> => {
   const devCMS = new DevCMS();
-
   const paramsId = params?.id?.toString() ?? "";
-  const designContents = await devCMS.getDesignArray();
-  const designContent = await devCMS.getDesignContent(paramsId);
+  const codingContents = await devCMS.getCodingArray();
+  const codingContent = await devCMS.getCodingContent(paramsId);
 
   return {
     props: {
-      designContents,
-      designContent,
+      codingContents,
+      codingContent,
     },
   };
 };
 
-export default DesignContentPage;
+export default CodingContentPage;

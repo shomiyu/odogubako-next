@@ -1,11 +1,12 @@
-import React from 'react';
+import { NextPage } from "next";
+import React from "react";
 
-const Infra = () => {
+const InfraPage: NextPage = () => {
   return (
     <>
       <p>インフラ</p>
     </>
-  )
-}
+  );
+};
 
-export default Infra
+export default InfraPage;
