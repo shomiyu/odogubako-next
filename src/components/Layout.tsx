@@ -39,10 +39,12 @@ const Layout: React.FC<Props> = (props: Props) => {
       <Header currentPage={pageName} />
       <main id="main" className="main">
         {children}
-        <ScrollToTop
-          isShadowFit={isShadowFit}
-          onChangeIconStatus={handleChangeIconStatus}
-        />
+        <div className="container">
+          <ScrollToTop
+            isShadowFit={isShadowFit}
+            onChangeIconStatus={handleChangeIconStatus}
+          />
+        </div>
       </main>
       <Footer />
     </>
