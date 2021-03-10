@@ -43,7 +43,7 @@ const CategoryContentPanelCodeList: React.FC<Props> = (props: Props) => {
                   suppressContentEditableWarning
                 >
                   <SyntaxHighlighter language="htmlbars" style={monokaiSublime}>
-                    {post.code_2}
+                    {post.code}
                   </SyntaxHighlighter>
                 </div>
                 <span
