@@ -1,12 +1,17 @@
 {
   "rules": {
-    "selector-class-pattern": "^[0-9a-z\\-]+$",
     "block-opening-brace-space-before": "always",
     "rule-empty-line-before": [
       "always",
       {
         "except": ["after-single-line-comment", "first-nested"]
       }
+    ],
+    'at-rule-no-unknown': [
+      true,
+      {
+        ignoreAtRules: ['use'],
+      },
     ],
     "order/properties-alphabetical-order": true
   },
