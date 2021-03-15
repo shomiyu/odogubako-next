@@ -85,6 +85,7 @@ $tabMaxNum: 10;
       @include mixin.lap {
         z-index: #{($tabMaxNum + 1)};
       }
+
       a {
         font-weight: bold;
         background-color: settings.$color-yellow;
