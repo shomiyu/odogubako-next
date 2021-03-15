@@ -1,0 +1,49 @@
+@use "style/mixin";
+@use "style/function";
+@use "style/settings";
+
+.wrapper {
+  height: 70px;
+  margin: 3em 0 0 auto;
+  width: 70px;
+}
+
+.button {
+  border: 3px solid settings.$color-black;
+  display: inline-block;
+  height: 100%;
+  left: 0;
+  position: relative;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.iconArrow {
+  border: 3px solid;
+  border-color: settings.$color-black settings.$color-black transparent
+    transparent;
+  display: inline-block;
+  height: 25px;
+  left: 50%;
+  position: absolute;
+  top: 65%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  width: 25px;
+  z-index: 11;
+}
+
+.buttonShadow {
+  background-color: settings.$color-pink;
+  display: block;
+  height: 100%;
+  position: relative;
+  transform: translate(-15%, -115%);
+  transition: 0.3s all ease-in-out;
+  width: 100%;
+  z-index: 9;
+
+  .isShadowFit & {
+    transform: translate(0%, -100%);
+  }
+}
