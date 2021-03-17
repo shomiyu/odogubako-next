@@ -91,12 +91,6 @@ const MENU = [
           "https://images.microcms-assets.io/protected/ap-northeast-1:b7599113-36d1-4105-9bdc-e29b6d1179fe/service/odogubako/media/icon-design-tool.png",
       },
       {
-        title: "テンプレート",
-        path: "build",
-        icon:
-          "https://images.microcms-assets.io/protected/ap-northeast-1:b7599113-36d1-4105-9bdc-e29b6d1179fe/service/odogubako/media/icon-database.png",
-      },
-      {
         title: "管理",
         path: "manage",
         icon:
