@@ -3,13 +3,11 @@
     { "source": "/design", "destination": "/design/color" },
     { "source": "/coding", "destination": "/coding/html" },
     { "source": "/infra", "destination": "/infra/tool" },
-    { "source": "/other", "destination": "/other/bookmark" }
-  ],
-  "routes": [
+    { "source": "/other", "destination": "/other/bookmark" },
     {
-      "src": "/calc",
-      "status": 301,
-      "headers": { "Location": "https://coding-calc.com/" }
+      "source": "/calc",
+      "destination": "https://coding-calc.com/",
+      "statusCode": 301
     }
   ]
 }
