@@ -1,0 +1,13 @@
+{
+  "redirects": [
+    { "source": "/design", "destination": "/design/color" },
+    { "source": "/coding", "destination": "/coding/html" },
+    { "source": "/infra", "destination": "/infra/tool" },
+    { "source": "/other", "destination": "/other/bookmark" },
+    {
+      "source": "/calc",
+      "destination": "https://coding-calc.com/",
+      "statusCode": 301
+    }
+  ]
+}
