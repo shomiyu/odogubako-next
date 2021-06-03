@@ -22,7 +22,12 @@ const MainHead: React.FC<Props> = (props: Props) => {
         currentPage === "home" ? defaultTitle : title + " | " + defaultTitle
       )}`}</title>
       <meta name="description" content={defaultDescription} />
-      <meta property="og:title" content={`${title} | ${defaultTitle}`} />
+      <meta
+        property="og:title"
+        content={`${String(
+          currentPage === "home" ? defaultTitle : title + " | " + defaultTitle
+        )}`}
+      />
       <meta property="og:description" content={defaultDescription} />
       <meta property="og:site_name" content={defaultTitle} />
       <meta property="og:url" content={baseUrl} />
