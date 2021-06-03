@@ -21,6 +21,7 @@ const CategoryContentPanelCardList: React.FC<Props> = (props: Props) => {
       action: "click",
       category: categoryName,
       label: targetUrl,
+      value: 1,
     });
   };
 
