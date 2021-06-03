@@ -49,13 +49,13 @@ const Footer: React.FC = () => {
               </li>
             </ul>
           </div>
-          <ul className={style.secondaryNavi}>
+          {/* <ul className={style.secondaryNavi}>
             <li className={style.secondaryNavi__item}>
               <Link href="/">
                 <a>お道具箱について</a>
               </Link>
             </li>
-          </ul>
+          </ul> */}
           <p className={style.copywrite}>
             <small>
               &copy;2019{" "}
