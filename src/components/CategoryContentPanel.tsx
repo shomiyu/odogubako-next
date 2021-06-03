@@ -3,6 +3,7 @@ import { PageCategory } from "../models/PageCategory";
 import CategoryContentPanelCardList from "./CategoryContentPanelCardList";
 import CategoryContentPanelCodeList from "./CategoryContentPanelCodeList";
 import style from "./CategoryContentPanel.module.scss";
+import CategoryContentPanelMediaList from "./CategoryContentPanelMediaList";
 
 interface Props {
   childTabs: PageCategory[];
@@ -49,6 +50,9 @@ const CategoryContentPanel: React.FC<Props> = (props: Props) => {
                 copyIndex={copyIndex}
                 onChangeCopyIndex={onChangeCopyIndex}
               />
+            )}
+            {childTab.postsType[0] === "thumbnail" && (
+              <CategoryContentPanelMediaList posts={childTab.posts} />
             )}
           </section>
         </section>
