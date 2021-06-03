@@ -154,7 +154,6 @@
       display: block;
       padding: function.em(16, 10) function.em(16, 16);
       min-width: 80px;
-      border-left: 1px solid settings.$color-globalNav-background;
       border-right: 1px solid settings.$color-globalNav-background;
 
       @include mixin.lap {
@@ -165,6 +164,12 @@
         color: settings.$color-text-primary;
         background-color: settings.$color-body-background;
       }
+    }
+
+    &.isActive {
+      font-weight: bold;
+      color: settings.$color-text-primary;
+      background-color: settings.$color-body-background;
     }
   }
 }
