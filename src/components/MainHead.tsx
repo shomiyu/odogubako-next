@@ -26,7 +26,7 @@ const MainHead: React.FC<Props> = (props: Props) => {
       <meta property="og:description" content={defaultDescription} />
       <meta property="og:site_name" content={defaultTitle} />
       <meta property="og:url" content={baseUrl} />
-      <meta property="og:image" content={`${baseUrl}/image_hero_ogp.png.png`} />
+      <meta property="og:image" content={`${baseUrl}/image_hero_ogp.png`} />
       <meta property="og:type" content={type} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@MykiiTech" />
@@ -38,10 +38,7 @@ const MainHead: React.FC<Props> = (props: Props) => {
         )}`}
       />
       <meta name="twitter:description" content={defaultDescription} />
-      <meta
-        name="twitter:image"
-        content={`${baseUrl}/image_hero_ogp.png.png`}
-      />
+      <meta name="twitter:image" content={`${baseUrl}/image_hero_ogp.png`} />
     </Head>
   );
 };
