@@ -4,6 +4,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { MENU } from "../utils/ConstantUtils";
 import ScrollToTop from "./ScrollToTop";
+import MainHead from "./MainHead";
 
 interface Props {
   children: React.ReactNode;
@@ -36,6 +37,7 @@ const Layout: React.FC<Props> = (props: Props) => {
 
   return (
     <>
+      <MainHead currentPage={pageName} />
       <Header currentPage={pageName} />
       <main id="main" className="main">
         {children}
