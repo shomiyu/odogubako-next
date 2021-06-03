@@ -49,7 +49,12 @@ const Header: React.FC<Props> = (props: Props) => {
         <div className={style.menu}>
           <ul className={style.menu__inner}>
             {MENU.map((category) => (
-              <li className={style.menu__list} key={category.id}>
+              <li
+                className={`${style.menu__list} ${String(
+                  currentPage === category.path ? style.isActive : ""
+                )}`}
+                key={category.id}
+              >
                 <Link href={`/${category.path}/${category.children[0]?.path}`}>
                   <a>{category.title}</a>
                 </Link>
