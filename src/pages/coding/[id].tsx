@@ -35,6 +35,7 @@ const CodingContentPage: NextPage<Props> = (props: Props) => {
         content={codingContent}
         contents={codingContents}
         tabId={tabId}
+        categoryName="coding"
         copyIndex={copyIndex}
         onChangeTabId={handleChangeTabId}
         onChangeCopyIndex={handleChangeCopyIndex}

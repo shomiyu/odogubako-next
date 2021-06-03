@@ -35,6 +35,7 @@ const InfraContentPage: NextPage<Props> = (props: Props) => {
         content={infraContent}
         contents={infraContents}
         tabId={tabId}
+        categoryName="infra"
         copyIndex={copyIndex}
         onChangeTabId={handleChangeTabId}
         onChangeCopyIndex={handleChangeCopyIndex}

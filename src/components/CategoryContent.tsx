@@ -10,6 +10,7 @@ interface Props {
   contents: ArrayList<CategoryContent>;
   content: CategoryContent;
   tabId: string;
+  categoryName: string;
   copyIndex?: number | null;
   onChangeTabId: (tabId: string) => void;
   onChangeCopyIndex?: (copyIndex: number | null) => void;
@@ -20,6 +21,7 @@ const CategoryContentComponent: React.FC<Props> = (props: Props) => {
     contents,
     content,
     tabId,
+    categoryName,
     copyIndex,
     onChangeTabId,
     onChangeCopyIndex,
@@ -43,6 +45,7 @@ const CategoryContentComponent: React.FC<Props> = (props: Props) => {
           <CategoryContentPanel
             childTabs={content.Categories}
             tabId={tabId}
+            categoryName={categoryName + "-" + content.id}
             copyIndex={copyIndex}
             onChangeTabId={onChangeTabId}
             onChangeCopyIndex={onChangeCopyIndex}
