@@ -4,6 +4,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { MENU } from "../utils/ConstantUtils";
 import ScrollToTop from "./ScrollToTop";
+import MainHead from "./MainHead";
 
 interface Props {
   children: React.ReactNode;
@@ -16,7 +17,8 @@ const Layout: React.FC<Props> = (props: Props) => {
    * パス情報からヘッダー見出しを取得する
    */
   const router = useRouter();
-  const currentPath = router.asPath;
+  const currentPathWithHash = router.asPath;
+  const currentPath = currentPathWithHash.replace(/#.*$/, "");
   const REG_MATCH_INDEX = 0 as const;
   const menuItem = MENU.find((item) => {
     // eslint-disable-next-line @typescript-eslint/prefer-regexp-exec
@@ -36,6 +38,7 @@ const Layout: React.FC<Props> = (props: Props) => {
 
   return (
     <>
+      <MainHead currentPath={currentPath} />
       <Header currentPage={pageName} />
       <main id="main" className="main">
         {children}
