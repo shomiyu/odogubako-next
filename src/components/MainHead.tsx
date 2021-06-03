@@ -3,13 +3,13 @@ import Head from "next/head";
 import generateHeadParams from "../utils/HeadUtils";
 
 interface Props {
-  currentPage: string;
+  currentPath: string;
 }
 
 const MainHead: React.FC<Props> = (props: Props) => {
-  const { currentPage } = props;
-  const headParams = generateHeadParams(currentPage);
-  const { title, type } = headParams;
+  const { currentPath } = props;
+  const headParams = generateHeadParams(currentPath);
+  const { title, type, description } = headParams;
 
   const defaultTitle = "お道具箱 for Shomiyu";
   const defaultDescription =
@@ -19,30 +19,44 @@ const MainHead: React.FC<Props> = (props: Props) => {
   return (
     <Head>
       <title>{`${String(
-        currentPage === "home" ? defaultTitle : title + " | " + defaultTitle
+        currentPath === "/" ? defaultTitle : title + " | " + defaultTitle
       )}`}</title>
-      <meta name="description" content={defaultDescription} />
+      <meta
+        name="description"
+        content={`${String(
+          currentPath === "/" ? defaultDescription : description
+        )}`}
+      />
       <meta
         property="og:title"
         content={`${String(
-          currentPage === "home" ? defaultTitle : title + " | " + defaultTitle
+          currentPath === "/" ? defaultTitle : title + " | " + defaultTitle
         )}`}
       />
-      <meta property="og:description" content={defaultDescription} />
+      <meta
+        property="og:description"
+        content={`${String(
+          currentPath === "/" ? defaultDescription : description
+        )}`}
+      />
       <meta property="og:site_name" content={defaultTitle} />
-      <meta property="og:url" content={baseUrl} />
+      <meta property="og:url" content={baseUrl + currentPath} />
       <meta property="og:image" content={`${baseUrl}/image_hero_ogp.png`} />
       <meta property="og:type" content={type} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@MykiiTech" />
-      <meta name="twitter:domain" content={baseUrl} />
       <meta
         name="twitter:title"
         content={`${String(
-          currentPage === "home" ? defaultTitle : title + " | " + defaultTitle
+          currentPath === "/" ? defaultTitle : title + " | " + defaultTitle
         )}`}
       />
-      <meta name="twitter:description" content={defaultDescription} />
+      <meta
+        name="twitter:description"
+        content={`${String(
+          currentPath === "/" ? defaultDescription : description
+        )}`}
+      />
       <meta name="twitter:image" content={`${baseUrl}/image_hero_ogp.png`} />
     </Head>
   );
