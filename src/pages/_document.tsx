@@ -1,6 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
-
-const GA_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
+import { GA_ID } from "../lib/gtag";
 
 class CustomDocument extends Document {
   render(): JSX.Element {

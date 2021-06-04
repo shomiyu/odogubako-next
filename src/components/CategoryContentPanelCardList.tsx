@@ -1,13 +1,29 @@
 import React from "react";
 import Post from "../models/Post";
+import * as gtag from "../lib/gtag";
 import style from "./CategoryContentPanelCardList.module.scss";
 
 interface Props {
+  categoryName: string;
   posts: Post[];
 }
 
 const CategoryContentPanelCardList: React.FC<Props> = (props: Props) => {
-  const { posts } = props;
+  const { categoryName, posts } = props;
+
+  const handleCountClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    const anchorElement = event.currentTarget;
+    const targetUrl = anchorElement.getAttribute("href");
+
+    if (targetUrl === null) return;
+
+    gtag.event({
+      action: "click",
+      category: categoryName,
+      label: targetUrl,
+      value: 1,
+    });
+  };
 
   return (
     <ul className={style.wrapper}>
@@ -21,6 +37,7 @@ const CategoryContentPanelCardList: React.FC<Props> = (props: Props) => {
               className={`${String(style.inner)} ${String(
                 post.externalLink ? style.hasExternalIcon : ""
               )}`}
+              onClick={handleCountClick}
             >
               {/* テキストコンテンツ */}
               <div

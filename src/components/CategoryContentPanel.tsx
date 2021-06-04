@@ -8,13 +8,20 @@ import CategoryContentPanelMediaList from "./CategoryContentPanelMediaList";
 interface Props {
   childTabs: PageCategory[];
   tabId: string;
+  categoryName: string;
   copyIndex?: number | null;
   onChangeTabId: (tabId: string) => void;
   onChangeCopyIndex?: (copyIndex: number | null) => void;
 }
 
 const CategoryContentPanel: React.FC<Props> = (props: Props) => {
-  const { childTabs, tabId, copyIndex, onChangeCopyIndex } = props;
+  const {
+    childTabs,
+    tabId,
+    categoryName,
+    copyIndex,
+    onChangeCopyIndex,
+  } = props;
 
   return (
     <>
@@ -42,7 +49,10 @@ const CategoryContentPanel: React.FC<Props> = (props: Props) => {
           <section>
             <h2 className="visuallyHidden">リンク先一覧</h2>
             {childTab.postsType[0] === "cardList" && (
-              <CategoryContentPanelCardList posts={childTab.posts} />
+              <CategoryContentPanelCardList
+                categoryName={categoryName}
+                posts={childTab.posts}
+              />
             )}
             {childTab.postsType[0] === "code" && (
               <CategoryContentPanelCodeList
@@ -52,7 +62,10 @@ const CategoryContentPanel: React.FC<Props> = (props: Props) => {
               />
             )}
             {childTab.postsType[0] === "thumbnail" && (
-              <CategoryContentPanelMediaList posts={childTab.posts} />
+              <CategoryContentPanelMediaList
+                categoryName={categoryName}
+                posts={childTab.posts}
+              />
             )}
           </section>
         </section>
