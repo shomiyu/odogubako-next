@@ -38,7 +38,6 @@ const CategoryContentPanelCodeList: React.FC<Props> = (props: Props) => {
               <div className={style.wrapper}>
                 <div
                   id={`code-${index ?? ""}`}
-                  contentEditable
                   spellCheck={false}
                   suppressContentEditableWarning
                 >
