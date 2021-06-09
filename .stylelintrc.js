@@ -16,7 +16,7 @@ module.exports = {
     "at-rule-no-unknown": [
       true,
       {
-        ignoreAtRules: ["use"],
+        ignoreAtRules: ["use", "include", "for", "function", "return", "mixin"],
       },
     ],
     "order/properties-alphabetical-order": true,

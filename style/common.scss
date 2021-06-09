@@ -5,17 +5,18 @@
 /**
  * 共通スタイル
  */
+
 .visuallyHidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
   position: absolute;
   white-space: nowrap;
   width: 1px;
-  height: 1px;
-  overflow: hidden;
-  border: 0;
-  padding: 0;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  margin: -1px;
 }
 
 .main {
@@ -41,22 +42,22 @@
 }
 
 .container {
-  width: 90%;
-  max-width: 1200px;
   margin: 0 auto;
+  max-width: 1200px;
+  width: 90%;
 }
 
 .titlePrimary {
   font-family: "Limelight", cursive;
-  text-transform: capitalize;
-  line-height: 1;
   font-size: function.fz(32);
+  line-height: 1;
   margin-bottom: function.em(32, 28);
+  text-transform: capitalize;
 
   &__ja {
-    display: block;
-    font-size: function.em(32, 18);
     color: settings.$color-gray;
+    display: block;
     font-family: "kan415typos-std", sans-serif;
+    font-size: function.em(32, 18);
   }
 }

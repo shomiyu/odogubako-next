@@ -10,23 +10,24 @@
   display: block;
   padding: 0 function.em(16, 8) 0 2em;
   position: relative;
+
   @include mixin.lap {
     cursor: pointer;
     display: inline-block;
   }
 
   &::before {
-    content: "";
-    display: inline-block;
-    width: 10px;
-    height: 10px;
     border: 1px solid;
     border-color: settings.$color-black settings.$color-black transparent
       transparent;
-    transform: translate(0, -50%) rotate(45deg);
+    content: "";
+    display: inline-block;
+    height: 10px;
+    left: 5px;
     position: absolute;
     top: 50%;
-    left: 5px;
+    transform: translate(0, -50%) rotate(45deg);
+    width: 10px;
   }
 
   & + & {
@@ -40,43 +41,71 @@
     font-weight: bold;
 
     &::before {
-      width: 13px;
-      height: 13px;
       border: 2px solid;
       border-color: settings.$color-black settings.$color-black transparent
         transparent;
+      height: 13px;
       transform: translate(0, -70%) rotate(135deg);
+      width: 13px;
     }
   }
 }
 
 .title {
+  align-items: center;
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-end;
-  align-items: center;
   margin-bottom: function.em(16, 24);
 
   &__main {
     font-family: "Limelight", cursive;
-    text-transform: capitalize;
     font-size: function.fz(24);
     line-height: 1;
+    text-transform: capitalize;
   }
 
   &__ja {
-    display: block;
-    font-size: function.fz(14);
     color: settings.$color-gray;
+    display: block;
     font-family: "kan415typos-std", sans-serif;
+    font-size: function.fz(14);
   }
 
   &__icon {
-    width: 32px;
     margin-right: function.em(16, 10);
+    width: 32px;
 
     img {
       width: 100%;
+    }
+  }
+}
+
+.tagsDescription {
+  align-items: center;
+  display: flex;
+
+  &__detail {
+    &::before {
+      content: "・・・";
+      letter-spacing: -0.5em;
+      margin-right: 0.5em;
+    }
+  }
+}
+
+.tags {
+  font-size: function.fz(11);
+
+  span {
+    background-color: settings.$color-black;
+    color: settings.$color-white;
+    display: inline-block;
+    padding: function.em(11, 2);
+
+    &.red {
+      background-color: settings.$color-red;
     }
   }
 }

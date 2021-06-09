@@ -1,45 +1,49 @@
 @use "style/settings";
 @import url("https://fonts.googleapis.com/css2?family=Limelight&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital@0;1&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital@0;1&display=swap");
 
 html {
   box-sizing: border-box;
-  height: 100%;
+  font-family: "fot-tsukuardgothic-std", "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", "YuGothic", "Meiryo", sans-serif;
   font-size: medium;
-  font-family: "fot-tsukuardgothic-std", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "YuGothic", "Meiryo", sans-serif;
   font-style: normal;
   font-weight: 400;
-  line-height: 1.5;
+  height: 100%;
   letter-spacing: 0.05em;
+  line-height: 1.5;
+  visibility: hidden; // Webフォントチラつき防止
   word-break: break-word;
+
+  &.wf-active {
+    visibility: visible;
+  }
 }
-// Webフォントチラつき防止
-html {
-  visibility: hidden;
-}
-html.wf-active {
-  visibility: visible;
-}
+
 *,
 *:before,
 *:after {
   box-sizing: inherit;
 }
+
 body {
-  height: 100%;
-  color: settings.$color-text-primary;
   background-color: settings.$color-body-background;
+  color: settings.$color-text-primary;
+  height: 100%;
   min-width: 320px;
 }
+
 img {
-  max-width: 100%;
   height: auto;
+  max-width: 100%;
   vertical-align: bottom;
 }
+
 a {
   color: inherit;
   text-decoration: none;
 }
+
 h1,
 h2,
 h3,
@@ -48,6 +52,7 @@ h5,
 strong {
   font-weight: bold;
 }
+
 code {
   font-family: "Source Code Pro", monospace;
 }
