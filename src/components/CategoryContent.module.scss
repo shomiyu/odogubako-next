@@ -5,8 +5,8 @@
 $tabMaxNum: 10;
 
 .target {
-  padding-top: 1em;
   margin-top: -1em;
+  padding-top: 1em;
 }
 
 .tabWrapper {
@@ -14,9 +14,9 @@ $tabMaxNum: 10;
 }
 
 .content {
-  padding: 2em 1em;
   border: 3px solid settings.$color-black;
   margin-top: -3px;
+  padding: 2em 1em;
   @include mixin.tab {
     padding: function.em(16, 40) function.em(16, 32) function.em(16, 48);
   }
