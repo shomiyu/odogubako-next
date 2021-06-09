@@ -81,6 +81,34 @@
   }
 }
 
+.tagsDescription {
+  align-items: center;
+  display: flex;
+
+  &__detail {
+    &::before {
+      content: "・・・";
+      letter-spacing: -0.5em;
+      margin-right: 0.5em;
+    }
+  }
+}
+
+.tags {
+  font-size: function.fz(11);
+
+  span {
+    background-color: settings.$color-black;
+    color: settings.$color-white;
+    display: inline-block;
+    padding: function.em(11, 2);
+
+    &.red {
+      background-color: settings.$color-red;
+    }
+  }
+}
+
 .childTab {
   display: none;
 }

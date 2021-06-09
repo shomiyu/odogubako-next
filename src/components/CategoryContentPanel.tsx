@@ -68,6 +68,30 @@ const CategoryContentPanel: React.FC<Props> = (props: Props) => {
               />
             )}
           </section>
+          {categoryName === "design-material" && (
+            <div>
+              <dl className={style.tagsDescription}>
+                <dt className={style.tagsDescription__title}>
+                  <p className={style.tags}>
+                    <span>商用可</span>
+                  </p>
+                </dt>
+                <dd className={style.tagsDescription__detail}>
+                  商用利用可能なサイト
+                </dd>
+              </dl>
+              <dl className={style.tagsDescription}>
+                <dt className={style.tagsDescription__title}>
+                  <p className={style.tags}>
+                    <span className={style.red}>クレ要</span>
+                  </p>
+                </dt>
+                <dd className={style.tagsDescription__detail}>
+                  クレジット表記が必要なサイト
+                </dd>
+              </dl>
+            </div>
+          )}
         </section>
       ))}
     </>
