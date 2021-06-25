@@ -4,6 +4,12 @@
     { "source": "/coding", "destination": "/coding/html" },
     { "source": "/infra", "destination": "/infra/tool" },
     { "source": "/other", "destination": "/other/bookmark" },
+    { "source": "/coading/html", "destination": "/coding/html" },
+    { "source": "/coading/css", "destination": "/coding/css" },
+    { "source": "/coading/sass", "destination": "/coding/sass" },
+    { "source": "/coading/cdn", "destination": "/coding/cdn" },
+    { "source": "/coading/tool", "destination": "/coding/tool" },
+    { "source": "/coading/reference", "destination": "/coding/references" },
     {
       "source": "/calc",
       "destination": "https://coding-calc.com/",
