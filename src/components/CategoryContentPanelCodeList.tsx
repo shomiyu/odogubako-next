@@ -13,20 +13,20 @@ interface Props {
 const CategoryContentPanelCodeList: React.FC<Props> = (props: Props) => {
   const { posts, copyIndex, onChangeCopyIndex } = props;
 
-  const handleClickCopyIndex = useCallback(
-    (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-      const { index } = e.currentTarget.dataset;
-      if (!onChangeCopyIndex || !index) return;
+  // const handleClickCopyIndex = useCallback(
+  //   (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  //     const { index } = e.currentTarget.dataset;
+  //     if (!onChangeCopyIndex || !index) return;
 
-      const copyId = e.currentTarget.getAttribute("data-target") ?? "";
-      const copyItem = document.getElementById(`${copyId}`)?.innerText ?? "";
-      void navigator.clipboard.writeText(copyItem);
+  //     const copyId = e.currentTarget.getAttribute("data-target") ?? "";
+  //     const copyItem = document.getElementById(`${copyId}`)?.innerText ?? "";
+  //     void navigator.clipboard.writeText(copyItem);
 
-      onChangeCopyIndex(Number.parseInt(index, 10));
-      setTimeout(onChangeCopyIndex, 2000, null);
-    },
-    [onChangeCopyIndex]
-  );
+  //     onChangeCopyIndex(Number.parseInt(index, 10));
+  //     setTimeout(onChangeCopyIndex, 2000, null);
+  //   },
+  //   [onChangeCopyIndex]
+  // );
 
   return (
     <ul className={style.list}>
@@ -48,15 +48,15 @@ const CategoryContentPanelCodeList: React.FC<Props> = (props: Props) => {
                     {post.code}
                   </SyntaxHighlighter>
                 </div>
-                <span
+                {/* <span
                   id={`message-${index ?? ""}`}
                   className={`${style.copyMessage} ${
                     index === copyIndex ? style.isShow : ""
                   }`}
                 >
                   Copied!
-                </span>
-                <button
+                </span> */}
+                {/* <button
                   type="button"
                   data-index={index}
                   data-target={`code-${index}`}
@@ -65,7 +65,7 @@ const CategoryContentPanelCodeList: React.FC<Props> = (props: Props) => {
                   title="クリップボードにコピーする"
                 >
                   <img src="/icons/copy.svg" alt="copy" />
-                </button>
+                </button> */}
               </div>
             )}
           </section>
