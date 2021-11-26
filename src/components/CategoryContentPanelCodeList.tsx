@@ -6,12 +6,13 @@ import Post from "../models/Post";
 
 interface Props {
   posts: Post[];
+  tabId: string;
   copyIndex?: number | null;
   onChangeCopyIndex?: (copyIndex: number | null) => void;
 }
 
 const CategoryContentPanelCodeList: React.FC<Props> = (props: Props) => {
-  const { posts, copyIndex, onChangeCopyIndex } = props;
+  const { posts, tabId, copyIndex, onChangeCopyIndex } = props;
 
   const handleClickCopyIndex = useCallback(
     (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -19,7 +20,9 @@ const CategoryContentPanelCodeList: React.FC<Props> = (props: Props) => {
       if (!onChangeCopyIndex || !index) return;
 
       const copyId = e.currentTarget.getAttribute("data-target") ?? "";
+      console.log(copyId);
       const copyItem = document.getElementById(`${copyId}`)?.innerText ?? "";
+      console.log(document.getElementById(`${copyId}`)?.innerText);
       void navigator.clipboard.writeText(copyItem);
 
       onChangeCopyIndex(Number.parseInt(index, 10));
@@ -37,7 +40,7 @@ const CategoryContentPanelCodeList: React.FC<Props> = (props: Props) => {
             {post.code && (
               <div className={style.wrapper}>
                 <div
-                  id={`code-${index ?? ""}`}
+                  id={`code-${tabId}-${index ?? ""}`}
                   spellCheck={false}
                   suppressContentEditableWarning
                 >
@@ -59,7 +62,7 @@ const CategoryContentPanelCodeList: React.FC<Props> = (props: Props) => {
                 <button
                   type="button"
                   data-index={index}
-                  data-target={`code-${index}`}
+                  data-target={`code-${tabId}-${index}`}
                   onClick={handleClickCopyIndex}
                   className={style.copyButton}
                   title="クリップボードにコピーする"
