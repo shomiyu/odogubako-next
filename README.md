@@ -8,6 +8,15 @@
 
 ## セットアップ
 
+### 環境変数
+
+.env.development.local
+
+```
+BASE_URI='https://xxxxxx.microcms.io/api/v1/'
+API_KEY='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+```
+
 ```
 $ yarn
 $ yarn dev
