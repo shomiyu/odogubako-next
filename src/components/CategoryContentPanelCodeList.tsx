@@ -16,16 +16,15 @@ const CategoryContentPanelCodeList: React.FC<Props> = (props: Props) => {
 
   const handleClickCopyIndex = useCallback(
     (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-      const { index } = e.currentTarget.dataset;
-      if (!onChangeCopyIndex || !index) return;
+      const { index: stringIndex } = e.currentTarget.dataset;
+      if (!onChangeCopyIndex || !stringIndex) return;
 
-      const copyId = e.currentTarget.getAttribute("data-target") ?? "";
-      console.log(copyId);
-      const copyItem = document.getElementById(`${copyId}`)?.innerText ?? "";
-      console.log(document.getElementById(`${copyId}`)?.innerText);
+      const index = Number.parseInt(stringIndex, 10);
+      const copyItem = posts[index].code;
+      if (!copyItem) return;
+
       void navigator.clipboard.writeText(copyItem);
-
-      onChangeCopyIndex(Number.parseInt(index, 10));
+      onChangeCopyIndex(index);
       setTimeout(onChangeCopyIndex, 2000, null);
     },
     [onChangeCopyIndex]
