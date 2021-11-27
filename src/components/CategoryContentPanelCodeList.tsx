@@ -6,26 +6,28 @@ import Post from "../models/Post";
 
 interface Props {
   posts: Post[];
+  tabId: string;
   copyIndex?: number | null;
   onChangeCopyIndex?: (copyIndex: number | null) => void;
 }
 
 const CategoryContentPanelCodeList: React.FC<Props> = (props: Props) => {
-  const { posts, copyIndex, onChangeCopyIndex } = props;
+  const { posts, tabId, copyIndex, onChangeCopyIndex } = props;
 
   const handleClickCopyIndex = useCallback(
     (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-      const { index } = e.currentTarget.dataset;
-      if (!onChangeCopyIndex || !index) return;
+      const { index: stringIndex } = e.currentTarget.dataset;
+      if (!onChangeCopyIndex || !stringIndex) return;
 
-      const copyId = e.currentTarget.getAttribute("data-target") ?? "";
-      const copyItem = document.getElementById(`${copyId}`)?.innerText ?? "";
+      const index = Number.parseInt(stringIndex, 10);
+      const copyItem = posts[index].code;
+      if (!copyItem) return;
+
       void navigator.clipboard.writeText(copyItem);
-
-      onChangeCopyIndex(Number.parseInt(index, 10));
+      onChangeCopyIndex(index);
       setTimeout(onChangeCopyIndex, 2000, null);
     },
-    [onChangeCopyIndex]
+    [onChangeCopyIndex, posts]
   );
 
   return (
@@ -37,7 +39,7 @@ const CategoryContentPanelCodeList: React.FC<Props> = (props: Props) => {
             {post.code && (
               <div className={style.wrapper}>
                 <div
-                  id={`code-${index ?? ""}`}
+                  id={`code-${tabId}${index ?? ""}`}
                   spellCheck={false}
                   suppressContentEditableWarning
                 >
@@ -59,7 +61,7 @@ const CategoryContentPanelCodeList: React.FC<Props> = (props: Props) => {
                 <button
                   type="button"
                   data-index={index}
-                  data-target={`code-${index}`}
+                  data-target={`code-${tabId}${index}`}
                   onClick={handleClickCopyIndex}
                   className={style.copyButton}
                   title="クリップボードにコピーする"

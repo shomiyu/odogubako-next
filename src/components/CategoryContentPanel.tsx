@@ -57,6 +57,7 @@ const CategoryContentPanel: React.FC<Props> = (props: Props) => {
             {childTab.postsType[0] === "code" && (
               <CategoryContentPanelCodeList
                 posts={childTab.posts}
+                tabId={tabId}
                 copyIndex={copyIndex}
                 onChangeCopyIndex={onChangeCopyIndex}
               />
