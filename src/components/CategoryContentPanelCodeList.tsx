@@ -27,7 +27,7 @@ const CategoryContentPanelCodeList: React.FC<Props> = (props: Props) => {
       onChangeCopyIndex(index);
       setTimeout(onChangeCopyIndex, 2000, null);
     },
-    [onChangeCopyIndex]
+    [onChangeCopyIndex, posts]
   );
 
   return (
