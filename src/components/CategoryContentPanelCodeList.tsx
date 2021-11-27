@@ -39,7 +39,7 @@ const CategoryContentPanelCodeList: React.FC<Props> = (props: Props) => {
             {post.code && (
               <div className={style.wrapper}>
                 <div
-                  id={`code-${tabId}-${index ?? ""}`}
+                  id={`code-${tabId}${index ?? ""}`}
                   spellCheck={false}
                   suppressContentEditableWarning
                 >
@@ -61,7 +61,7 @@ const CategoryContentPanelCodeList: React.FC<Props> = (props: Props) => {
                 <button
                   type="button"
                   data-index={index}
-                  data-target={`code-${tabId}-${index}`}
+                  data-target={`code-${tabId}${index}`}
                   onClick={handleClickCopyIndex}
                   className={style.copyButton}
                   title="クリップボードにコピーする"
