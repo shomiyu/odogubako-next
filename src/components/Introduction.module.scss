@@ -1,0 +1,13 @@
+@use "style/mixin";
+@use "style/function";
+@use "style/settings";
+
+.contents {
+  font-size: function.fz(16);
+  white-space: pre-wrap;
+
+  @include mixin.lap {
+    font-size: function.fz(18);
+    text-align: center;
+  }
+}
