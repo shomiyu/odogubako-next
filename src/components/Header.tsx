@@ -23,7 +23,7 @@ const Header: React.FC<Props> = (props: Props) => {
               <img src="/images/logo_b.svg" alt="お道具箱" />
               <span className="visuallyHidden">お道具箱</span>
             </span>
-            <span className={style.hero__subTitle}>for shomiyu</span>
+            <span className={style.hero__subTitle}>for Web</span>
           </h1>
         </div>
       ) : (
@@ -42,7 +42,6 @@ const Header: React.FC<Props> = (props: Props) => {
           <Link href="/">
             <a>
               <img src="/images/logo_w.svg" alt="お道具箱" />
-              <span className={style.globalNav__subTitle}>for shomiyu</span>
             </a>
           </Link>
         </p>

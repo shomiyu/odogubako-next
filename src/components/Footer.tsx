@@ -10,7 +10,6 @@ const Footer: React.FC = () => {
         <div className={style.footer__container}>
           <p className={style.footer__logo}>
             <img src="/images/logo_w.svg" alt="お道具箱" />
-            <span className={style.footer__subTitle}>for shomiyu</span>
           </p>
           <nav className={style.sitemap}>
             <h2 className="visuallyHidden">サイトマップ</h2>
@@ -59,7 +58,7 @@ const Footer: React.FC = () => {
           <p className={style.copywrite}>
             <small>
               &copy;2019{" "}
-              <a href="https://twitter.com/MykiiTech">お道具箱 for shomiyu</a>
+              <a href="https://twitter.com/MykiiTech">お道具箱 for Web</a>
             </small>
           </p>
         </div>
